@@ -1,0 +1,33 @@
+# WordPress core (no subir, se instala aparte)
+/wp-admin/
+/wp-includes/
+/wp-*.php
+/index.php
+/xmlrpc.php
+/license.txt
+/readme.html
+
+# Uploads (imágenes subidas por el admin)
+/wp-content/uploads/
+
+# Plugins (se instalan via composer o manualmente)
+/wp-content/plugins/
+
+# Themes que no son nuestros
+/wp-content/themes/hello-elementor/
+/wp-content/themes/twentytwenty*/
+/wp-content/themes/ArratiakoTheme/
+
+# Archivos de sistema y entorno
+.DS_Store
+Thumbs.db
+*.log
+/wp-config.php
+/.htaccess
+
+# Node / build
+node_modules/
+dist/
+
+# Carpeta images local (fuera de WP)
+/images/
