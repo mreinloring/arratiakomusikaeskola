@@ -4,7 +4,7 @@
  */
 get_header();
 
-$base = 'https://www.arratiakomusikaeskola.eu/wp-content/uploads/2023/07/';
+$base = content_url('uploads/2023/07/');
 
 $herriak = [
     ['izena' => 'Arantzazu', 'escudo' => $base.'Escudo_de_Arantzazu.png', 'lat' => '43.15642267433537', 'lng' => '-2.7901581535321154'],

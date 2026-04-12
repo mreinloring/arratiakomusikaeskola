@@ -14,6 +14,26 @@ document.addEventListener('DOMContentLoaded', function () {
                 toggle.setAttribute('aria-expanded', 'false');
             }
         });
+
+        // Mobile submenu toggles
+        nav.querySelectorAll('.menu-item-has-children').forEach(function (item) {
+            var link = item.querySelector(':scope > a');
+            if (!link) return;
+            var btn = document.createElement('button');
+            btn.className = 'submenu-toggle';
+            btn.setAttribute('aria-label', 'Azpimenu ireki');
+            btn.innerHTML = '&#9660;';
+            btn.type = 'button';
+            link.insertAdjacentElement('afterend', btn);
+            btn.addEventListener('click', function (e) {
+                e.stopPropagation();
+                var sub = item.querySelector(':scope > .sub-menu');
+                if (sub) {
+                    var isOpen = sub.classList.toggle('open');
+                    btn.innerHTML = isOpen ? '&#9650;' : '&#9660;';
+                }
+            });
+        });
     }
 
     // ── Bideo desc "Irakurri gehiago" ─────────────────────────

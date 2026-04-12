@@ -3,7 +3,7 @@
 <!-- ═══ HERO ═══════════════════════════════════════════════════════════════ -->
 <section class="site-hero">
     <div class="container hero-center">
-        <span class="hero-tag">Arratia bailara · Musika eskola</span>
+        <!-- <span class="hero-tag">Arratia bailara · Musika eskola</span> -->
 
         <?php
         $logo_id  = get_theme_mod('custom_logo');
@@ -14,9 +14,11 @@
         <p>Musikaren bidez hazi, sortu eta partekatu</p>
 
         <div class="hero-actions hero-actions--center">
+            <?php if (get_option('arratia_matrikula_open', '1')): ?>
             <a href="<?php echo esc_url(get_permalink(get_page_by_path('matrikula-eskaera'))); ?>" class="btn btn-accent btn-lg">
                 Matrikula &rarr;
             </a>
+            <?php endif; ?>
             <a href="<?php echo esc_url(get_permalink(get_page_by_path('ikasgaiak'))); ?>" class="btn btn-outline-white btn-lg">
                 Ikasgaiak
             </a>
@@ -144,7 +146,8 @@ if ($videos):
         </div>
 
         <?php
-        $ikasgai_url = esc_url(get_permalink(get_page_by_path('ikasgaiak')) ?: home_url('/ikasgaiak/'));
+        $ikasgai_page = get_page_by_path('ikasgaiak');
+        $ikasgai_url  = esc_url($ikasgai_page ? get_permalink($ikasgai_page->ID) : home_url('/arratiakomusikaeskola/ikasgaiak/'));
 
         // Get one thumbnail from a category
         function arratia_front_cat_img($kategoria) {
@@ -240,17 +243,7 @@ if ($videos):
                     <span style="font-size:0.78rem;color:#999;">@arratiakomusikaeskola</span>
                 </div>
                 <div class="social-card-body">
-                    <?php if (is_active_sidebar('sidebar-instagram')): ?>
-                        <?php dynamic_sidebar('sidebar-instagram'); ?>
-                    <?php else: ?>
-                        <div class="insta-placeholder">
-                            <i class="fab fa-instagram"></i>
-                            <p>Instala un plugin de feed de Instagram<br>y configúralo en <strong>Apariencia → Widgets</strong></p>
-                            <a href="https://www.instagram.com/arratiakomusikaeskola/" target="_blank" rel="noopener">
-                                @arratiakomusikaeskola
-                            </a>
-                        </div>
-                    <?php endif; ?>
+                    <?php echo do_shortcode('[instagram-feed num=9 cols=3]'); ?>
                 </div>
                 <div class="social-card-footer">
                     <a href="https://www.instagram.com/arratiakomusikaeskola/" target="_blank" rel="noopener">

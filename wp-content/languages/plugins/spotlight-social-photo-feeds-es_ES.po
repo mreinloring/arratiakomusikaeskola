@@ -1,0 +1,91 @@
+# Translation of Plugins - Spotlight Social Feeds &#8211; Block, Shortcode, and Widget - Stable (latest release) in Spanish (Spain)
+# This file is distributed under the same license as the Plugins - Spotlight Social Feeds &#8211; Block, Shortcode, and Widget - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2020-10-29 09:19:00+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/4.0.1\n"
+"Language: es\n"
+"Project-Id-Version: Plugins - Spotlight Social Feeds &#8211; Block, Shortcode, and Widget - Stable (latest release)\n"
+
+#: includes/init.php:427
+msgctxt "Put {{ and }} around the text that activates the plugin"
+msgid "Done! Click {{here}} to activate it!"
+msgstr "¡Hecho! ¡Haz clic {{aquí}} para activarlo!"
+
+#: includes/init.php:412
+msgctxt "Put {{ and }} around the text that links to the plugin install page"
+msgid "Something went wrong! We couldn't install the plugin for you. Kindly download and install the free version from {{this page}}."
+msgstr "¡Algo ha salido mal! No hemos podido instalar el plugin por ti. Haz el favor de descargar e instalar la versión gratuita desde {{esta página}}."
+
+#: includes/init.php:407
+msgid "Installing ..."
+msgstr "Instalando…"
+
+#: includes/init.php:393
+msgctxt "Put {{ and }} around the text that should link to the free version download page"
+msgid "You need to install and activate the free version in order to use the PRO version. {{Click here}} to install it."
+msgstr "Tienes que instalar y activar la versión gratuita para poder usar la versión PRO. {{Haz clic aquí}} para instalarla."
+
+#: includes/init.php:381
+msgctxt "Put {{ and }} around the text that should activate the plugin"
+msgid "The free version of the plugin needs to remain activated in order to use the PRO version. {{Click here}} to activate it."
+msgstr "La versión gratuita del plugin tiene que seguir activada para poder usar la versión PRO. {{Haz clic aquí}} para activarla."
+
+#: src/core/PostTypes/FeedPostType.php:225
+msgid "Elementor widget"
+msgstr "Widget de Elementor"
+
+#: src/core/PostTypes/FeedPostType.php:139
+msgid "WordPress widget"
+msgstr "Widget de WordPress"
+
+#: src/core/RestApi/EndPoints/Promotion/SearchPostsEndpoint.php:27
+msgid "Missing post type in request"
+msgstr "Tipo de contenido no disponible en la petición"
+
+#: freemius.php:38
+msgid "Help"
+msgstr "Ayuda"
+
+#: freemius.php:37
+msgid "License"
+msgstr "Licencia"
+
+#. Author URI of the plugin
+#: plugin.php
+msgid "https://rebelcode.com"
+msgstr "https://rebelcode.com"
+
+#. Author of the plugin
+#: plugin.php
+msgid "RebelCode"
+msgstr "RebelCode"
+
+#. Plugin URI of the plugin
+#: plugin.php
+msgid "https://spotlightwp.com"
+msgstr "https://spotlightwp.com"
+
+#. Description of the plugin
+#: plugin.php
+msgid "Easily embed beautiful Instagram feeds on your WordPress site."
+msgstr "Incrusta fácilmente bellos feeds de Instagram en tu sitio WordPress."
+
+#: includes/init.php:282
+msgctxt "%1$s is the name of the plugin, %2$s is the required PHP version"
+msgid "%1$s requires PHP version %2$s or later"
+msgstr "%1$s necesita la versión %2$s o superior de PHP"
+
+#: includes/init.php:303
+msgctxt "%1$s is the name of the plugin, %2$s is the required WP version"
+msgid "%1$s requires WordPress version %2$s or later"
+msgstr "%1$s necesita la versión %2$s o superior de WordPress"
+
+#. Plugin Name of the plugin
+#: plugin.php
+msgid "Spotlight - Social Media Feeds"
+msgstr "Spotlight - Social Media Feeds"

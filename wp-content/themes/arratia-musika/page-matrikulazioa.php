@@ -47,7 +47,22 @@ get_header();
 
                 <div class="matrikula-note-box">
                     <i class="fas fa-mobile-alt"></i>
-                    Matrikula eskaria egiteko smartphone, tableta edo ordenagailua beharko duzu internetarekin. Bete beharreko izen-ematea <strong>behin-behineko eskaera</strong> izango da.
+                    <p>Matrikula eskaria egiteko smartphone, tableta edo ordenagailua beharko duzu internetarekin. Bete beharreko izen-ematea <strong>behin-behineko eskaera</strong> izango da.</p>
+                </div>
+
+                <!-- Info links -->
+                <h2 class="matrikula-section-title" style="margin-top:1.75rem;"><i class="fas fa-file-alt"></i> Informazioa</h2>
+                <div class="matrikula-links-grid" style="grid-template-columns: repeat(2, 1fr);">
+                    <a href="<?php echo esc_url(home_url('/tasak/')); ?>" class="matrikula-link-card">
+                        <i class="fas fa-euro-sign"></i>
+                        <span>2026/2027 Tasak</span>
+                    </a>
+                    <?php $antolaketa_img = get_option('arratia_antolaketa_img', ''); if ($antolaketa_img): ?>
+                    <a href="<?php echo esc_url(home_url('/hezkuntza-antolaketa/')); ?>" class="matrikula-link-card">
+                        <i class="fas fa-sitemap"></i>
+                        <span>Hezkuntza Antolaketa 2025/2026</span>
+                    </a>
+                    <?php endif; ?>
                 </div>
             </div>
 
@@ -61,6 +76,14 @@ get_header();
                         <span class="matrikula-maila-badge">4–7 urte</span>
                         <span>Musika &amp; Mugimendua</span>
                     </div>
+                    <div class="matrikula-maila-item">
+                        <span class="matrikula-maila-badge">7 urte</span>
+                        <div>
+                            <p>Tresna (aukerakoa)</p>
+                            <p class="matrikula-maila-note">Plazarik badago.</p>
+                        </div>
+                    </div>
+
                     <div class="matrikula-maila-item">
                         <span class="matrikula-maila-badge">8+ urte</span>
                         <div>
@@ -89,45 +112,7 @@ get_header();
                     </div>
                 </div>
 
-                <!-- Info links -->
-                <h2 class="matrikula-section-title" style="margin-top:1.75rem;"><i class="fas fa-file-alt"></i> Informazioa</h2>
-                <div class="matrikula-links-grid">
-                    <a href="<?php echo esc_url(home_url('/tasak/')); ?>" class="matrikula-link-card">
-                        <i class="fas fa-euro-sign"></i>
-                        <span>2026/2027 Tasak</span>
-                    </a>
-                    <a href="<?php echo esc_url(home_url('/hobariak/')); ?>" class="matrikula-link-card">
-                        <i class="fas fa-percent"></i>
-                        <span>2026/2027 Hobariak</span>
-                    </a>
-                    <a href="<?php echo esc_url(home_url('/barne-arauak/')); ?>" class="matrikula-link-card">
-                        <i class="fas fa-gavel"></i>
-                        <span>Barne Arauak</span>
-                    </a>
-                    <a href="<?php echo esc_url(home_url('/kontaktua/')); ?>" class="matrikula-link-card">
-                        <i class="fas fa-envelope"></i>
-                        <span>Kontaktua</span>
-                    </a>
-                </div>
-
             </div>
-        </div>
-
-        <!-- Hezkuntza Antolaketa -->
-        <div class="matrikula-antolaketa">
-            <h2 class="matrikula-section-title"><i class="fas fa-sitemap"></i> Hezkuntza Antolaketa 2025/2026</h2>
-            <?php
-            $antolaketa_img = get_option('arratia_antolaketa_img', '');
-            if ($antolaketa_img): ?>
-            <div class="matrikula-antolaketa-img">
-                <img src="<?php echo esc_url($antolaketa_img); ?>" alt="Hezkuntza Antolaketa 2025/2026">
-            </div>
-            <?php else: ?>
-            <p class="matrikula-antolaketa-hint">
-                <i class="fas fa-info-circle"></i>
-                Hezkuntza Antolaketa irudia ezartzeko: <strong>Matrikulak → Ezarpenak</strong> atalean igo.
-            </p>
-            <?php endif; ?>
         </div>
 
         <!-- Notes section -->

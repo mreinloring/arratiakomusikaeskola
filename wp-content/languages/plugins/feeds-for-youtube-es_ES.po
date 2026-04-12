@@ -1,0 +1,4149 @@
+# Translation of Plugins - Feeds for YouTube (YouTube video, channel, and gallery plugin) - Stable (latest release) in Spanish (Spain)
+# This file is distributed under the same license as the Plugins - Feeds for YouTube (YouTube video, channel, and gallery plugin) - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2024-06-26 14:41:48+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/4.0.1\n"
+"Language: es\n"
+"Project-Id-Version: Plugins - Feeds for YouTube (YouTube video, channel, and gallery plugin) - Stable (latest release)\n"
+
+#: inc/Blocks/SBY_Blocks.php:213
+msgid "Create a YouTube Feeds"
+msgstr "Crear un feed de YouTube"
+
+#: inc/Services/Integrations/SBY_Integration.php:101
+msgid "Did you Know?"
+msgstr "¿Lo sabías?"
+
+#: inc/Services/Integrations/SBY_Integration.php:97
+msgid "Create"
+msgstr "Crear"
+
+#: inc/Services/Integrations/SBY_Integration.php:88
+msgid "Or create a Feed for"
+msgstr "O crea un feed para"
+
+#: inc/Services/Integrations/SBY_Integration.php:34
+msgid "You can also add Instagram, Facebook, and Twitter posts into your feed using our Social Wall plugin"
+msgstr "También puedes añadir publicaciones de Instagram, Facebook y Twitter a tu feed utilizando nuestro plugin Social Wall"
+
+#: inc/Services/Integrations/SBY_Integration.php:33
+msgid "You can display feeds for your YouTube channel, playlist, live streams and more using the Pro version"
+msgstr "Puedes mostrar feeds para tu canal de YouTube, listas de reproducción, transmisiones en directo y mucho más utilizando la versión Pro"
+
+#: inc/Services/Integrations/SBY_Integration.php:32
+msgid "Select a YouTube feed to embed"
+msgstr "Selecciona un feed de YouTube que incrustar"
+
+#: inc/Services/Integrations/SBY_Integration.php:31
+msgid "Get started with your first feed from your<br/>YouTube Channel"
+msgstr "Empieza con tu primer feed desde tu<br/>canal de YouTube"
+
+#: inc/Services/Integrations/Elementor/SBY_Elementor_Widget.php:47
+msgid "Select a Feed"
+msgstr "Selecciona un feed"
+
+#: inc/Services/Integrations/Elementor/SBY_Elementor_Widget.php:41
+msgid "YouTube Feed Settings"
+msgstr "Ajustes de YouTube Feed"
+
+#: inc/Services/Integrations/Elementor/SBY_Elementor_Control.php:69
+msgid "Create New Feed"
+msgstr "Crear nuevo feed"
+
+#: inc/Services/Integrations/Elementor/SBY_Elementor_Control.php:66
+msgid "Edit this Feed"
+msgstr "Editar este feed"
+
+#: inc/Services/Integrations/Divi/SB_YouTube_Feed.php:45
+#: inc/Services/Integrations/SBY_Integration.php:75
+#: inc/Services/Integrations/SBY_Integration.php:97
+msgid "Feed"
+msgstr "Feed"
+
+#: inc/Services/AdminAjaxService.php:623
+msgid "Upgrade to Plus to Convert YouTube videos to WordPress Posts"
+msgstr "Actualiza a Plus para convertir vídeos de YouTube en entradas de WordPress"
+
+#: inc/Services/AdminAjaxService.php:616
+msgid "Convert YouTube videos to Wordpress Posts with Pro"
+msgstr "Convierte vídeos de YouTube en entradas de WordPress con Pro"
+
+#: inc/Services/Admin/Settings/AboutPage.php:283
+msgid "Connect with your visitors after they leave your website with the leading web push notification software. Over 10,000+ businesses worldwide use PushEngage to send 15 billion notifications each month."
+msgstr "Conecta con tus visitantes después de que abandonen tu web con el software líder de avisos web inmediatos. Más de 10.000 empresas de todo el mundo usan PushEngage para enviar 15.000 millones de avisos cada mes."
+
+#: inc/Services/Admin/Settings/AboutPage.php:282
+msgid "PushEngage Web Push Notifications"
+msgstr "PushEngage Web Push Notifications"
+
+#: inc/Services/Admin/Settings/AboutPage.php:274
+msgid "The fastest drag & drop landing page builder for WordPress. Create custom landing pages without writing code, connect a CRM, collect subscribers, and grow an audience. Trusted by 1 million sites."
+msgstr "El maquetador de arrastrar y soltar para páginas de destino más rápido para WordPress. Crea páginas de destino personalizadas sin escribir código, conéctalas con tu CRM, recopila suscriptores y haz crecer tu audiencia. Con la confianza de 1 millón de sitios."
+
+#: inc/Services/Admin/Settings/AboutPage.php:273
+msgid "SeedProd Website Builder"
+msgstr "SeedProd Website Builder"
+
+#: inc/Services/Admin/Settings/AboutPage.php:265
+msgid "Turn your website visitors into brand ambassadors! Easily grow your email list, website traffic, and social media followers with the most powerful giveaways & contests plugin for WordPress."
+msgstr "¡Convierte a tus visitantes en embajadores de tu marca! Haz crecer fácilmente tu lista de correo electrónico, el tráfico de la web y los seguidores de medios sociales con el plugin más potente de regalos y concursos para WordPress."
+
+#: inc/Services/Admin/Settings/AboutPage.php:256
+msgid "Improve your WordPress email deliverability and make sure that your website emails reach user's inbox with the #1 SMTP plugin for WordPress. Over 3 million websites use it to fix WordPress email issues."
+msgstr "Mejora la entrega de tu correo electrónico de WordPress y asegúrate de que los correos electrónicos de tu web lleguen a la bandeja de entrada de los usuarios con el plugin SMTP número 1 para WordPress. Más de 3 millones de webs lo usan para corregir los problemas del correo electrónico de WordPress."
+
+#: inc/Services/Admin/Settings/AboutPage.php:247
+msgid "Instantly get more subscribers, leads, and sales with the #1 conversion optimization toolkit. Create high converting popups, announcement bars, spin a wheel, and more with smart targeting and personalization."
+msgstr "Obtén instantáneamente más suscriptores, clientes potenciales y ventas con el paquete de herramientas número 1 de optimización de conversión. Crea ventanas emergentes de alta conversión, barras de anuncios, ruletas y más con orientación inteligente y personalización."
+
+#: inc/Services/Admin/Settings/AboutPage.php:238
+msgid "The leading WordPress analytics plugin that shows you how people find and use your website, so you can make data driven decisions to grow your business. Properly set up Google Analytics without writing code."
+msgstr "El plugin líder de analítica para WordPress, que te muestra cómo la gente encuentra y usa tu web, para que puedas tomar decisiones basadas en datos para hacer crecer tu negocio. Configura correctamente Google Analytics sin tener que escribir código."
+
+#: inc/Services/Admin/Settings/AboutPage.php:229
+msgid "The best drag & drop WordPress form builder. Easily create beautiful contact forms, surveys, payment forms, and more with our 900+ form templates. Trusted by over 6 million websites as the best forms plugin."
+msgstr "El mejor maquetador de formularios de arrastrar y soltar para WordPress. Crea fácilmente bonitos formularios de contacto, encuestas, formularios de pago y más con nuestras más de 900 plantillas de formularios. Con la confianza de más de 6 millones de webs como el mejor plugin de formularios."
+
+#: inc/Services/Admin/Settings/AboutPage.php:220
+msgid "The original WordPress SEO plugin and toolkit that improves your website's search rankings. Comes with all the SEO features like Local SEO, WooCommerce SEO, sitemaps, SEO optimizer, schema, and more."
+msgstr "El plugin original de SEO para WordPress y el paquete de herramientas que mejora el posicionamiento de búsqueda de tu web. Viene con todas las características SEO, como SEO local, SEO para WooCommerce, mapas del sitio, optimizador SEO, Schema y más."
+
+#: inc/sby-functions.php:825
+msgid "YouTube Feeds is a highly customizable way to display tweets from your YouTube account. Promote your latest content and update your site content automatically."
+msgstr "YouTube Feeds es una forma altamente personalizable de mostrar las publicaciones de tu cuenta de YouTube. Promociona tu contenido más reciente y actualiza el contenido de tu sitio automáticamente."
+
+#: inc/Builder/SBY_Feed_Builder.php:807 inc/Builder/SBY_Feed_Builder.php:858
+#: inc/SbyWidget.php:16 inc/Services/Admin/Settings/AboutPage.php:199
+msgid "YouTube Feeds"
+msgstr "Feeds de YouTube"
+
+#: inc/Admin/SBY_Admin.php:1214
+msgid "%s to learn more about GDPR compliance in the YouTube Feeds plugin."
+msgstr "%s para saber más acerca del cumplimiento del RGPD en el plugin YouTube Feed."
+
+#: inc/Customizer/Tabs/Settings_Tab.php:75
+msgid "Show Past Live Streams"
+msgstr "Mostrar retransmisiones en directo anteriores"
+
+#: inc/Services/LicenseNotification.php:96
+msgid "Your YouTube Feeds Pro license key %s"
+msgstr "Tu clave de licencia de YouTube Feeds Pro %s"
+
+#: inc/Customizer/Tabs/Customize_Tab.php:1367
+msgid "Button"
+msgstr "Botón"
+
+#: inc/Customizer/Tabs/Customize_Tab.php:1357
+msgid "Text Secondary"
+msgstr "Texto secundario"
+
+#: inc/Customizer/Tabs/Customize_Tab.php:1347
+msgid "Text Primary"
+msgstr "Texto principal"
+
+#: inc/Customizer/Tabs/Customize_Tab.php:1319
+msgid "Shows a subscribe link below the video"
+msgstr "Muestra un enlace de suscripción debajo del vídeo"
+
+#: inc/Customizer/Tabs/Customize_Tab.php:1318
+msgid "Subscribe Link"
+msgstr "Enlace de suscripción"
+
+#: inc/Customizer/Tabs/Customize_Tab.php:824
+msgid "Live Stream Countdown"
+msgstr "Cuenta atrás de la retransmisión en directo"
+
+#: inc/Customizer/Tabs/Customize_Tab.php:779
+msgid "Video Duration"
+msgstr "Duración del vídeo"
+
+#: inc/Customizer/Tabs/Customize_Tab.php:315
+msgid "Video Player Experience"
+msgstr "Experiencia del reproductor de vídeo"
+
+#: inc/Blocks/SBY_Blocks.php:311
+msgid "Resolve Now"
+msgstr "Resolver ahora"
+
+#: inc/Blocks/SBY_Blocks.php:299
+msgid "Only Visible to WordPress Admins"
+msgstr "Sólo visible para los administradores de WordPress"
+
+#: inc/Services/Integrations/SBY_Integration.php:82
+msgid "Create YouTube Feed"
+msgstr "Crear feed de YouTube"
+
+#: inc/Blocks/SBY_Blocks.php:195 inc/Blocks/SBY_Blocks.php:305
+msgid "Your license key is inactive. Activate it to enable Pro features."
+msgstr "Tu clave de licencia está inactiva. Actívala para activar las funciones Pro."
+
+#: inc/Blocks/SBY_Blocks.php:193 inc/Blocks/SBY_Blocks.php:307
+msgid "Your license has expired! Renew it to reactivate Pro features."
+msgstr "¡Tu licencia ha caducado! Renuévala para reactivar las funciones Pro."
+
+#: youtube-feed.php:555
+msgid "Try the Pro Demo"
+msgstr "Prueba la demostración de la versión Pro"
+
+#: inc/Services/ShortcodeService.php:48
+msgid "Error: No connected account."
+msgstr "Error: No hay ninguna cuenta conectada."
+
+#: inc/Services/AdminAjaxService.php:593
+msgid "Plugin installed & activated"
+msgstr "Plugin instalado y activado"
+
+#: inc/Services/Admin/Settings/SettingsPage.php:125
+msgid "<strong>Next check: %s %s (%s)</strong> - Note: Clicking \"Clear All Caches\" will reset this schedule."
+msgstr "<strong>Siguiente comprobación: %s %s (%s)</strong> - Nota: Al hacer clic en \"Borrar todas las cachés\" se restablecerá esta programación."
+
+#: inc/Services/Admin/Settings/SettingsPage.php:122
+msgid "every hour"
+msgstr "cada hora"
+
+#: inc/Services/Admin/Settings/AboutPage.php:219
+msgid "All in One SEO Pack"
+msgstr "All in One SEO Pack"
+
+#: inc/Services/Admin/Settings/AboutPage.php:264
+msgid "RafflePress"
+msgstr "RafflePress"
+
+#: inc/Services/Admin/Settings/AboutPage.php:255
+msgid "WP Mail SMTP"
+msgstr "WP Mail SMTP"
+
+#: inc/Services/Admin/Settings/AboutPage.php:246
+msgid "OptinMonster"
+msgstr "OptinMonster"
+
+#: inc/Services/Admin/Settings/AboutPage.php:237
+msgid "MonsterInsights"
+msgstr "MonsterInsights"
+
+#: inc/Services/Admin/Settings/AboutPage.php:228
+msgid "WPForms"
+msgstr "WPForms"
+
+#: inc/Services/Admin/Settings/AboutPage.php:209
+msgid "Combine feeds from all of our plugins into a single wall"
+msgstr "Combinar feeds de todos nuestros plugins en un solo muro"
+
+#: inc/Services/Admin/Settings/AboutPage.php:200
+msgid "A simple yet powerful way to display videos from YouTube. "
+msgstr "Una forma sencilla pero potente de mostrar vídeos de YouTube. "
+
+#: inc/Services/Admin/Settings/AboutPage.php:191
+msgid "A customizable way to display tweets from your Twitter account. "
+msgstr "Una forma personalizable de mostrar los tweets de tu cuenta de Twitter. "
+
+#: inc/Services/Admin/Settings/AboutPage.php:190
+msgid "Custom Twitter Feeds"
+msgstr "Custom Twitter Feeds"
+
+#: inc/Services/Admin/Settings/AboutPage.php:182
+msgid "Add Facebook posts from your timeline, albums and much more."
+msgstr "Añade publicaciones de Facebook de tu línea de tiempo, álbumes y mucho más."
+
+#: inc/Services/Admin/Settings/AboutPage.php:181
+msgid "Custom Facebook Feed"
+msgstr "Custom Facebook Feed"
+
+#: inc/Services/Admin/Settings/AboutPage.php:173
+msgid "A quick and elegant way to add your Instagram posts to your website. "
+msgstr "Una forma rápida y elegante de añadir tus publicaciones de Instagram a tu web. "
+
+#: inc/Services/Admin/Settings/AboutPage.php:151
+#: inc/Services/AdminAjaxService.php:787
+msgid "Addon installed."
+msgstr "Extensión instalada."
+
+#: inc/Services/Admin/Settings/AboutPage.php:151
+#: inc/Services/AdminAjaxService.php:787
+msgid "Plugin installed."
+msgstr "Plugin instalado."
+
+#: inc/Services/Admin/Settings/AboutPage.php:143
+#: inc/Services/AdminAjaxService.php:779
+msgid "Addon installed & activated."
+msgstr "Extensión instalada y activada."
+
+#: inc/Services/Admin/Settings/AboutPage.php:67
+#: inc/Services/AdminAjaxService.php:713
+msgid "Could not install addon. Please download from wpforms.com and install manually."
+msgstr "No se ha podido instalar la extensión. Por favor, descárgala desde wpforms.com e instálala manualmente."
+
+#: inc/Services/Admin/Settings/AboutPage.php:54
+#: inc/Services/AdminAjaxService.php:830
+msgid "Could not activate addon. Please activate from the Plugins page."
+msgstr "No se ha podido activar la extensión. Por favor, actívala desde la página de plugins."
+
+#: inc/Services/Admin/Settings/AboutPage.php:49
+#: inc/Services/AdminAjaxService.php:825
+msgid "Addon activated."
+msgstr "Extensión activada."
+
+#: inc/Services/Admin/Settings/AboutPage.php:47
+#: inc/Services/AdminAjaxService.php:823
+msgid "Plugin activated."
+msgstr "Plugin activado."
+
+#: inc/Services/Admin/MenuService.php:59
+msgid "<span class=\"sby_get_pro\">Try the Pro Demo</span>"
+msgstr "<span class=\"sby_get_pro\">Prueba la demo de Pro</span>"
+
+#: inc/Services/Admin/LicenseService.php:569
+msgid "Renew"
+msgstr "Renovar"
+
+#: inc/Services/Admin/LicenseService.php:567
+msgid "Please renew it and try again."
+msgstr "Por favor, renuévela e inténtelo de nuevo."
+
+#: inc/Services/Admin/LicenseService.php:565
+msgid "The license expired on "
+msgstr "La licencia expiró el "
+
+#: inc/Services/Admin/LicenseService.php:550
+msgid "or upgrade your plan."
+msgstr "o actualiza tu plan."
+
+#: inc/Services/Admin/LicenseService.php:547
+msgid "Learn more about it"
+msgstr "Aprende más sobre esto"
+
+#: inc/Services/Admin/LicenseService.php:544
+msgid "You have reached the maximum number of sites available in your plan"
+msgstr "Has alcanzado el número máximo de sitios disponibles para tu plan"
+
+#: inc/Services/Admin/LicenseService.php:421
+msgid "<p>"
+msgstr "<p>"
+
+#: inc/Services/Admin/LicenseService.php:419
+msgid "<a style='float:right; color: #dd3d36; text-decoration: none;' href='"
+msgstr "<a style='float:right; color: #dd3d36; text-decoration: none;' href='"
+
+#: inc/Services/Admin/LicenseService.php:417
+msgid "<div class='"
+msgstr "<div class='"
+
+#: inc/Services/Admin/ImporterService.php:36
+msgid "Could not parse file contents."
+msgstr "No se ha podido analizar el contenido del archivo."
+
+#: inc/Services/Admin/ImporterService.php:30
+msgid "Unsupported file type."
+msgstr "Tipo de archivo no admitido."
+
+#: inc/SBY_Settings.php:277 youtube-feed.php:442
+msgid "We are on YouTube"
+msgstr "Estamos en YouTube"
+
+#: inc/SBY_Feed.php:1376
+msgid "Go to the All Feeds page and select an ID from an existing feed."
+msgstr "Ve a la página Todos los feeds y selecciona un ID de un feed existente."
+
+#: inc/SBY_Feed.php:1374
+msgid "Error: No feed found with the ID %s."
+msgstr "Error: No se ha encontrado ninguna fuente con el ID %s."
+
+#: inc/sby-functions.php:928
+msgid "Feed ID"
+msgstr "ID del feed"
+
+#: inc/sby-functions.php:911
+msgid "Video IDs (separated by comma)"
+msgstr "IDs de vídeo (separados por comas)"
+
+#: inc/sby-functions.php:897
+msgid "A search term"
+msgstr "Un término de búsqueda"
+
+#: inc/sby-functions.php:883
+msgid "Any playlist ID"
+msgstr "Cualquier ID de lista de reproducción"
+
+#: inc/sby-functions.php:876 inc/sby-functions.php:890
+#: inc/sby-functions.php:904 inc/sby-functions.php:921
+msgid "Any channel ID"
+msgstr "Cualquier ID de canal"
+
+#: inc/sby-functions.php:798
+msgid "To display an Instagram feed, our Instagram plugin is required. </br> It provides a clean and beautiful way to add your Instagram posts to your website. Grab your visitors attention and keep them engaged with your site longer."
+msgstr "Para mostrar un feed de Instagram necesitas nuestro plugin de Instagram. </br> Proporciona una forma limpia y bonita de añadir tus publicaciones de Instagram a tu web. Capta la atención de tus visitantes y haz que sigan participando en tu sitio durante más tiempo."
+
+#: inc/sby-functions.php:796 inc/Services/Admin/MenuService.php:80
+#: inc/Services/Admin/MenuService.php:81
+#: inc/Services/Admin/Settings/AboutPage.php:172
+#: inc/Services/Integrations/Elementor/SBI_Elementor_Widget.php:17
+msgid "Instagram Feed"
+msgstr "Instagram Feed"
+
+#: inc/sby-functions.php:795
+msgid "Instagram"
+msgstr "Instagram"
+
+#: inc/Customizer/Tabs/Styling_Tab.php:402
+msgid "https://"
+msgstr "https://"
+
+#: inc/Customizer/Tabs/Styling_Tab.php:386
+msgid "Open link in"
+msgstr "Abrir enlace en"
+
+#: inc/Customizer/Tabs/Styling_Tab.php:368
+msgid "Button Background"
+msgstr "Fondo del botón"
+
+#: inc/Customizer/Tabs/Styling_Tab.php:328
+msgid "What the user sees when a video pauses or ends"
+msgstr "Qué ve el usuario cuando un vídeo hace una pausa o termina"
+
+#: inc/Customizer/Tabs/Styling_Tab.php:275
+msgid "Description will truncate after reaching the length"
+msgstr "La descripción se truncará al alcanzar la longitud"
+
+#: inc/Customizer/Tabs/Styling_Tab.php:246
+msgid "Use relative time (for example: 5 hours ago) when the video is less than 2 days old"
+msgstr "Utiliza el tiempo relativo (por ejemplo: hace 5 horas) cuando el vídeo tenga menos de 2 días de antigüedad"
+
+#: inc/Customizer/Tabs/Settings_Tab.php:159
+msgid "Load iFrames on Page Load"
+msgstr "Cargar iFrames al cargar la página"
+
+#: inc/Customizer/Tabs/Settings_Tab.php:148
+msgid "Load Initial Posts with AJAX"
+msgstr "Cargar las publicaciones iniciales con AJAX"
+
+#: inc/Customizer/Tabs/Settings_Tab.php:138
+msgid "Local Storage Process"
+msgstr "Proceso de almacenamiento local"
+
+#: inc/Customizer/Tabs/Settings_Tab.php:120
+msgid "Enter video IDs. Separate multiple IDs with comma"
+msgstr "Introduce los ID de vídeo. Separa los ID múltiples con una coma"
+
+#: inc/Customizer/Tabs/Settings_Tab.php:118
+#: inc/Customizer/Tabs/Settings_Tab.php:119
+msgid "Hide specific Videos"
+msgstr "Ocultar vídeos específicos"
+
+#: inc/Customizer/Tabs/Settings_Tab.php:109
+msgid "Hide videos containing these words or hashtags. Separate multiple words with comma, and include “#” for hashtags."
+msgstr "Oculta los vídeos que contengan estas palabras o hashtags. Separa varias palabras con una coma e incluye \"#\" para los hashtags."
+
+#: inc/Customizer/Tabs/Settings_Tab.php:108
+#: inc/Customizer/Tabs/Settings_Tab.php:110
+msgid "Blocked Words or Hashtags"
+msgstr "Palabras o hashtags bloqueados"
+
+#: inc/Customizer/Tabs/Settings_Tab.php:102
+msgid "Show videos containing these words or hashtags. Separate multiple words with comma, and include “#” for hashtags."
+msgstr "Muestra vídeos que contengan estas palabras o hashtags. Separa las palabras múltiples con una coma, e incluye «#» para los hashtags."
+
+#: inc/Customizer/Tabs/Settings_Tab.php:99
+#: inc/Customizer/Tabs/Settings_Tab.php:100
+msgid "Allowed Words or Hashtags"
+msgstr "Palabras o hashtags permitidos"
+
+#: inc/Customizer/Tabs/Settings_Tab.php:44
+msgid "Hide one or more videos individually or with the help of Pro features. <a href=\"%s\" target=\"_blank\">Learn More</a>"
+msgstr "Oculta uno o varios vídeos individualmente o con ayuda de las funciones Pro. <a href=\"%s\" target=\"_blank\">Más información</a>"
+
+#: inc/Customizer/Tabs/Customize_Tab.php:1391
+msgid "Add a call to action when a user pauses a video or if the video finishes"
+msgstr "Añade una llamada a la acción cuando un usuario pausa un vídeo o si el vídeo termina"
+
+#: inc/Customizer/Tabs/Customize_Tab.php:747
+#: inc/Customizer/Tabs/Customize_Tab.php:952
+msgid "These properties are available in the PRO version. <a href=\"#\">Learn More</a>"
+msgstr "Estas propiedades están disponibles en la versión PRO. <a href=\"#\">Más información</a>"
+
+#: inc/Customizer/Tabs/Customize_Tab.php:916
+msgid "The likes and comments summary text"
+msgstr "El texto del resumen de me gusta y comentarios"
+
+#: inc/Customizer/Tabs/Customize_Tab.php:904
+#: inc/Customizer/Tabs/Customize_Tab.php:915
+#: inc/Customizer/Tabs/Customize_Tab.php:1040
+msgid "Likes and Comments Summary"
+msgstr "Resumen de me gusta y comentarios"
+
+#: inc/Customizer/Tabs/Customize_Tab.php:894
+msgid "Video views that's shown below the video thumbnails"
+msgstr "Visualizaciones de vídeo que se muestran debajo de las miniaturas de vídeo"
+
+#: inc/Customizer/Tabs/Customize_Tab.php:886
+#: inc/Customizer/Tabs/Customize_Tab.php:893
+msgid "Views Actions"
+msgstr "Acciones de visualizaciones"
+
+#: inc/Customizer/Tabs/Customize_Tab.php:876
+#: inc/Customizer/Tabs/Customize_Tab.php:1015
+msgid "To access or enable these elements you will need to connect an API Key. Learn More"
+msgstr "Para acceder o activar estos elementos necesitarás conectar una clave de API. Más información"
+
+#: inc/Customizer/Tabs/Customize_Tab.php:875
+#: inc/Customizer/Tabs/Customize_Tab.php:1014
+msgid "API Key Required"
+msgstr "Se necesita la clave de API"
+
+#: inc/Customizer/Tabs/Customize_Tab.php:867
+msgid "Edit length and size of the video description"
+msgstr "Edita la longitud y el tamaño de la descripción del vídeo"
+
+#: inc/Customizer/Tabs/Customize_Tab.php:846
+msgid "The video date that's shown below the video username"
+msgstr "La fecha del vídeo que se muestra debajo del nombre de usuario del vídeo"
+
+#: inc/Customizer/Tabs/Customize_Tab.php:825
+msgid "The live stream countdown that's shown when applicable"
+msgstr "La cuenta atrás de la transmisión en directo que se muestra cuando procede"
+
+#: inc/Customizer/Tabs/Customize_Tab.php:814
+#: inc/Customizer/Tabs/Customize_Tab.php:976
+msgid "Live Stream Countdown (when applicable)"
+msgstr "Cuenta atrás de la retransmisión en directo (cuando proceda)"
+
+#: inc/Customizer/Tabs/Customize_Tab.php:804
+msgid "The username that's shown at the bottom of each video thumbnails"
+msgstr "El nombre de usuario que se muestra en la parte inferior de las miniaturas de cada vídeo"
+
+#: inc/Customizer/Tabs/Customize_Tab.php:769
+msgid "The video title that's shown at the bottom of each video thumbnails"
+msgstr "El título del vídeo que se muestra en la parte inferior de cada miniatura de vídeo"
+
+#: inc/Customizer/Tabs/Customize_Tab.php:758
+#: inc/Customizer/Tabs/Customize_Tab.php:768
+#: inc/Customizer/Tabs/Customize_Tab.php:939
+msgid "Video Title"
+msgstr "Título del vídeo"
+
+#: inc/Customizer/Tabs/Customize_Tab.php:665
+msgid "Individual Properties"
+msgstr "Propiedades individuales"
+
+#: inc/Customizer/Tabs/Customize_Tab.php:659
+msgid "Horizontal"
+msgstr "Horizontal"
+
+#: inc/Customizer/Tabs/Customize_Tab.php:654
+msgid "Vertical"
+msgstr "Vertical"
+
+#: inc/Customizer/Tabs/Customize_Tab.php:630
+msgid "Card Type"
+msgstr "Tipo de tarjeta"
+
+#: inc/Customizer/Tabs/Customize_Tab.php:554
+msgid "Subscribers"
+msgstr "Suscriptores"
+
+#: inc/Customizer/Tabs/Customize_Tab.php:534
+msgid "Channel Descriptions"
+msgstr "Descripciones de los canales"
+
+#: inc/Customizer/Tabs/Customize_Tab.php:476
+msgid "These colors have been set from the individual element properties and are overriding the global color scheme"
+msgstr "Estos colores se han establecido a partir de las propiedades individuales de los elementos y anulan el esquema de color global"
+
+#: inc/Customizer/Tabs/Customize_Tab.php:68
+msgid "Tweak how a single video looks by default, on hover and when it is opened in a lightbox"
+msgstr "Modifica el aspecto por defecto de cada vídeo individuale, al pasar el ratón por encima y al abrirlo en una caja de luz"
+
+#: inc/Customizer/Tabs/Customize_Tab.php:42
+msgid "Template"
+msgstr "Plantilla"
+
+#: inc/Customizer/Tabs/Customize_Tab.php:292
+msgid "Video Style"
+msgstr "Estilo de vídeo"
+
+#: inc/Customizer/Tabs/Customize_Tab.php:316
+msgid "Tweak and tinker with the experience of when a user plays a video"
+msgstr "Modifica y retoca la experiencia cuando un usuario reproduce un vídeo"
+
+#: inc/Builder/Tooltip_Wizard.php:109
+msgid "Feed, and click the block to embed it."
+msgstr "Feed, y haz clic en el bloque para incrustarlo."
+
+#: inc/Builder/Tooltip_Wizard.php:108
+msgid "Click the plus button, search for Feeds for YouTube"
+msgstr "Haz clic en el botón más, busca Feeds for YouTube"
+
+#: inc/Builder/Tooltip_Wizard.php:107
+msgid "Add a Block"
+msgstr "Añadir un bloque"
+
+#: inc/Builder/Tabs/SBY_Settings_Tab.php:291
+msgid "The default HTML for the feed can be replaced with custom templates added to your theme's folder. Enable this setting to use these templates. Custom templates are not used in the feed editor. %1$sLearn More%2$s"
+msgstr "El HTML por defecto para el feed puede sustituirse por plantillas personalizadas añadidas a la carpeta de tu tema. Activa este ajuste para utilizar estas plantillas. Las plantillas personalizadas no se utilizan en el editor de feeds. %1$sMás información%2$s"
+
+#: inc/Builder/Tabs/SBY_Settings_Tab.php:290
+msgid "Custom Templates"
+msgstr "Plantillas personalizadas"
+
+#: inc/Builder/Tabs/SBY_Settings_Tab.php:285
+msgid "Change the number of maximum concurrent API requests. Not recommended unless directed by the support team."
+msgstr "Cambia el número máximo de solicitudes concurrentes de la API. No se recomienda a menos que lo indique el equipo de soporte."
+
+#: inc/Builder/Tabs/SBY_Settings_Tab.php:284
+msgid "Max Concurrent API Requests"
+msgstr "Máximas solicitudes concurrentes de la API"
+
+#: inc/Builder/Tabs/SBY_Settings_Tab.php:224
+msgid "Random"
+msgstr "Al azar"
+
+#: inc/Builder/Tabs/SBY_Settings_Tab.php:220
+msgid "Likes"
+msgstr "Me gusta"
+
+#: inc/Builder/Tabs/SBY_Settings_Tab.php:216
+msgid "Newest"
+msgstr "Más reciente"
+
+#: inc/Builder/Tabs/SBY_Settings_Tab.php:210
+msgid "Sort Posts by"
+msgstr "Ordenar las publicaciones por"
+
+#: inc/Builder/Tabs/SBY_Settings_Tab.php:192
+msgid "This will skip the specified number of posts from displaying in the feed"
+msgstr "Esto omitirá el número especificado de publicaciones para que se muestren en el feed"
+
+#: inc/Builder/Tabs/SBY_Settings_Tab.php:191
+msgid "Post Offset"
+msgstr "Saltar publicaciones"
+
+#: inc/Builder/Tabs/SBY_Settings_Tab.php:166
+msgid "IGTV Videos"
+msgstr "Vídeos de IGTV"
+
+#: inc/Builder/Tabs/SBY_Settings_Tab.php:153
+msgid "Feed Videos"
+msgstr "Feed de vídeos"
+
+#: inc/Builder/Tabs/SBY_Settings_Tab.php:132
+msgid "Show specific types of posts"
+msgstr "Mostrar tipos específicos de publicaciones"
+
+#: inc/Builder/Tabs/SBY_Settings_Tab.php:123
+msgid "Remove any posts containing these text strings, separating multiple strings using commas."
+msgstr "Elimina las publicaciones que contengan estas cadenas de texto, separando múltiples cadenas usando comas."
+
+#: inc/Builder/Tabs/SBY_Settings_Tab.php:122
+msgid "Do not show posts containing"
+msgstr "No mostrar las publicaciones que contengan"
+
+#: inc/Builder/Tabs/SBY_Settings_Tab.php:114
+msgid "Add words here to only show posts containing these words"
+msgstr "Añade palabras aquí para mostrar sólo las publicaciones que contengan estas palabras"
+
+#: inc/Builder/Tabs/SBY_Settings_Tab.php:113
+msgid "Only show posts which contain certain words or hashtags in the caption. For example, adding \"sheep, cow, dog\" will show any photos which contain either the word sheep, cow, or dog. You can separate multiple words or hashtags using commas."
+msgstr "Solo muestra entradas que contengan determinadas palabras o hashtags en la leyenda. Por ejemplo, si añades «oveja, vaca, perro» se mostrarán todas las fotos que contengan la palabra oveja, vaca o perro. Puedes separar varias palabras o hashtags utilizando comas."
+
+#: inc/Builder/Tabs/SBY_Settings_Tab.php:112
+msgid "Only show posts containing"
+msgstr "Mostrar sólo las publicaciones que contengan"
+
+#: inc/Builder/Tabs/SBY_Settings_Tab.php:106
+msgid "Filters"
+msgstr "Filtros"
+
+#: inc/Builder/Tabs/SBY_Settings_Tab.php:93
+msgid "Show all posts by default so you can select the ones you want to hide"
+msgstr "Mostrar todas las publicaciones por defecto para que puedas seleccionar las que quieres ocultar"
+
+#: inc/Builder/Tabs/SBY_Settings_Tab.php:92
+msgid "Block List"
+msgstr "Listas de bloqueados"
+
+#: inc/Builder/Tabs/SBY_Settings_Tab.php:89
+msgid "Hides post by default so you can select the ones you want to show"
+msgstr "Oculta las publicaciones por defecto para que puedas seleccionar las que quieres mostrar"
+
+#: inc/Builder/Tabs/SBY_Settings_Tab.php:88
+msgid "Allow List"
+msgstr "Lista de permitidos"
+
+#: inc/Builder/Tabs/SBY_Settings_Tab.php:48
+msgid "Shoppable Feed"
+msgstr "Feed de compra"
+
+#: inc/Builder/Tabs/SBY_Settings_Tab.php:43
+msgid "Sort"
+msgstr "Orden"
+
+#: inc/Builder/Tabs/SBY_Settings_Tab.php:37
+#: inc/Customizer/Tabs/Settings_Tab.php:43
+msgid "Filters and Moderation"
+msgstr "Filtros y moderación"
+
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:1222
+msgid "Clearing cache will remove all the saved comments in the database"
+msgstr "Al vaciar la caché se eliminarán todos los comentarios guardados en la base de datos"
+
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:1221
+msgid "No. of Comments"
+msgstr "Número de comentarios"
+
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:1197
+msgid "Display comments for your posts inside the lightbox. Comments are only available for User feeds from Business accounts."
+msgstr "Muestra los comentarios de tus publicaciones dentro de una caja de luz. Los comentarios sólo están disponibles para los feeds de usuario de las cuentas comerciales."
+
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:1196
+msgid "Comments"
+msgstr "Comentarios"
+
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:1080
+msgid "Trigger Distance"
+msgstr "Distancia de activación"
+
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:1056
+msgid "This will load more posts automatically when the users reach the end of the feed"
+msgstr "Esto cargará más publicaciones automáticamente cuando los usuarios lleguen al final del feed"
+
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:1055
+msgid "Infinite Scroll"
+msgstr "Scroll infinito"
+
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:957
+#: inc/Customizer/Tabs/Customize_Tab.php:1105
+msgid "Like/Comment Icons<br/>(Business account only)"
+msgstr "Iconos de me gusta/comentarios<br/>(sólo en cuentas comerciales)"
+
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:949
+#: inc/Customizer/Tabs/Customize_Tab.php:1097
+msgid "Instagram Icon"
+msgstr "Icono de Instagram"
+
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:941
+#: inc/Customizer/Tabs/Customize_Tab.php:793
+#: inc/Customizer/Tabs/Customize_Tab.php:803
+#: inc/Customizer/Tabs/Customize_Tab.php:963
+#: inc/Customizer/Tabs/Customize_Tab.php:1089
+msgid "Username"
+msgstr "Nombre de usuario"
+
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:933
+#: inc/Customizer/Tabs/Customize_Tab.php:1081
+msgid "Information to display"
+msgstr "Información a mostrar"
+
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:784
+msgid "Caption will truncate after reaching the length"
+msgstr "La leyenda se acortará después de alcanzar la longitud"
+
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:738
+msgid "Full size (640x640)"
+msgstr "Tamaño completo (640x640)"
+
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:737
+msgid "Medium (320x320)"
+msgstr "Medio (320x320)"
+
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:736
+msgid "Thumbnail (150x150)"
+msgstr "Miniatura (150x150)"
+
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:735
+msgid "Auto-detect (recommended)"
+msgstr "Autodetección (recomendado)"
+
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:733
+msgid "By default we auto-detect image width and fetch a optimal resolution."
+msgstr "Por defecto, detectamos automáticamente el ancho de la imagen y obtenemos una resolución óptima."
+
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:732
+msgid "Resolution"
+msgstr "Resolución"
+
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:698
+msgid "This is the time a story displays for, before displaying the next one. Videos always change when the video is finished."
+msgstr "Es el tiempo que se muestra una historia antes de mostrar la siguiente. Los vídeos siempre cambian cuando el vídeo ha terminado."
+
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:697
+msgid "Change Interval"
+msgstr "Intervalo de cambio"
+
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:671
+msgid "You need to have a business account with an active story."
+msgstr "Necesitas tener una cuenta de empresa con una story activa."
+
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:670
+msgid "Note: "
+msgstr "Nota: "
+
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:669
+msgid "Show your active stories from Instagram on your website."
+msgstr "Muestra tus stories de Instagram en tu web."
+
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:668
+msgid "Add Instagram Stories"
+msgstr "Añadir stories de Instagram"
+
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:666
+msgid "You can view active stories by clicking the profile picture in the header. Instagram Business accounts only.<br/><br/>"
+msgstr "Puedes ver las historias activas haciendo clic en la foto del perfil en la cabecera. Solo para cuentas comerciales de Instagram.<br/><br/>"
+
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:665
+msgid "Include Stories"
+msgstr "Incluir historias"
+
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:645
+msgid "Show outside scrollable area"
+msgstr "Mostrar fuera del área de scroll"
+
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:625
+#: inc/Customizer/Tabs/Customize_Tab.php:574
+msgid "Add Custom bio"
+msgstr "Añadir biografía personalizada"
+
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:613
+msgid "Use your own custom bio text in the feed header. This is automatically retrieved from Instagram for Business accounts, but it not available for Personal accounts.\n"
+msgstr "Utiliza tu propio texto biográfico personalizado en la cabecera del feed. Esto se recupera automáticamente de las cuentas de Instagram para empresas, pero no está disponible para las cuentas personales.\n"
+
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:612
+msgid "Show Bio Text"
+msgstr "Mostrar texto de la biografía"
+
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:593
+msgid "Show number of followers"
+msgstr "Mostrar el número de seguidores"
+
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:578
+msgid "Secondary Color"
+msgstr "Color secundario"
+
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:561
+msgid "Primary Color"
+msgstr "Color primario"
+
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:532
+msgid "No Image Added"
+msgstr "No se ha añadido ninguna imagen"
+
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:531
+msgid "Upload your own custom image to use for the avatar. This is automatically retrieved from Instagram for Business accounts, but is not available for Personal accounts."
+msgstr "Sube tu propia imagen personalizada para usarla como avatar. Ésta se obtiene automáticamente de las cuentas comerciales de Instagram, pero no está disponible para las cuentas personales."
+
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:530
+msgid "Use Custom Avatar"
+msgstr "Usar avatar personalizado"
+
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:518
+#: inc/Customizer/Tabs/Customize_Tab.php:590
+msgid "Medium"
+msgstr "Mediano"
+
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:515
+msgid "Header Size"
+msgstr "Tamaño de la cabecera"
+
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:504
+msgid "Centered"
+msgstr "Centrado"
+
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:500
+#: inc/Customizer/Tabs/Customize_Tab.php:636
+msgid "Boxed"
+msgstr "En cajas"
+
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:496
+#: inc/Customizer/Tabs/Customize_Tab.php:515
+msgid "Standard"
+msgstr "Estándar"
+
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:492
+#: inc/Customizer/Tabs/Customize_Tab.php:511
+msgid "Header Style"
+msgstr "Estilo de cabecera"
+
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:452
+#: inc/Customizer/Tabs/Customize_Tab.php:429
+msgid "Button 2"
+msgstr "Botón 2"
+
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:441
+#: inc/Customizer/Tabs/Customize_Tab.php:418
+msgid "Button 1"
+msgstr "Botón 1"
+
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:243
+#: inc/Customizer/Tabs/Customize_Tab.php:267
+msgid "Number of Videos to show initially"
+msgstr "Número de vídeos que mostrar inicialmente"
+
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:228
+#: inc/Customizer/Tabs/Customize_Tab.php:217
+msgid "Autoplay"
+msgstr "Reproducción automática"
+
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:215
+#: inc/Customizer/Tabs/Customize_Tab.php:204
+msgid "Pagination Dots"
+msgstr "Puntos de paginación"
+
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:202
+#: inc/Customizer/Tabs/Customize_Tab.php:191
+msgid "Navigation Arrows"
+msgstr "Flechas de navegación"
+
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:166
+#: inc/Customizer/Tabs/Customize_Tab.php:155
+msgid "Rows"
+msgstr "Filas"
+
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:153
+#: inc/Customizer/Tabs/Customize_Tab.php:142
+msgid "Carousel Settings"
+msgstr "Ajustes del carrusel"
+
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:103
+#: inc/Customizer/Tabs/Customize_Tab.php:80
+msgid "Subscribe Button"
+msgstr "Botón de suscripción"
+
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:87
+msgid "What's displayed when hovering over a post<br/><br/>"
+msgstr "Qué se muestra al pasar el cursor sobre una publicación<br/><br/>"
+
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:79
+msgid "The like and comment icons below each post<br/><br/>"
+msgstr "Los iconos de me gusta y comentario debajo de cada publicación<br/><br/>"
+
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:78
+msgid "Like and Comment Summary"
+msgstr "Resumen de los me gusta y los comentarios"
+
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:71
+msgid "Customize caption text for your posts<br/><br/>"
+msgstr "Personaliza el texto de la leyenda de tus publicaciones<br/><br/>"
+
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:70
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:953
+#: inc/Customizer/Tabs/Customize_Tab.php:1101
+msgid "Caption"
+msgstr "Leyenda"
+
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:63
+msgid "Images and Videos"
+msgstr "Imágenes y vídeos"
+
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:33
+msgid "Feed Template"
+msgstr "Plantilla de feed"
+
+#: inc/Builder/Tabs/SBY_Builder_Customizer_Tab.php:120
+msgid "2 days ago"
+msgstr "Hace 2 días"
+
+#: inc/Builder/Tabs/SBY_Builder_Customizer_Tab.php:53
+#: inc/Customizer/Tabs/Customize_Tab.php:1410
+msgid "Inherit"
+msgstr "Heredar"
+
+#: inc/Builder/SBY_Source.php:461
+msgid "Uh oh. It looks like this Facebook account is not currently connected to an Instagram Business profile. Please check that you are logged into the %1$sFacebook account%2$s in this browser which is associated with your Instagram Business Profile. If you are, in fact, logged-in to the correct account please make sure you have Instagram accounts connected with your Facebook account by following %3$sthis FAQ%4$s"
+msgstr "Oh, oh. Parece que esta cuenta de Facebook no está actualmente conectada a un perfil comercial de Instagram. Comprueba que has iniciado sesión en este navegador con la %1$scuenta de Facebook%2$s que está asociada a tu perfil comercial de Instagram. Si de hecho has iniciado sesión en la cuenta correcta, asegúrate de que tienes las cuentas de Instagram conectadas con tu cuenta de Facebook siguiendo %3$sestas FAQ%4$s"
+
+#: inc/Builder/SBY_Source.php:390
+msgid "Uh oh. It looks like this Facebook account is not currently connected to an Instagram Business profile. Please check that you are logged into the %1$sFacebook account%2$s in this browser which is associated with your Instagram Business Profile."
+msgstr "Oh, oh. Parece que esta cuenta de Facebook no está actualmente conectada a un perfil comercial de Instagram. Comprueba que has iniciado sesión en este navegador con la %1$scuenta de Facebook%2$s que está asociada a tu perfil comercial de Instagram."
+
+#: inc/Builder/SBY_Source.php:389 inc/Builder/SBY_Source.php:460
+msgid "Couldn't find Business Profile"
+msgstr "No se ha podido encontrar un perfil comercial"
+
+#: inc/Builder/SBY_Source.php:378
+msgid "Your server could not complete a remote request to Facebook's API. Your host may be blocking access or there may be a problem with your server."
+msgstr "Tu servidor no ha podido completar una solicitud remota a la API de Facebook. Es posible que tu host esté bloqueando el acceso o que haya un problema con tu servidor."
+
+#: inc/Builder/SBY_Source.php:323
+msgid "The Instagram account you are logged into is already connected as a \"business\" account. Remove the business account if you'd like to connect as a basic account instead (not recommended)."
+msgstr "La cuenta Instagram en la que has iniciado sesión ya está conectada como una cuenta de «negocios». Elimina la cuenta de negocios si deseas conectarte como una cuenta básica en su lugar (no recomendado)."
+
+#: inc/Builder/SBY_Source.php:102
+msgid "Connection Error: %s "
+msgstr "Error de conexión: %s "
+
+#: inc/Builder/SBY_Feed_Saver.php:564 inc/SBY_Settings.php:337
+#: youtube-feed.php:502
+msgid "minutes"
+msgstr "minutos"
+
+#: inc/Builder/SBY_Feed_Builder.php:1615
+msgid "Create a feed with sources from different social platforms"
+msgstr "Crea un feed con fuentes de diferentes plataformas sociales"
+
+#: inc/Builder/SBY_Feed_Builder.php:1614
+#: inc/Services/Admin/Settings/AboutPage.php:208
+msgid "Social Wall"
+msgstr "Social Wall"
+
+#: inc/Builder/SBY_Feed_Builder.php:1608
+msgid "Tagged posts feeds require a connected Instagram business account"
+msgstr "Los feeds de publicaciones etiquetadas requieren una cuenta comercial de Instagram conectada"
+
+#: inc/Builder/SBY_Feed_Builder.php:1607
+msgid "Display posts your Instagram account has been tagged in"
+msgstr "Muestra las publicaciones en las que tu cuenta de Instagram ha sido etiquetada"
+
+#: inc/Builder/SBY_Feed_Builder.php:1606
+msgid "Tagged Posts"
+msgstr "Publicaciones etiquetadas"
+
+#: inc/Builder/SBY_Feed_Builder.php:1600
+msgid "Hashtag feeds require a connected Instagram business account"
+msgstr "Los feeds de hashtags requieren una cuenta comercial de Instagram conectada"
+
+#: inc/Builder/SBY_Feed_Builder.php:1599
+msgid "Fetch posts from a public Instagram hashtag"
+msgstr "Incrusta las publicaciones de un hashtag público de Instagram"
+
+#: inc/Builder/SBY_Feed_Builder.php:1598
+msgid "Public Hashtag"
+msgstr "Hashtag público"
+
+#: inc/Builder/SBY_Feed_Builder.php:1593
+msgid "Fetch posts from your Instagram profile"
+msgstr "Obtener publicaciones de tu perfil de Instagram"
+
+#: inc/Builder/SBY_Feed_Builder.php:1485 inc/Builder/SBY_Feed_Builder.php:1486
+msgid "(unknown location)"
+msgstr "(ubicación desconocida)"
+
+#: inc/Builder/SBY_Feed_Builder.php:1485 inc/Builder/SBY_Feed_Builder.php:1486
+msgid "Legacy Feed"
+msgstr "Feed heredado"
+
+#: inc/Builder/SBY_Feed_Builder.php:1223
+msgid "About Us"
+msgstr "Sobre nosotros"
+
+#: inc/Builder/SBY_Feed_Builder.php:1222
+msgid "Extensions"
+msgstr "Extensiones"
+
+#: inc/Builder/SBY_Feed_Builder.php:1221
+msgid "oEmbeds"
+msgstr "oEmbeds"
+
+#: inc/Builder/SBY_Feed_Builder.php:1160
+msgid "Tap “Add” or “Update” on an<br/>image to add/update it’s URL"
+msgstr "Pulsa «Añadir» o «Actualizar» en una<br/>imagen para añadir/actualizar esta URL"
+
+#: inc/Builder/SBY_Feed_Builder.php:1159
+msgid "This feature links the post to the one specificed in your caption.<br/><br/>Don’t want to add links to the caption? You can add links manually to each post.<br/><br/>Enable it to get started."
+msgstr "Esta característica enlaza la publicación con la especificada en tu leyenda.<br/><br/>¿No quieres añadir enlaces a la leyenda? Puedes añadir enlaces manualmente a cada publicación.<br/><br/>Actívalo para empezar."
+
+#: inc/Builder/SBY_Feed_Builder.php:1158
+msgid "Make your Instagram Feed Shoppable"
+msgstr "Haz que tu feed de Instagram sea comprable"
+
+#: inc/Builder/SBY_Feed_Builder.php:1155
+#: inc/Customizer/Tabs/Customize_Tab.php:709
+msgid "Box Shadow"
+msgstr "Sombra de la caja"
+
+#: inc/Builder/SBY_Feed_Builder.php:1154
+#: inc/Customizer/Tabs/Customize_Tab.php:689
+msgid "Border Radius"
+msgstr "Radio del borde"
+
+#: inc/Builder/SBY_Feed_Builder.php:1152
+msgid "Indvidual Properties"
+msgstr "Propiedades individuales"
+
+#: inc/Builder/SBY_Feed_Builder.php:1151
+#: inc/Customizer/Tabs/Customize_Tab.php:641
+msgid "Regular"
+msgstr "Normal"
+
+#: inc/Builder/SBY_Feed_Builder.php:1150
+msgid "boxed"
+msgstr "encajonado"
+
+#: inc/Builder/SBY_Feed_Builder.php:1149
+msgid "Post Type"
+msgstr "Tipo de publicación"
+
+#: inc/Builder/SBY_Feed_Builder.php:1147
+msgid "The description text associated with shared photos, videos, or links"
+msgstr "El texto de descripción asociado con las fotos, vídeos o enlaces compartidos"
+
+#: inc/Builder/SBY_Feed_Builder.php:1146
+msgid "chars"
+msgstr "caracteres"
+
+#: inc/Builder/SBY_Feed_Builder.php:1145
+msgid "Link Description"
+msgstr "Descripción del enlace"
+
+#: inc/Builder/SBY_Feed_Builder.php:1144
+msgid "Link URL"
+msgstr "URL del enlace"
+
+#: inc/Builder/SBY_Feed_Builder.php:1143
+msgid "Link Title"
+msgstr "Título del enlace"
+
+#: inc/Builder/SBY_Feed_Builder.php:1142
+msgid "Remove background/border"
+msgstr "Eliminar el fondo/borde"
+
+#: inc/Builder/SBY_Feed_Builder.php:1141
+msgid "Box Style"
+msgstr "Estilo de caja"
+
+#: inc/Builder/SBY_Feed_Builder.php:1140
+msgid "The link info box that's created when a link is shared in a Instagram post"
+msgstr "La caja de información del enlace que se crea cuando se comparte un enlace en una entrada de Instagram"
+
+#: inc/Builder/SBY_Feed_Builder.php:1139
+msgid "Text Color"
+msgstr "Color del texto"
+
+#: inc/Builder/SBY_Feed_Builder.php:1138
+msgid "Text Size"
+msgstr "Tamaño del texto"
+
+#: inc/Builder/SBY_Feed_Builder.php:1137
+msgid "The information associated with an event"
+msgstr "La información asociada a un evento"
+
+#: inc/Builder/SBY_Feed_Builder.php:1136
+msgid "The title of an event"
+msgstr "El título de un evento"
+
+#: inc/Builder/SBY_Feed_Builder.php:1135
+msgid "Show comments in lightbox"
+msgstr "Mostrar comentarios en la caja de luz"
+
+#: inc/Builder/SBY_Feed_Builder.php:1134
+msgid "Hide comment avatars"
+msgstr "Ocultar los avatares en los comentarios"
+
+#: inc/Builder/SBY_Feed_Builder.php:1133
+msgid "Expand comments box by default"
+msgstr "Ampliar el cuadro de comentarios por defecto"
+
+#: inc/Builder/SBY_Feed_Builder.php:1130
+msgid "Auto"
+msgstr "Automático"
+
+#: inc/Builder/SBY_Feed_Builder.php:1129
+msgid "Icon Theme"
+msgstr "Tema del icono"
+
+#: inc/Builder/SBY_Feed_Builder.php:1128
+msgid "The comments box displayed at the bottom of each timeline post"
+msgstr "La caja de comentarios que aparece en la parte inferior de cada entrada de la línea de tiempo"
+
+#: inc/Builder/SBY_Feed_Builder.php:1127
+msgid "Toggle \"Share\" link below each post"
+msgstr "Cambiar el enlace «Compartir» debajo de cada entrada"
+
+#: inc/Builder/SBY_Feed_Builder.php:1126
+msgid "Share Link"
+msgstr "Compartir enlace"
+
+#: inc/Builder/SBY_Feed_Builder.php:1125
+msgid "Customize Text"
+msgstr "Personalizar texto"
+
+#: inc/Builder/SBY_Feed_Builder.php:1124
+msgid "Toggle \"View on Instagram\" link below each post"
+msgstr "Cambiar el enlace «Ver en Instagram» debajo de cada entrada"
+
+#: inc/Builder/SBY_Feed_Builder.php:1123
+msgid "View on Instagram link"
+msgstr "Ver en el enlace de Instagram"
+
+#: inc/Builder/SBY_Feed_Builder.php:1122
+msgid "The \"View on Instagram\" and \"Share\" links at the bottom of each post"
+msgstr "Los enlaces «Ver en Instagram» y «Compartir» en la parte inferior de cada entrada"
+
+#: inc/Builder/SBY_Feed_Builder.php:1121
+msgid "Use only one image per post"
+msgstr "Utiliza sólo una imagen por entrada"
+
+#: inc/Builder/SBY_Feed_Builder.php:1120
+msgid "Any photos or videos in your posts"
+msgstr "Cualquier foto o vídeo en tus entradas"
+
+#: inc/Builder/SBY_Feed_Builder.php:1119
+msgid "Go to Global Settings"
+msgstr "Ir a los ajustes globales"
+
+#: inc/Builder/SBY_Feed_Builder.php:1118
+msgid "Timezone settings are global across all feeds. To update it use the global settings."
+msgstr "Los ajustes de la zona horaria son globales en todos los feeds. Para actualizarla, utiliza los ajustes globales."
+
+#: inc/Builder/SBY_Feed_Builder.php:1117
+msgid "Timezone"
+msgstr "Zona horaria"
+
+#: inc/Builder/SBY_Feed_Builder.php:1116
+msgid "E.g. - posted date"
+msgstr "P. ej - fecha de publicación"
+
+#: inc/Builder/SBY_Feed_Builder.php:1115
+msgid "Add text after date"
+msgstr "Añadir texto después de la fecha"
+
+#: inc/Builder/SBY_Feed_Builder.php:1114
+msgid "E.g. Posted"
+msgstr "P. ej. Publicado"
+
+#: inc/Builder/SBY_Feed_Builder.php:1113
+msgid "Add text before date"
+msgstr "Añadir texto antes de la fecha"
+
+#: inc/Builder/SBY_Feed_Builder.php:1112
+msgid "Learn more about custom formats"
+msgstr "Aprende más sobre los formatos personalizados"
+
+#: inc/Builder/SBY_Feed_Builder.php:1110
+#: inc/Customizer/Tabs/Styling_Tab.php:208
+msgid "Format"
+msgstr "Formato"
+
+#: inc/Builder/SBY_Feed_Builder.php:1109
+msgid "The date of the post"
+msgstr "La fecha de la entrada"
+
+#: inc/Builder/SBY_Feed_Builder.php:1108
+msgid "Link text to Instagram post"
+msgstr "Texto del enlace de la entrada de Instagram"
+
+#: inc/Builder/SBY_Feed_Builder.php:1107
+msgid "Characters"
+msgstr "Caracteres"
+
+#: inc/Builder/SBY_Feed_Builder.php:1106
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:783
+#: inc/Customizer/Tabs/Styling_Tab.php:274
+msgid "Maximum Text Length"
+msgstr "Longitud máxima del texto"
+
+#: inc/Builder/SBY_Feed_Builder.php:1105
+msgid "The main text of the Instagram post"
+msgstr "El texto principal de la entrada de Instagram"
+
+#: inc/Builder/SBY_Feed_Builder.php:1104
+msgid "Shared Link Box"
+msgstr "Caja con enlace compartido"
+
+#: inc/Builder/SBY_Feed_Builder.php:1103
+msgid "Shared Post Text"
+msgstr "Texto de la entrada compartida"
+
+#: inc/Builder/SBY_Feed_Builder.php:1102
+msgid "Post Action Links"
+msgstr "Enlaces de las acciones de la entrada"
+
+#: inc/Builder/SBY_Feed_Builder.php:1101
+msgid "Event Details"
+msgstr "Detalles del evento"
+
+#: inc/Builder/SBY_Feed_Builder.php:1100
+msgid "Event Title"
+msgstr "Título del evento"
+
+#: inc/Builder/SBY_Feed_Builder.php:1099
+msgid "Likes, Shares and Comments"
+msgstr "Me gusta, compartidos y comentarios"
+
+#: inc/Builder/SBY_Feed_Builder.php:1098
+msgid "Photos/Videos"
+msgstr "Fotos/Vídeos"
+
+#: inc/Builder/SBY_Feed_Builder.php:1096
+msgid "Post Text"
+msgstr "Texto de la entrada"
+
+#: inc/Builder/SBY_Feed_Builder.php:1095
+msgid "Post Author"
+msgstr "Autor de la entrada"
+
+#: inc/Builder/SBY_Feed_Builder.php:1092
+msgid "Hide or show individual elements of a post or edit their options"
+msgstr "Ocultar o mostrar elementos individuales de una entrada o editar sus opciones"
+
+#: inc/Builder/SBY_Feed_Builder.php:1090
+#: inc/Customizer/Tabs/Customize_Tab.php:301
+msgid "Edit Individual Elements"
+msgstr "Editar elementos individuales"
+
+#: inc/Builder/SBY_Feed_Builder.php:1089
+msgid "Post Style"
+msgstr "Estilo de la entrada"
+
+#: inc/Builder/SBY_Feed_Builder.php:1088
+msgid "Use full width layout when post width is less than 500px"
+msgstr "Utilizar el diseño de ancho completo cuando el ancho de la entrada es inferior a 500px"
+
+#: inc/Builder/SBY_Feed_Builder.php:1087
+msgid "Full width"
+msgstr "Ancho completo"
+
+#: inc/Builder/SBY_Feed_Builder.php:1086
+msgid "Half width"
+msgstr "La mitad del ancho"
+
+#: inc/Builder/SBY_Feed_Builder.php:1085
+msgid "Thumbnail"
+msgstr "Miniatura"
+
+#: inc/Builder/SBY_Feed_Builder.php:1082
+msgid "Make the like box fixed by moving it outside the scrollable area"
+msgstr "Hacer que la caja de me gusta sea fija moviéndola fuera del área de desplazamiento"
+
+#: inc/Builder/SBY_Feed_Builder.php:1080
+msgid "Show visitors which of their friends follow your page"
+msgstr "Mostrar a los visitantes cuáles de sus amigos siguen tu página"
+
+#: inc/Builder/SBY_Feed_Builder.php:1079
+msgid "Show Fans"
+msgstr "Mostrar fans"
+
+#: inc/Builder/SBY_Feed_Builder.php:1078
+msgid "This toggles the custom CTA like \"Show now\" and \"Contact\""
+msgstr "Esto alterna el CTA personalizado como «Mostrar ahora» y «Contacto»"
+
+#: inc/Builder/SBY_Feed_Builder.php:1077
+msgid "Custom CTA"
+msgstr "Llamada a la acción personalizada"
+
+#: inc/Builder/SBY_Feed_Builder.php:1076
+msgid "Width"
+msgstr "Ancho"
+
+#: inc/Builder/SBY_Feed_Builder.php:1075
+msgid "By default, it is set to auto"
+msgstr "Por defecto, está configurado como automático"
+
+#: inc/Builder/SBY_Feed_Builder.php:1074
+msgid "Custom Width"
+msgstr "Ancho personalizado"
+
+#: inc/Builder/SBY_Feed_Builder.php:1072
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:519
+#: inc/Customizer/Tabs/Customize_Tab.php:591
+msgid "Large"
+msgstr "Grande"
+
+#: inc/Builder/SBY_Feed_Builder.php:1071
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:517
+#: inc/Customizer/Tabs/Customize_Tab.php:589
+msgid "Small"
+msgstr "Pequeño"
+
+#: inc/Builder/SBY_Feed_Builder.php:1066
+msgid "Icon Color"
+msgstr "Color de icono"
+
+#: inc/Builder/SBY_Feed_Builder.php:1065
+msgid "Icon Image"
+msgstr "Imagen del icono"
+
+#: inc/Builder/SBY_Feed_Builder.php:1064
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:871
+msgid "Icon"
+msgstr "Icono"
+
+#: inc/Builder/SBY_Feed_Builder.php:1063 inc/Builder/SBY_Feed_Builder.php:1081
+msgid "Display outside scrollable area"
+msgstr "Mostrar fuera del área de desplazamiento"
+
+#: inc/Builder/SBY_Feed_Builder.php:1062
+msgid "About (bio and Likes)"
+msgstr "Acerca de (biografía y «Me gusta»)"
+
+#: inc/Builder/SBY_Feed_Builder.php:1061
+msgid "Name and avatar"
+msgstr "Nombre y avatar"
+
+#: inc/Builder/SBY_Feed_Builder.php:1060 inc/Builder/SBY_Feed_Builder.php:1073
+msgid "Cover Photo"
+msgstr "Foto de portada"
+
+#: inc/Builder/SBY_Feed_Builder.php:1059
+msgid "Visual"
+msgstr "Visual"
+
+#: inc/Builder/SBY_Feed_Builder.php:1058
+msgid "Header Type"
+msgstr "Tipo de cabecera"
+
+#: inc/Builder/SBY_Feed_Builder.php:1054
+msgid "Reset Overrides."
+msgstr "Restablecer anulaciones."
+
+#: inc/Builder/SBY_Feed_Builder.php:1053
+msgid "Colors that have been overridden from individual post element settings will not change. To change them, you will have to reset overrides."
+msgstr "Los colores que han sido anulados desde los ajustes individuales de los elementos de la publicación no cambiarán. Para cambiarlos, tendrás que restablecer las anulaciones."
+
+#: inc/Builder/SBY_Feed_Builder.php:1052
+#: inc/Customizer/Tabs/Customize_Tab.php:475
+msgid "Overrides"
+msgstr "Anulaciones"
+
+#: inc/Builder/SBY_Feed_Builder.php:1050
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:430
+#: inc/Customizer/Tabs/Customize_Tab.php:407
+msgid "Link"
+msgstr "Enlace"
+
+#: inc/Builder/SBY_Feed_Builder.php:1049
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:419
+#: inc/Customizer/Tabs/Customize_Tab.php:396
+msgid "Text 2"
+msgstr "Texto 2"
+
+#: inc/Builder/SBY_Feed_Builder.php:1048
+msgid "Background 2"
+msgstr "Fondo 2"
+
+#: inc/Builder/SBY_Feed_Builder.php:1047
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:388
+#: inc/Customizer/Tabs/Customize_Tab.php:365
+msgid "Custom Palette"
+msgstr "Paleta personalizada"
+
+#: inc/Builder/SBY_Feed_Builder.php:1046 inc/Builder/SBY_Feed_Builder.php:1111
+#: inc/Builder/Tabs/SBY_Builder_Customizer_Tab.php:140
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:378
+#: inc/Customizer/Tabs/Customize_Tab.php:355
+#: inc/Customizer/Tabs/Styling_Tab.php:228
+msgid "Custom"
+msgstr "Personalizado"
+
+#: inc/Builder/SBY_Feed_Builder.php:1045 inc/Builder/SBY_Feed_Builder.php:1132
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:373
+#: inc/Customizer/Tabs/Customize_Tab.php:350
+msgid "Dark"
+msgstr "Oscuro"
+
+#: inc/Builder/SBY_Feed_Builder.php:1044 inc/Builder/SBY_Feed_Builder.php:1131
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:368
+#: inc/Customizer/Tabs/Customize_Tab.php:345
+msgid "Light"
+msgstr "Claro"
+
+#: inc/Builder/SBY_Feed_Builder.php:1043
+msgid "Scheme"
+msgstr "Esquema"
+
+#: inc/Builder/SBY_Feed_Builder.php:1039
+msgid "Change post background, border radius, shadow etc."
+msgstr "Cambia el fondo de la publicación, la redondez de los bordes, la sombra, etc."
+
+#: inc/Builder/SBY_Feed_Builder.php:1038
+msgid "Tweak Post Styles"
+msgstr "Retocar los estilos de las publicaciones"
+
+#: inc/Builder/SBY_Feed_Builder.php:1036
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:270
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:336
+#: inc/Customizer/Tabs/Customize_Tab.php:254
+msgid "Mobile"
+msgstr "Móvil"
+
+#: inc/Builder/SBY_Feed_Builder.php:1035
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:314
+msgid "Tablet"
+msgstr "Tableta"
+
+#: inc/Builder/SBY_Feed_Builder.php:1034
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:261
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:290
+#: inc/Customizer/Tabs/Customize_Tab.php:243
+msgid "Desktop"
+msgstr "Sobremesa"
+
+#: inc/Builder/SBY_Feed_Builder.php:1032
+msgid "Number of Posts"
+msgstr "Número de publicaciones"
+
+#: inc/Builder/SBY_Feed_Builder.php:1031
+msgid "Feed Height"
+msgstr "Altura del feed"
+
+#: inc/Builder/SBY_Feed_Builder.php:1029
+msgid "Masonry"
+msgstr "Muro"
+
+#: inc/Builder/SBY_Feed_Builder.php:1023
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:96
+#: inc/Customizer/Tabs/Customize_Tab.php:74
+msgid "Load More Button"
+msgstr "Botón cargar más"
+
+#: inc/Builder/SBY_Feed_Builder.php:1022
+msgid "Like Box"
+msgstr "Caja «Me gusta»"
+
+#: inc/Builder/SBY_Feed_Builder.php:1021
+msgid "Posts"
+msgstr "Publicaciones"
+
+#: inc/Builder/SBY_Feed_Builder.php:1019
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:43
+#: inc/Customizer/Tabs/Customize_Tab.php:52
+msgid "Color Scheme"
+msgstr "Esquema de color"
+
+#: inc/Builder/SBY_Feed_Builder.php:1018
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:38
+#: inc/Customizer/Tabs/Customize_Tab.php:47
+msgid "Feed Layout"
+msgstr "Diseño del feed"
+
+#: inc/Builder/SBY_Feed_Builder.php:1010
+msgid "Combine sources from multiple platforms using our Social Wall plugin"
+msgstr "Combina fuentes de varias plataformas con nuestro plugin Social Wall"
+
+#: inc/Builder/SBY_Feed_Builder.php:1009
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:86
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:1028
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:1147
+#: inc/Customizer/Tabs/Customize_Tab.php:308
+#: inc/Customizer/Tabs/Customize_Tab.php:1176
+#: inc/Customizer/Tabs/Customize_Tab.php:1252
+msgid "Hover State"
+msgstr "Estado al pasar el cursor"
+
+#: inc/Builder/SBY_Feed_Builder.php:1008
+msgid "Enter Text"
+msgstr "Introduce texto"
+
+#: inc/Builder/SBY_Feed_Builder.php:1007
+#: inc/Services/Integrations/SBY_Integration.php:75
+msgid "Select"
+msgstr "Selecciona"
+
+#: inc/Builder/SBY_Feed_Builder.php:1006
+msgid "Placeholder"
+msgstr "Marcador de posición"
+
+#: inc/Builder/SBY_Feed_Builder.php:1005
+msgid "Height"
+msgstr "Alto"
+
+#: inc/Builder/SBY_Feed_Builder.php:1004
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:547
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:828
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:897
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:1007
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:1126
+#: inc/Customizer/Tabs/Customize_Tab.php:601
+#: inc/Customizer/Tabs/Customize_Tab.php:1155
+#: inc/Customizer/Tabs/Customize_Tab.php:1231
+#: inc/Customizer/Tabs/Styling_Tab.php:46
+#: inc/Customizer/Tabs/Styling_Tab.php:74
+#: inc/Customizer/Tabs/Styling_Tab.php:102
+#: inc/Customizer/Tabs/Styling_Tab.php:130
+#: inc/Customizer/Tabs/Styling_Tab.php:158
+#: inc/Customizer/Tabs/Styling_Tab.php:186
+#: inc/Customizer/Tabs/Styling_Tab.php:305
+msgid "Color"
+msgstr "Color"
+
+#: inc/Builder/SBY_Feed_Builder.php:1003
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:813
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:883
+#: inc/Customizer/Tabs/Customize_Tab.php:587
+msgid "Size"
+msgstr "Tamaño"
+
+#: inc/Builder/SBY_Feed_Builder.php:1002
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:363
+#: inc/Customizer/Tabs/Customize_Tab.php:340
+msgid "Inherit from Theme"
+msgstr "Heredado del tema"
+
+#: inc/Builder/SBY_Feed_Builder.php:1001
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:408
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:537
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:802
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:927
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:997
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:1039
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:1116
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:1158
+#: inc/Customizer/Tabs/Customize_Tab.php:385
+#: inc/Customizer/Tabs/Customize_Tab.php:519
+#: inc/Customizer/Tabs/Customize_Tab.php:567
+#: inc/Customizer/Tabs/Customize_Tab.php:1075
+#: inc/Customizer/Tabs/Customize_Tab.php:1145
+#: inc/Customizer/Tabs/Customize_Tab.php:1187
+#: inc/Customizer/Tabs/Customize_Tab.php:1221
+#: inc/Customizer/Tabs/Customize_Tab.php:1263
+#: inc/Customizer/Tabs/Styling_Tab.php:39
+#: inc/Customizer/Tabs/Styling_Tab.php:67
+#: inc/Customizer/Tabs/Styling_Tab.php:95
+#: inc/Customizer/Tabs/Styling_Tab.php:123
+#: inc/Customizer/Tabs/Styling_Tab.php:151
+#: inc/Customizer/Tabs/Styling_Tab.php:179
+#: inc/Customizer/Tabs/Styling_Tab.php:279
+msgid "Text"
+msgstr "Texto"
+
+#: inc/Builder/SBY_Feed_Builder.php:999
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:474
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:754
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:846
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:977
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:1096
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:1176
+#: inc/Builder/Tabs/SBY_Settings_Tab.php:77
+#: inc/Builder/Tabs/SBY_Settings_Tab.php:242
+#: inc/Customizer/Tabs/Customize_Tab.php:493
+#: inc/Customizer/Tabs/Customize_Tab.php:1125
+#: inc/Customizer/Tabs/Customize_Tab.php:1204
+msgid "Enable"
+msgstr "Activar"
+
+#: inc/Builder/SBY_Feed_Builder.php:998
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:48
+#: inc/Customizer/Tabs/Customize_Tab.php:57
+msgid "Sections"
+msgstr "Secciones"
+
+#: inc/Builder/SBY_Feed_Builder.php:997
+msgid "Save"
+msgstr "Guardar"
+
+#: inc/Builder/SBY_Feed_Builder.php:996
+msgid "Embed"
+msgstr "Incrustar"
+
+#: inc/Builder/SBY_Feed_Builder.php:975
+msgid "Update your feed source, filter your posts, or change advanced settings here."
+msgstr "Actualiza tu fuente del feed, filtra tus publicaciones o cambia los ajustes avanzados aquí."
+
+#: inc/Builder/SBY_Feed_Builder.php:969
+msgid "Change your feed layout, color scheme, or customize individual feed sections here."
+msgstr "Cambia el diseño de tu feed, la combinación de colores o personaliza secciones individuales del feed aquí."
+
+#: inc/Builder/SBY_Feed_Builder.php:963
+msgid "After you are done customizing the feed, click here to add it to a page or a widget."
+msgstr "Cuando hayas terminado de personalizar el feed, haz clic aquí para añadirlo a una página o a un widget."
+
+#: inc/Builder/SBY_Feed_Builder.php:962
+msgid "Embedding a Feed"
+msgstr "Incrustación de un feed"
+
+#: inc/Builder/SBY_Feed_Builder.php:942
+msgid "This update only affects how new feeds are created and customized."
+msgstr "Esta actualización sólo afecta a la forma de crear y personalizar nuevos feeds."
+
+#: inc/Builder/SBY_Feed_Builder.php:942
+msgid "You don't need to update or change any of your existing feeds. They will continue to work as usual."
+msgstr "No es necesario que actualices o cambies ninguno de tus feeds existentes. Seguirán funcionando como siempre."
+
+#: inc/Builder/SBY_Feed_Builder.php:941
+msgid "Existing feeds work as normal"
+msgstr "Los feeds existentes funcionan con normalidad"
+
+#: inc/Builder/SBY_Feed_Builder.php:937
+msgid "This works just like the old settings page and affects all legacy feeds on your site."
+msgstr "Esto funciona igual que la antigua página de ajustes y afecta a todos los feeds heredados de tu sitio."
+
+#: inc/Builder/SBY_Feed_Builder.php:937
+msgid "You can edit the settings for any existing \"legacy\" feed (i.e. any feed created prior to this update) here."
+msgstr "Aquí puedes editar los ajustes de cualquier feed «heredado» existente (es decir, cualquier feed creado antes de esta actualización)."
+
+#: inc/Builder/SBY_Feed_Builder.php:936
+msgid "Your existing feeds are under \"Legacy\" feeds"
+msgstr "Tus feeds existentes están bajo feeds «Heredados»"
+
+#: inc/Builder/SBY_Feed_Builder.php:922
+msgid "You can edit your existing feed from here, and all changes will only apply to this feed."
+msgstr "Desde aquí puedes editar tu feed existente, y todos los cambios sólo se aplicarán a este feed."
+
+#: inc/Builder/SBY_Feed_Builder.php:921
+msgid "Your existing feed is here"
+msgstr "Tu feed existente está aquí"
+
+#: inc/Builder/SBY_Feed_Builder.php:916 inc/Builder/SBY_Feed_Builder.php:931
+msgid "Click \"Add New\" to get started."
+msgstr "Haz clic en «Añadir nuevo» para empezar."
+
+#: inc/Builder/SBY_Feed_Builder.php:916 inc/Builder/SBY_Feed_Builder.php:931
+msgid "You can now create and customize feeds individually without using shortcode options."
+msgstr "Ahora puedes crear y personalizar los feeds de forma individual sin necesidad de utilizar las opciones del shortcode."
+
+#: inc/Builder/SBY_Feed_Builder.php:915 inc/Builder/SBY_Feed_Builder.php:930
+msgid "How you create a feed has changed"
+msgstr "Ha cambiado la forma de crear un feed"
+
+#: inc/Builder/SBY_Feed_Builder.php:908
+msgid "You can now create and customize feeds individually. Click \"Add New\" to get started."
+msgstr "Ahora puedes crear y personalizar los feeds individualmente. Haz clic en «Añadir nuevo» para empezar."
+
+#: inc/Builder/SBY_Feed_Builder.php:906
+msgid "These settings will impact %1$s legacy feeds on your site. You can learn more about what legacy feeds are and how they differ from new feeds %2$shere%3$s."
+msgstr "Estos ajustes afectarán a %1$s feeds heredados de tu sitio. Puedes obtener más información sobre qué son los feeds heredados y en qué se diferencian de los nuevos %2$saquí%3$s."
+
+#: inc/Builder/SBY_Feed_Builder.php:905
+msgid "Legacy Feed Settings"
+msgstr "Ajustes del feed heredado"
+
+#: inc/Builder/SBY_Feed_Builder.php:863
+msgid "Social Wall Plugin"
+msgstr "Plugin Social Wall"
+
+#: inc/Builder/SBY_Feed_Builder.php:842 inc/Services/Admin/MenuService.php:58
+msgid "Upgrade to Pro"
+msgstr "Actualizar a Pro"
+
+#: inc/Builder/SBY_Feed_Builder.php:809
+msgid "To display a YouTube feed, our YouTube plugin is required. It provides a simple yet powerful way to display videos from YouTube on your website, Increasing engagement with your channel while keeping visitors on your website."
+msgstr "Para mostrar un feed de YouTube, es necesario nuestro plugin de YouTube. Este proporciona una forma sencilla pero potente de mostrar vídeos de YouTube en tu web, aumentando la participación en tu canal y manteniendo a los visitantes en tu web."
+
+#: inc/Builder/SBY_Feed_Builder.php:797 inc/sby-functions.php:811
+msgid "Custom Twitter Feeds is a highly customizable way to display tweets from your Twitter account. Promote your latest content and update your site content automatically."
+msgstr "Custom Twitter Feeds es una forma altamente personalizable para mostrar los tuits de tu cuenta de Twitter. Promociona tu último contenido y actualiza automáticamente el contenido de tu sitio."
+
+#: inc/Builder/SBY_Feed_Builder.php:795 inc/Builder/SBY_Feed_Builder.php:853
+#: inc/sby-functions.php:809 inc/Services/Admin/MenuService.php:91
+#: inc/Services/Admin/MenuService.php:92
+#: inc/Services/Integrations/Elementor/CTF_Elementor_Widget.php:17
+msgid "Twitter Feed"
+msgstr "Feed de Twitter"
+
+#: inc/Builder/SBY_Feed_Builder.php:794 inc/sby-functions.php:808
+msgid "Twitter"
+msgstr "Twitter"
+
+#: inc/Builder/SBY_Feed_Builder.php:785 inc/sby-functions.php:785
+msgid "To display a Facebook feed, our Facebook plugin is required. </br> It provides a clean and beautiful way to add your Facebook posts to your website. Grab your visitors attention and keep them engaged with your site longer."
+msgstr "Para mostrar un feed de Facebook, es necesario nuestro plugin de Facebook.  </br> Este proporciona una forma limpia y hermosa de añadir tus publicaciones de Facebook a tu web. Atrae la atención de tus visitantes y los hace participar en tu sitio durante más tiempo."
+
+#: inc/Builder/SBY_Feed_Builder.php:784 inc/Builder/SBY_Feed_Builder.php:796
+#: inc/Builder/SBY_Feed_Builder.php:808 inc/sby-functions.php:784
+#: inc/sby-functions.php:797 inc/sby-functions.php:810
+msgid "By Smash Balloon"
+msgstr "Por Smash Balloon"
+
+#: inc/Builder/SBY_Feed_Builder.php:783 inc/Builder/SBY_Feed_Builder.php:848
+#: inc/sby-functions.php:783 inc/Services/Admin/MenuService.php:69
+#: inc/Services/Admin/MenuService.php:70
+#: inc/Services/Integrations/Elementor/CFF_Elementor_Widget.php:17
+msgid "Facebook Feed"
+msgstr "Feed de Facebook"
+
+#: inc/Builder/SBY_Feed_Builder.php:616
+msgid "I'm not sure"
+msgstr "No estoy seguro"
+
+#: inc/Builder/SBY_Feed_Builder.php:615
+msgid "Business"
+msgstr "Negocio"
+
+#: inc/Builder/SBY_Feed_Builder.php:614
+msgid "Personal"
+msgstr "Personal"
+
+#: inc/Builder/SBY_Feed_Builder.php:612
+msgid "Add feeds for popular social platforms with <span>our other plugins</span>"
+msgstr "Añade feeds para plataformas sociales populares con <span>nuestros otros plugins</span>"
+
+#: inc/Builder/SBY_Feed_Builder.php:609
+msgid "Select \"Personal\" if displaying a regular feed of posts, as this can display feeds from either a Personal or Business account. For displaying a Hashtag or Tagged feed, you must have an Instagram Business account. If needed, you can convert a Personal account into a Business account by following the directions {link}here{link}."
+msgstr "Selecciona «Personal» si quieres mostrar un feed de publicaciones normales, ya que esto puede mostrar feeds de una cuenta personal o comercial. Para mostrar un feed de hashtags o etiquetas, debes tener una cuenta comercial de Instagram. Si es necesario, puedes convertir una cuenta personal en una cuenta comercial siguiendo las instrucciones {link}aquí{link}."
+
+#: inc/Builder/SBY_Feed_Builder.php:608
+msgid "Due to Instagram’s limitations, you need to connect a business account to display a Hashtag feed"
+msgstr "Debido a las limitaciones de Instagram, es necesario conectar una cuenta comercial para mostrar un feed de hashtags"
+
+#: inc/Builder/SBY_Feed_Builder.php:607
+msgid "Due to Instagram’s limitations, you need to connect a business account to display a Mentions timeline"
+msgstr "Debido a las limitaciones de Instagram, es necesario conectar una cuenta comercial para mostrar menciones en una línea de tiempo"
+
+#: inc/Builder/SBY_Feed_Builder.php:606
+msgid "For groups you are not an administrator of"
+msgstr "Para los grupos de los que no eres administrador"
+
+#: inc/Builder/SBY_Feed_Builder.php:605
+msgid "Replace with Personal"
+msgstr "Sustituir por Personal"
+
+#: inc/Builder/SBY_Feed_Builder.php:604
+msgid "The Instagram account you added is already connected as a “Business” account. Would you like to replace it with a “Personal“ account? (Note: Personal accounts cannot be used to display Mentions or Hashtag feeds.)"
+msgstr "La cuenta de Instagram que has añadido ya está conectada como cuenta «Comercial». ¿Quieres sustituirla por una cuenta «Personal»? (Nota: Las cuentas personales no pueden utilizarse para mostrar menciones o feeds de hashtags)."
+
+#: inc/Builder/SBY_Feed_Builder.php:603
+msgid "Account already exists"
+msgstr "La cuenta ya existe"
+
+#: inc/Builder/SBY_Feed_Builder.php:601
+msgid "Click \"Add\" and you are done."
+msgstr "Haz clic en «Añadir» y ya está."
+
+#: inc/Builder/SBY_Feed_Builder.php:600
+msgid "Search for \"Smash Balloon\" and select our app %1$s(see screenshot)%2$s"
+msgstr "Busca «Smash Ballon» y selecciona nuestra aplicación %1$s(ver captura de pantalla)%2$s"
+
+#: inc/Builder/SBY_Feed_Builder.php:599
+msgid "Go to your group settings page by "
+msgstr "Ve a la página de ajustes de tu grupo por "
+
+#: inc/Builder/SBY_Feed_Builder.php:597
+msgid "To get posts from your group, Instagram requires the \"Smash Balloon Plugin\" app to be added in your group settings. Just follow the directions here:"
+msgstr "Para obtener las publicaciones de tu grupo, Instagram requiere que se añada la aplicación «Smash Balloon Plugin» en los ajustes de tu grupo. Sólo tienes que seguir las instrucciones aquí:"
+
+#: inc/Builder/SBY_Feed_Builder.php:596
+msgid "Add Instagram App to your group"
+msgstr "Añade la aplicación Instagram a tu grupo"
+
+#: inc/Builder/SBY_Feed_Builder.php:595
+msgid "Enter Token"
+msgstr "Introducir token"
+
+#: inc/Builder/SBY_Feed_Builder.php:594
+msgid "Instagram Access Token"
+msgstr "Token de acceso a Instagram"
+
+#: inc/Builder/SBY_Feed_Builder.php:593
+msgid "Enter ID"
+msgstr "Introducir el ID"
+
+#: inc/Builder/SBY_Feed_Builder.php:592
+msgid "Event Access Token"
+msgstr "Token de acceso al evento"
+
+#: inc/Builder/SBY_Feed_Builder.php:590 inc/Builder/SBY_Feed_Builder.php:591
+msgid "Instagram Account ID"
+msgstr "ID de la cuenta de Instagram"
+
+#: inc/Builder/SBY_Feed_Builder.php:589
+msgid "Source Type"
+msgstr "Tipo de fuente"
+
+#: inc/Builder/SBY_Feed_Builder.php:587
+msgid "Add a Source Manually"
+msgstr "Añadir una fuente manualmente"
+
+#: inc/Builder/SBY_Feed_Builder.php:586
+msgid "connected to"
+msgstr "conectado a"
+
+#: inc/Builder/SBY_Feed_Builder.php:585
+msgid "Groups"
+msgstr "Grupos"
+
+#: inc/Builder/SBY_Feed_Builder.php:584
+msgid "Businesses"
+msgstr "Negocios"
+
+#: inc/Builder/SBY_Feed_Builder.php:583 inc/Builder/SBY_Feed_Builder.php:782
+#: inc/sby-functions.php:782
+msgid "Facebook"
+msgstr "Facebook"
+
+#: inc/Builder/SBY_Feed_Builder.php:582
+msgid "Showing"
+msgstr "Mostrando"
+
+#: inc/Builder/SBY_Feed_Builder.php:581
+msgid "Select an Instagram Account"
+msgstr "Selecciona una cuenta de Instagram"
+
+#: inc/Builder/SBY_Feed_Builder.php:580
+msgid "Add Account Manually"
+msgstr "Añadir cuenta manualmente"
+
+#: inc/Builder/SBY_Feed_Builder.php:579
+msgid "Already have a API Token and Access Key for your account?"
+msgstr "¿Ya tienes un Token API y una clave de acceso para tu cuenta?"
+
+#: inc/Builder/SBY_Feed_Builder.php:578
+msgid "Due to restrictions by Facebook, you need to create a Facebook app and then paste that app Access Token here. We have a guide to help you with just that, which you can read %1$shere%2$s"
+msgstr "Debido a las restricciones de Facebook, tienes que crear una aplicación de Facebook y luego pegar aquí el código de acceso a esa aplicación. Disponemos de una guía que te ayudará a hacerlo, que puedes leer %1$saquí%2$s"
+
+#: inc/Builder/SBY_Feed_Builder.php:577
+msgid "Enter Events Access Token"
+msgstr "Introducir Token de acceso a los eventos"
+
+#: inc/Builder/SBY_Feed_Builder.php:576
+msgid "Connect"
+msgstr "Conectar"
+
+#: inc/Builder/SBY_Feed_Builder.php:575
+msgid "This does not give us permission to manage your Instagram account, it simply allows the plugin to see a list of them and retrieve their public content from the API."
+msgstr "Esto no nos da permiso para gestionar tu cuenta de Instagram, simplemente permite al plugin ver una lista de ellas y recuperar su contenido público desde la API."
+
+#: inc/Builder/SBY_Feed_Builder.php:574
+msgid "Connect an Instagram Account"
+msgstr "Conecta una cuenta de Instagram"
+
+#: inc/Builder/SBY_Feed_Builder.php:573
+msgid "Select Account Type"
+msgstr "Seleccionar tipo de cuenta"
+
+#: inc/Builder/SBY_Feed_Builder.php:572
+msgid "Connect your Instagram Account"
+msgstr "Conéctate a tu cuenta de Instagram"
+
+#: inc/Builder/SBY_Feed_Builder.php:565
+msgid "Connect an account to show tagged posts. This does not give us any permission to manage your Instagram account."
+msgstr "Conecta una cuenta para mostrar las publicaciones etiquetadas. Esto no nos da ningún permiso para gestionar tu cuenta de Instagram."
+
+#: inc/Builder/SBY_Feed_Builder.php:563
+msgid "Tagged"
+msgstr "Etiquetado"
+
+#: inc/Builder/SBY_Feed_Builder.php:558
+msgid "Add one or more hashtags separated by comma."
+msgstr "Añade uno o varios hashtags separados por coma."
+
+#: inc/Builder/SBY_Feed_Builder.php:556
+msgid "Hashtag"
+msgstr "Hashtag"
+
+#: inc/Builder/SBY_Feed_Builder.php:552
+msgid "Connect an account to show posts for it."
+msgstr "Conecta una cuenta para mostrar las publicaciones de la misma."
+
+#: inc/Builder/SBY_Feed_Builder.php:550 inc/Builder/SBY_Feed_Builder.php:1592
+msgid "User Timeline"
+msgstr "Línea de tiempo del usuario"
+
+#: inc/Builder/SBY_Feed_Builder.php:546
+msgid "Please add a source in order to display a feed. Go to the \"Settings\" tab -> \"Sources\" section -> Click \"Add New\" to connect a source."
+msgstr "Por favor, añade una fuente para poder mostrar un feed. Ve a la pestaña «Ajustes» -> sección «Fuentes» -> Haz clic en «Añadir nuevo» para conectar una fuente."
+
+#: inc/Builder/SBY_Feed_Builder.php:545
+msgid "Select a source from your connected Facebook Pages and Groups. Or, use \"Add New\" to connect a new one."
+msgstr "Selecciona una fuente de tus páginas y grupos de Facebook conectados. O bien, utiliza «Añadir nueva» para conectar una nueva."
+
+#: inc/Builder/SBY_Feed_Builder.php:544
+msgid "Update Source"
+msgstr "Actualizar la fuente"
+
+#: inc/Builder/SBY_Feed_Builder.php:536
+msgid ""
+"Due to changes in Instagram’s new API, we can no<br/>\n"
+"\t\t\t\t\tlonger get mentions for personal accounts. To<br/>\n"
+"\t\t\t\t\tenable this for your account, you will need to convert it to<br/>\n"
+"\t\t\t\t\ta Business account. Learn More"
+msgstr ""
+"Debido a los cambios en la nueva API de Instagram, ya no podemos<br/>\n"
+"\t\t\t\t\tobtener menciones para las cuentas personales. Para<br/>\n"
+"\t\t\t\t\tPara activar esto para tu cuenta, tendrás que convertirla en<br/>\n"
+"\t\t\t\t\tuna cuenta comercial. Aprende más"
+
+#: inc/Builder/SBY_Feed_Builder.php:531
+msgid "Select or add an account you want to display the mentions for"
+msgstr "Selecciona o añade una cuenta para la que quieras mostrar las menciones"
+
+#: inc/Builder/SBY_Feed_Builder.php:530
+msgid "Add a source for Mentions"
+msgstr "Añadir una fuente por menciones"
+
+#: inc/Builder/SBY_Feed_Builder.php:527
+msgid "Select or add an account you want to display the timeline for"
+msgstr "Selecciona o añade una cuenta para la que quieras mostrar la línea de tiempo"
+
+#: inc/Builder/SBY_Feed_Builder.php:526
+msgid "Add a source for Timeline"
+msgstr "Añadir una fuente para la línea de tiempo"
+
+#: inc/Builder/SBY_Feed_Builder.php:522
+msgid "Fetch posts that are"
+msgstr "Incrusta las publicaciones que son"
+
+#: inc/Builder/SBY_Feed_Builder.php:521
+msgid "Add one or more hashtags separated by comma"
+msgstr "Añade uno o más hashtags separados por coma"
+
+#: inc/Builder/SBY_Feed_Builder.php:520
+msgid "Enter Public Hashtags"
+msgstr "Introducir hashtags públicos"
+
+#: inc/Builder/SBY_Feed_Builder.php:519
+msgid "Looks like you have not added any source.<br/>Use “Add Source” to add a new one."
+msgstr "Parece que no has añadido ninguna fuente<br/>Utiliza «Añadir fuente» para añadir una nueva."
+
+#: inc/Builder/SBY_Feed_Builder.php:518
+msgid "Sources are Instagram accounts your feed will display content from"
+msgstr "Las fuentes son cuentas de Instagram de las que tu feed mostrará contenido"
+
+#: inc/Builder/SBY_Feed_Builder.php:517
+msgid "Select one or more sources"
+msgstr "Selecciona uno o más fuentes"
+
+#: inc/Builder/SBY_Feed_Builder.php:503
+msgid "You will be redirected to our app so you can connect your account in 5 seconds"
+msgstr "Serás redirigido a nuestra aplicación para que puedas conectar tu cuenta en 5 segundos"
+
+#: inc/Builder/SBY_Feed_Builder.php:502
+msgid "Redirecting to connect.smashballoon.com"
+msgstr "Redirigiendo a connect.smashballoon.com"
+
+#: inc/Builder/SBY_Feed_Builder.php:500
+msgid "Hide Features"
+msgstr "Ocultar características"
+
+#: inc/Builder/SBY_Feed_Builder.php:499
+msgid "Show Features"
+msgstr "Mostrar características"
+
+#: inc/Builder/SBY_Feed_Builder.php:497
+msgid "Fast, friendly and effective support"
+msgstr "El soporte es rápido, amable y eficaz"
+
+#: inc/Builder/SBY_Feed_Builder.php:496
+msgid "Video player (HD, 360, Live)"
+msgstr "Reproductor de vídeo (HD, 360, en vivo)"
+
+#: inc/Builder/SBY_Feed_Builder.php:495
+msgid "Multiple post layout options"
+msgstr "Múltiples opciones de disposición de publicaciones"
+
+#: inc/Builder/SBY_Feed_Builder.php:494
+msgid "30 day money back guarantee"
+msgstr "Garantía de devolución de dinero de 30 días"
+
+#: inc/Builder/SBY_Feed_Builder.php:493
+msgid "Popup photo/video lighbox"
+msgstr "Caja de luz de foto/vídeo"
+
+#: inc/Builder/SBY_Feed_Builder.php:492
+msgid "Filter posts"
+msgstr "Filtrar publicaciones"
+
+#: inc/Builder/SBY_Feed_Builder.php:490
+msgid "And Much More!"
+msgstr "¡Y mucho más!"
+
+#: inc/Builder/SBY_Feed_Builder.php:489
+msgid "Ability to “Load More” posts"
+msgstr "Capacidad de «Cargar más» publicaciones"
+
+#: inc/Builder/SBY_Feed_Builder.php:488
+msgid "All Feed Types: Photos, Albums, Events and more"
+msgstr "Todos los tipos de feed: Fotos, Álbumes, Eventos y más"
+
+#: inc/Builder/SBY_Feed_Builder.php:487
+msgid "View likes, shares and comments"
+msgstr "Ver me gusta, compartidos y comentarios"
+
+#: inc/Builder/SBY_Feed_Builder.php:486
+msgid "Display images and videos in posts"
+msgstr "Mostrar imágenes y vídeos en las publicaciones"
+
+#: inc/Builder/SBY_Feed_Builder.php:485
+msgid "Try Demo"
+msgstr "Prueba de demostración"
+
+#: inc/Builder/SBY_Feed_Builder.php:484
+msgid "Lite Feed Users get 50% OFF"
+msgstr "Los usuarios de Lite Feed tienen un 50% de descuento"
+
+#: inc/Builder/SBY_Feed_Builder.php:482
+msgid "Carousel Layout updated"
+msgstr "Diseño de carrusel actualizado"
+
+#: inc/Builder/SBY_Feed_Builder.php:479
+msgid "License Deactivated"
+msgstr "Licencia desactivada"
+
+#: inc/Builder/SBY_Feed_Builder.php:478
+msgid "License activated"
+msgstr "Licencia activada"
+
+#: inc/Builder/SBY_Feed_Builder.php:477
+msgid "Invalid license key"
+msgstr "Clave de licencia no válida"
+
+#: inc/Builder/SBY_Feed_Builder.php:476
+msgid "Free"
+msgstr "Gratis"
+
+#: inc/Builder/SBY_Feed_Builder.php:475
+msgid "Installed & Activated"
+msgstr "Instalado y activado"
+
+#: inc/Builder/SBY_Feed_Builder.php:474 inc/Services/AdminAjaxService.php:587
+msgid "Activate"
+msgstr "Activar"
+
+#: inc/Builder/SBY_Feed_Builder.php:473
+msgid "Installed"
+msgstr "Instalado"
+
+#: inc/Builder/SBY_Feed_Builder.php:472 inc/Services/AdminAjaxService.php:578
+msgid "Install"
+msgstr "Instalar"
+
+#: inc/Builder/SBY_Feed_Builder.php:469
+msgid "Comment cache cleared"
+msgstr "Vaciada la caché de los comentarios"
+
+#: inc/Builder/SBY_Feed_Builder.php:465
+msgid "Please select a source for your feed"
+msgstr "Por favor, selecciona una fuente para tu feed"
+
+#: inc/Builder/SBY_Feed_Builder.php:461
+msgid "Feed cache cleared"
+msgstr "Vaciada la caché del feed"
+
+#: inc/Builder/SBY_Feed_Builder.php:457
+msgid "Unknown error occurred"
+msgstr "Ha ocurrido un error desconocido"
+
+#: inc/Builder/SBY_Feed_Builder.php:453
+msgid "Carousel updated successfully"
+msgstr "Carrusel actualizado correctamente"
+
+#: inc/Builder/SBY_Feed_Builder.php:449
+msgid "Preview updated successfully"
+msgstr "La previsualización se ha actualizado correctamente"
+
+#: inc/Builder/SBY_Feed_Builder.php:445
+msgid "Error saving Feed"
+msgstr "Error al guardar el Feed"
+
+#: inc/Builder/SBY_Feed_Builder.php:441
+msgid "Feed saved successfully"
+msgstr "Feed guardado correctamente"
+
+#: inc/Builder/SBY_Feed_Builder.php:436
+msgid "Shoppable Feed Preview"
+msgstr "Vista previa del feed Shoppable"
+
+#: inc/Builder/SBY_Feed_Builder.php:435
+msgid "Moderation Mode Preview"
+msgstr "Previsualización del modo de moderación"
+
+#: inc/Builder/SBY_Feed_Builder.php:434
+msgid "Most recent"
+msgstr "Más reciente"
+
+#: inc/Builder/SBY_Feed_Builder.php:433
+msgid "Top Rated"
+msgstr "Mejor valorados"
+
+#: inc/Builder/SBY_Feed_Builder.php:432
+msgid "Filters & Moderation"
+msgstr "Filtros y moderación"
+
+#: inc/Builder/SBY_Feed_Builder.php:431
+#: inc/Builder/Tabs/SBY_Settings_Tab.php:124
+msgid "Add words here to hide any posts containing these words"
+msgstr "Añade palabras aquí para ocultar los mensajes que contengan estas palabras"
+
+#: inc/Builder/SBY_Feed_Builder.php:430
+msgid "Or Enter Post IDs to hide manually"
+msgstr "O introduce los IDs de las publicaciones para ocultarlas manualmente"
+
+#: inc/Builder/SBY_Feed_Builder.php:429
+msgid "Moderation Mode"
+msgstr "Modo de moderación"
+
+#: inc/Builder/SBY_Feed_Builder.php:428
+msgid "Save and Exit"
+msgstr "Guardar y salir"
+
+#: inc/Builder/SBY_Feed_Builder.php:427
+msgid "Moderate your feed"
+msgstr "Modera tu feed"
+
+#: inc/Builder/SBY_Feed_Builder.php:426
+msgid "Edit Sources"
+msgstr "Editar las fuentes"
+
+#: inc/Builder/SBY_Feed_Builder.php:425
+msgid "Add your product URL here"
+msgstr "Añade la URL de tu producto aquí"
+
+#: inc/Builder/SBY_Feed_Builder.php:424
+msgid "Product Link"
+msgstr "Enlace del producto"
+
+#: inc/Builder/SBY_Feed_Builder.php:423
+msgid "Selected Post"
+msgstr "Publicación seleccionada"
+
+#: inc/Builder/SBY_Feed_Builder.php:422
+msgid "Business Account required"
+msgstr "Se necesita una cuenta comercial"
+
+#: inc/Builder/SBY_Feed_Builder.php:421
+msgid "Add Image"
+msgstr "Añadir Imagen"
+
+#: inc/Builder/SBY_Feed_Builder.php:420
+msgid "Source is not used yet"
+msgstr "La fuente aún no se utiliza"
+
+#: inc/Builder/SBY_Feed_Builder.php:419
+msgid "feed"
+msgstr "feed"
+
+#: inc/Builder/SBY_Feed_Builder.php:418
+msgid "Reconnect"
+msgstr "Reconectar"
+
+#: inc/Builder/SBY_Feed_Builder.php:417
+msgid "Invalid"
+msgstr "No válido"
+
+#: inc/Builder/SBY_Feed_Builder.php:416
+msgid "Encryption Error"
+msgstr "Error de cifrado"
+
+#: inc/Builder/SBY_Feed_Builder.php:415
+msgid "Source Invalid"
+msgstr "Fuente no válida"
+
+#: inc/Builder/SBY_Feed_Builder.php:414
+msgid "Directions on How to Resolve This Issue"
+msgstr "Instrucciones sobre cómo resolver este problema"
+
+#: inc/Builder/SBY_Feed_Builder.php:413
+msgid "There was an error when trying to connect to Instagram."
+msgstr "Ha habido un error al intentar conectarse a Instagram."
+
+#: inc/Builder/SBY_Feed_Builder.php:410
+msgid "Translation"
+msgstr "Traducción"
+
+#: inc/Builder/SBY_Feed_Builder.php:409
+msgid "Feeds"
+msgstr "Feeds"
+
+#: inc/Builder/SBY_Feed_Builder.php:406
+msgid "Feed Name"
+msgstr "Nombre del feed"
+
+#: inc/Builder/SBY_Feed_Builder.php:404
+msgid "Clear Feed Cache"
+msgstr "Vaciar la caché del feed"
+
+#: inc/Builder/SBY_Feed_Builder.php:403
+msgid "Clear"
+msgstr "Limpiar"
+
+#: inc/Builder/SBY_Feed_Builder.php:402
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: inc/Builder/SBY_Feed_Builder.php:401
+msgid "Confirm"
+msgstr "Confirmar"
+
+#: inc/Builder/SBY_Feed_Builder.php:400
+msgid "Token"
+msgstr "Token"
+
+#: inc/Builder/SBY_Feed_Builder.php:399
+msgid "ID"
+msgstr "ID"
+
+#: inc/Builder/SBY_Feed_Builder.php:397 inc/Builder/SBY_Feed_Builder.php:994
+msgid "Preview"
+msgstr "Vista previa"
+
+#: inc/Builder/SBY_Feed_Builder.php:396
+msgid "Reset"
+msgstr "Restablecer"
+
+#: inc/Builder/SBY_Feed_Builder.php:395
+msgid "Member"
+msgstr "Miembro"
+
+#: inc/Builder/SBY_Feed_Builder.php:394
+msgid "Admin"
+msgstr "Administrador"
+
+#: inc/Builder/SBY_Feed_Builder.php:393 inc/Builder/SBY_Feed_Builder.php:995
+msgid "Help"
+msgstr "Ayuda"
+
+#: inc/Builder/SBY_Feed_Builder.php:392
+msgid "Timeline"
+msgstr "Cronología"
+
+#: inc/Builder/SBY_Feed_Builder.php:391
+msgid "Failed to import feed"
+msgstr "Error al importar el feed"
+
+#: inc/Builder/SBY_Feed_Builder.php:390
+msgid "Feed imported successfully"
+msgstr "Feed importado correctamente"
+
+#: inc/Builder/SBY_Feed_Builder.php:389
+msgid "Copied to Clipboard"
+msgstr "Copiado al portapapeles"
+
+#: inc/Builder/SBY_Feed_Builder.php:385
+msgid "Items"
+msgstr "Elementos"
+
+#: inc/Builder/SBY_Feed_Builder.php:384
+msgid "Item"
+msgstr "Elemento"
+
+#: inc/Builder/SBY_Feed_Builder.php:383
+msgid "places"
+msgstr "lugares"
+
+#: inc/Builder/SBY_Feed_Builder.php:382
+msgid "place"
+msgstr "lugar"
+
+#: inc/Builder/SBY_Feed_Builder.php:381
+msgid "Used in"
+msgstr "Usado en"
+
+#: inc/Builder/SBY_Feed_Builder.php:380
+msgid "Click to view Instances"
+msgstr "Haz clic para ver las instancias"
+
+#: inc/Builder/SBY_Feed_Builder.php:378
+msgid "Remove Source"
+msgstr "Eliminar fuente"
+
+#: inc/Builder/SBY_Feed_Builder.php:376
+msgid "Delete"
+msgstr "Eliminar"
+
+#: inc/Builder/SBY_Feed_Builder.php:375
+msgid "Duplicate"
+msgstr "Duplicar"
+
+#: inc/Builder/SBY_Feed_Builder.php:374 inc/Builder/SBY_Feed_Builder.php:1094
+msgid "Edit"
+msgstr "Editar"
+
+#: inc/Builder/SBY_Feed_Builder.php:373
+msgid "Copy"
+msgstr "Copiar"
+
+#: inc/Builder/SBY_Feed_Builder.php:372
+msgid "Apply"
+msgstr "Aplicar"
+
+#: inc/Builder/SBY_Feed_Builder.php:371
+msgid "Photo"
+msgstr "Foto"
+
+#: inc/Builder/SBY_Feed_Builder.php:370
+#: inc/Builder/Tabs/SBY_Settings_Tab.php:139
+msgid "Photos"
+msgstr "Fotos"
+
+#: inc/Builder/SBY_Feed_Builder.php:369
+msgid "Includes"
+msgstr "Incluye"
+
+#: inc/Builder/SBY_Feed_Builder.php:368
+msgid "View Demo"
+msgstr "Ver demostración"
+
+#: inc/Builder/SBY_Feed_Builder.php:367
+msgid "Get Extension"
+msgstr "Obtener extensión"
+
+#: inc/Builder/SBY_Feed_Builder.php:366
+msgid "Change"
+msgstr "Cambiar"
+
+#: inc/Builder/SBY_Feed_Builder.php:365
+msgid "Add"
+msgstr "Añadir"
+
+#: inc/Builder/SBY_Feed_Builder.php:364
+msgid "Create Feed"
+msgstr "Crear feed"
+
+#: inc/Builder/SBY_Feed_Builder.php:363
+msgid "Back to all feeds"
+msgstr "Volver a todos los feeds"
+
+#: inc/Builder/SBY_Feed_Builder.php:362
+msgid "Back"
+msgstr "Volver"
+
+#: inc/Builder/SBY_Feed_Builder.php:360
+#: inc/Services/Admin/LicenseService.php:552
+msgid "Upgrade"
+msgstr "Actualizar"
+
+#: inc/Builder/SBY_Feed_Builder.php:359
+msgid "Update"
+msgstr "Actualizar"
+
+#: inc/Builder/SBY_Feed_Builder.php:358
+msgid "New"
+msgstr "Nuevo"
+
+#: inc/Builder/SBY_Feed_Builder.php:357
+msgid "Finish"
+msgstr "Finalizar"
+
+#: inc/Builder/SBY_Feed_Builder.php:356
+msgid "Next"
+msgstr "Siguiente"
+
+#: inc/Builder/SBY_Feed_Builder.php:355
+msgid "Previous"
+msgstr "Anterior"
+
+#: inc/Builder/SBY_Feed_Builder.php:354
+msgid "Add Another Source Type"
+msgstr "Añadir otro tipo de fuente"
+
+#: inc/Builder/SBY_Feed_Builder.php:353
+msgid "Add another Source"
+msgstr "Añadir otra fuente"
+
+#: inc/Builder/SBY_Feed_Builder.php:352 inc/Builder/SBY_Feed_Builder.php:588
+msgid "Add Source"
+msgstr "Añadir fuente"
+
+#: inc/Builder/SBY_Feed_Builder.php:351
+msgid "Add New"
+msgstr "Añadir nuevo"
+
+#: inc/Builder/SBY_Feed_Builder.php:350
+msgid "Dashboard"
+msgstr "Escritorio"
+
+#: inc/Builder/SBY_Feed_Builder.php:348 inc/Builder/Tooltip_Wizard.php:111
+msgid "Done"
+msgstr "Hecho"
+
+#: inc/Builder/SBY_Feed_Builder.php:166
+msgid "Hide Legacy Feeds"
+msgstr "Ocultar los feeds heredados"
+
+#: inc/Builder/SBY_Feed_Builder.php:165
+msgid "Show Legacy Feeds"
+msgstr "Mostrar los feeds heredados"
+
+#: inc/Builder/SBY_Feed_Builder.php:163
+msgid "To edit Legacy feed settings, you will need to use the \"Settings\" button above <br/>or edit their shortcode settings directly. To delete them, simply remove the <br/>shortcode wherever it is being used on your site."
+msgstr "Para editar los ajustes de los feeds heredados, tendrás que utilizar el botón «Ajustes» de arriba <br/>o editar directamente los ajustes de su shortcode. Para eliminarlos, basta con quitar el <br/>shortcode donde se esté utilizando en tu sitio."
+
+#: inc/Builder/SBY_Feed_Builder.php:162
+msgid "Legacy feeds represent shortcodes of old feeds found on your website before <br/>the version 6 update."
+msgstr "Los feeds heredados representan shortcodes de antiguos feeds encontrados en tu web antes de <br/>la actualización de la versión 6."
+
+#: inc/Builder/SBY_Feed_Builder.php:159
+msgid "You can also create a new feed, which will now have it's own individual settings. Modifying settings for new feeds will not affect other feeds."
+msgstr "También puedes crear un nuevo feed, que ahora tendrá los ajustes individuales. La modificación de los ajustes de los nuevos feeds no afectará a otros feeds."
+
+#: inc/Builder/SBY_Feed_Builder.php:158
+msgid "Legacy feeds are older feeds from before the version 6 update. You can edit settings for these feeds by using the \"Settings\" button to the right. These settings will apply to all legacy feeds, just like the settings before version 6, and work in the same way that they used to."
+msgstr "Los feeds heredados son feeds antiguos de antes de la actualización a la versión 6. Puedes editar los ajustes de estos feeds utilizando el botón «Ajustes» de la derecha. Estos ajustes se aplicarán a todos los feeds heredados, al igual que los ajustes anteriores a la versión 6, y funcionarán de la misma manera que antes."
+
+#: inc/Builder/SBY_Feed_Builder.php:156
+msgid "What are Legacy Feeds?"
+msgstr "¿Qué es un feed heredado?"
+
+#: inc/Builder/SBY_Feed_Builder.php:155 inc/Builder/SBY_Feed_Saver.php:314
+#: inc/Builder/SBY_Feed_Saver.php:315
+msgid "Legacy Feeds"
+msgstr "Feeds heredados"
+
+#: inc/Builder/SBY_Feed_Builder.php:153
+msgid "Bulk Actions"
+msgstr "Acciones en lote"
+
+#: inc/Builder/SBY_Feed_Builder.php:151
+msgid "Actions"
+msgstr "Acciones"
+
+#: inc/Builder/SBY_Feed_Builder.php:150
+msgid "Instances"
+msgstr "Instancias"
+
+#: inc/Builder/SBY_Feed_Builder.php:148 inc/Builder/SBY_Feed_Builder.php:398
+#: inc/Builder/SBY_Feed_Builder.php:1093
+msgid "Name"
+msgstr "Nombre"
+
+#: inc/Builder/SBY_Feed_Builder.php:141
+msgid "Easily add the feed anywhere on your website"
+msgstr "Añade fácilmente el feed en cualquier lugar de tu web"
+
+#: inc/Builder/SBY_Feed_Builder.php:140
+msgid "Embed your feed"
+msgstr "Incrusta tu feed"
+
+#: inc/Builder/SBY_Feed_Builder.php:139
+msgid "Choose layouts, color schemes, filters and more"
+msgstr "Elige diseños, esquemas de color, filtros y mucho más"
+
+#: inc/Builder/SBY_Feed_Builder.php:138
+msgid "Customize your feed type"
+msgstr "Personaliza tu tipo de feed"
+
+#: inc/Builder/SBY_Feed_Builder.php:137
+msgid "Connect your Instagram account and choose a feed type"
+msgstr "Conecta tu cuenta de Instagram y elige un tipo de feed"
+
+#: inc/Builder/SBY_Feed_Builder.php:136
+msgid "Create your Feed"
+msgstr "Crea tu feed"
+
+#: inc/Admin/SBY_Upgrader.php:389
+msgid "We encountered a problem unlocking the PRO features. Please install the PRO version manually."
+msgstr "Hemos encontrado un problema al desbloquear las características PRO. Por favor, instala manualmente la versión PRO."
+
+#: inc/Admin/SBY_Upgrader.php:386
+msgid "This license is expired."
+msgstr "Esta licencia ha caducado."
+
+#: inc/Admin/SBY_Upgrader.php:313
+msgid "Pro version installed but needs to be activated from the Plugins page inside your WordPress admin."
+msgstr "La versión Pro está instalada, pero hay que activarla desde la página de plugins en tu escritorio de WordPress."
+
+#: inc/Admin/SBY_Upgrader.php:249 inc/Admin/SBY_Upgrader.php:309
+#: inc/Services/Admin/Settings/AboutPage.php:143
+#: inc/Services/AdminAjaxService.php:779
+msgid "Plugin installed & activated."
+msgstr "Plugin instalado y activado."
+
+#: inc/Admin/SBY_Upgrader.php:212
+msgid "Could not install upgrade. Please download from smashballoon.com and install manually."
+msgstr "No se ha podido instalar la actualización. Por favor, descárgala de smashballoon.com e instálala manualmente."
+
+#: inc/Admin/SBY_Upgrader.php:203
+msgid "Could not connect."
+msgstr "No se ha podido conectar."
+
+#: inc/Admin/SBY_Upgrader.php:115 inc/Admin/SBY_Upgrader.php:264
+#: inc/Admin/SBY_Upgrader.php:290
+msgid "You are not licensed."
+msgstr "No tienes licencia."
+
+#: inc/Admin/SBY_Upgrader.php:103
+msgid "You are not allowed to install plugins."
+msgstr "No tienes permisos para instalar plugins."
+
+#: inc/Admin/SBY_Tracking.php:304
+msgid "Once Weekly"
+msgstr "Una vez a la semana"
+
+#: inc/Admin/SBY_New_User.php:318 inc/Admin/SBY_Notifications.php:622
+msgid "Are you enjoying the YouTube Feeds Plugin?"
+msgstr "¿Estás disfrutando del plugin YouTube Feeds?"
+
+#: inc/Admin/SBY_New_User.php:458 inc/Admin/SBY_Notifications.php:763
+msgid "We don’t run promotions very often, but for a limited time we’re offering 60% Off our Pro version to all users of our free YouTube Feeds."
+msgstr "No realizamos promociones muy a menudo, pero durante un tiempo limitado ofrecemos un 60% de descuento en nuestra versión Pro a todos los usuarios de nuestro YouTube Feeds gratuito."
+
+#: inc/Admin/SBY_New_User.php:456 inc/Admin/SBY_Notifications.php:644
+#: inc/Admin/SBY_Notifications.php:761
+msgid "It really helps to support the plugin and help others to discover it too!"
+msgstr "Realmente ayuda a mantener el plugin y a que otros también lo descubran."
+
+#: inc/Admin/SBY_New_User.php:432 inc/Admin/SBY_Notifications.php:737
+msgid "Exclusive Offer! 60% OFF"
+msgstr "¡Oferta Exclusiva! 60% de descuento"
+
+#: inc/Admin/SBY_New_User.php:430 inc/Admin/SBY_Notifications.php:643
+#: inc/Admin/SBY_Notifications.php:735
+msgid "Glad to hear you are enjoying it. Would you consider leaving a positive review?"
+msgstr "Me alegra saber que lo estás disfrutando. ¿Podrías dejar una reseña positiva?"
+
+#: inc/Admin/SBY_Admin_Notice.php:44
+msgid "upgrading to Pro"
+msgstr "pasar a Pro"
+
+#: inc/Admin/SBY_Admin_Notice.php:42
+msgid "You're using YouTube Feeds Lite. To unlock more features consider"
+msgstr "Estás utilizando YouTube Feeds Lite. Para desbloquear más funciones, considera"
+
+#: inc/Admin/SBY_Admin.php:1402
+msgid "Examples"
+msgstr "Ejemplos"
+
+#: inc/Admin/SBY_Admin.php:1401
+msgid "Custom Format"
+msgstr "Formato personalizado"
+
+#: inc/Admin/SBY_Admin.php:1392
+msgid "Full Date Format"
+msgstr "Formato de fecha completa"
+
+#: inc/Admin/SBY_Admin.php:1383
+msgid "For times that are within 2 days of the video playing time, relative times are displayed rather than the date.  e.g. \"5 hours ago\""
+msgstr "Para las horas que están dentro de los 2 días del tiempo de reproducción del vídeo, se muestran las horas relativas en lugar de la fecha. Por ejemplo, «hace 5 horas»."
+
+#: inc/Admin/SBY_Admin.php:1379
+msgid "Use relative times when less than 2 days"
+msgstr "Utiliza tiempos relativos cuando sean inferiores a 2 días"
+
+#: inc/Admin/SBY_Admin.php:1314
+msgid "Show past live streams"
+msgstr "Mostrar transmisiones en directo anteriores"
+
+#: inc/Admin/SBY_Admin.php:1227
+msgid "Images in the feed are loaded from the YouTube CDN. If you want to avoid these images being loaded until consent is given then enabling this setting will show a blank placeholder image instead."
+msgstr "Las imágenes del feed se cargan desde la CDN de YouTube. Si quieres evitar que estas imágenes se carguen hasta que se dé el consentimiento, al activar este ajuste se mostrará una imagen en blanco como marcador de posición."
+
+#: inc/Admin/SBY_Admin.php:1038
+msgid "Initial videos will be loaded using AJAX instead of added to the page directly. If you use page caching, this will allow the feed to update according to the \"Check for new videos every\" setting on the \"Configure\" tab."
+msgstr "Los vídeos iniciales se cargarán mediante AJAX en lugar de añadirse directamente a la página. Si utilizas el almacenamiento en caché de la página, esto permitirá que el feed se actualice según los ajustes de «Comprobar si hay vídeos nuevos cada» en la pestaña «Configurar»."
+
+#: inc/Admin/SBY_Admin.php:1036
+msgid "Load initial posts with AJAX"
+msgstr "Cargar entradas iniciales con AJAX"
+
+#: inc/Admin/SBY_Admin.php:568
+msgid "The text that appears after the number of subscribers."
+msgstr "El texto que aparece después del número de suscriptores."
+
+#: inc/Admin/SBY_Admin.php:564
+msgid "\"Subscribers\" Text"
+msgstr "Texto «Suscriptores»"
+
+#: inc/Admin/SBY_Admin.php:561 inc/Builder/SBY_Feed_Saver.php:558
+#: inc/SBY_Settings.php:331 inc/Services/ShortcodeService.php:185
+#: youtube-feed.php:496
+msgid "subscribers"
+msgstr "suscriptores"
+
+#: inc/Admin/SBY_Admin.php:501
+msgid "Text after statistics if over 1 million."
+msgstr "Texto después de las estadísticas si supera el millón."
+
+#: inc/Admin/SBY_Admin.php:497
+msgid "\"Millions\" text"
+msgstr "Texto «Millones»"
+
+#: inc/Admin/SBY_Admin.php:494 inc/Builder/SBY_Feed_Saver.php:567
+#: inc/SBY_Settings.php:340 youtube-feed.php:505
+msgid "M"
+msgstr "M"
+
+#: inc/Admin/SBY_Admin.php:486
+msgid "Text after statistics if over 1 thousand."
+msgstr "Texto después de las estadísticas si son más de mil."
+
+#: inc/Admin/SBY_Admin.php:482
+msgid "\"Thousands\" text"
+msgstr "Texto «Miles»"
+
+#: inc/Admin/SBY_Admin.php:479 inc/Builder/SBY_Feed_Saver.php:566
+#: inc/SBY_Settings.php:339 youtube-feed.php:504
+msgid "K"
+msgstr "K"
+
+#: inc/Admin/SBY_Admin.php:471
+msgid "The text that appears when video is currently streaming live."
+msgstr "El texto que aparece cuando el vídeo se está transmitiendo en directo."
+
+#: inc/Admin/SBY_Admin.php:467
+msgid "\"Watch Now\" Text"
+msgstr "Texto «Ver ahora»"
+
+#: inc/Admin/SBY_Admin.php:464 inc/Builder/SBY_Feed_Saver.php:568
+#: inc/SBY_Settings.php:341 youtube-feed.php:506
+msgid "Watch Now"
+msgstr "Ver ahora"
+
+#: inc/Admin/SBY_Admin.php:456
+msgid "Translation for \"hours\"."
+msgstr "Traducción para «horas»."
+
+#: inc/Admin/SBY_Admin.php:452
+msgid "\"Hours\" text"
+msgstr "Texto «Horas»"
+
+#: inc/Admin/SBY_Admin.php:449 inc/Builder/SBY_Feed_Saver.php:565
+#: inc/SBY_Settings.php:338 youtube-feed.php:503
+msgid "hours"
+msgstr "horas"
+
+#: inc/Admin/SBY_Admin.php:441
+msgid "Translation for plural \"minutes\"."
+msgstr "Traducción para el plural «minutos»."
+
+#: inc/Admin/SBY_Admin.php:437
+msgid "\"Minutes\" text"
+msgstr "Texto «Minutos»"
+
+#: inc/Admin/SBY_Admin.php:426
+msgid "Translation for singular \"minute\"."
+msgstr "Traducción para el singular «minuto»."
+
+#: inc/Admin/SBY_Admin.php:422
+msgid "\"Minute\" text"
+msgstr "Texto «Minuto»"
+
+#: inc/Admin/SBY_Admin.php:419 inc/Admin/SBY_Admin.php:434
+#: inc/Builder/SBY_Feed_Saver.php:563 inc/SBY_Settings.php:336
+#: youtube-feed.php:501
+msgid "minute"
+msgstr "minuto"
+
+#: inc/Admin/SBY_Admin.php:411
+msgid "The text that appears before relative live stream times."
+msgstr "El texto que aparece antes de los tiempos relativos de transmisión en directo."
+
+#: inc/Admin/SBY_Admin.php:407
+msgid "Before Live Stream Text"
+msgstr "Texto antes de la transmisión en directo."
+
+#: inc/Admin/SBY_Admin.php:404 inc/Builder/SBY_Feed_Saver.php:562
+#: inc/SBY_Settings.php:335 youtube-feed.php:500
+msgid "Streaming live in"
+msgstr "Retransmisión en directo en"
+
+#: inc/Admin/SBY_Admin.php:396
+msgid "The text that appears before live stream dates."
+msgstr "El texto que aparece antes de las fechas de transmisión en directo."
+
+#: inc/Admin/SBY_Admin.php:392
+msgid "Before Date Text"
+msgstr "Texto antes de la fecha"
+
+#: inc/Admin/SBY_Admin.php:389 inc/Builder/SBY_Feed_Saver.php:561
+#: inc/SBY_Settings.php:334 youtube-feed.php:499
+msgid "Streaming live"
+msgstr "Retransmisión en directo"
+
+#: inc/Admin/SBY_Admin.php:381
+msgid "The text that appears after relative times in the past."
+msgstr "El texto que aparece después de los tiempos relativos en el pasado."
+
+#: inc/Admin/SBY_Admin.php:377
+msgid "\"Ago\" Text"
+msgstr "Texto «Hace»"
+
+#: inc/Admin/SBY_Admin.php:374 inc/Builder/SBY_Feed_Saver.php:560
+#: inc/SBY_Settings.php:333 youtube-feed.php:498
+msgid "ago"
+msgstr "atrás"
+
+#: inc/Admin/SBY_Admin.php:366
+msgid "The text that appears after the number of views."
+msgstr "El texto que aparece después del número de vistas."
+
+#: inc/Admin/SBY_Admin.php:362
+msgid "\"Views\" Text"
+msgstr "Texto «Vistas»"
+
+#: inc/Admin/SBY_Admin.php:359 inc/Builder/SBY_Feed_Saver.php:559
+#: inc/SBY_Settings.php:332 youtube-feed.php:497
+msgid "views"
+msgstr "visualizaciones"
+
+#: inc/Admin/SBY_Admin.php:351
+msgid "Info Text/Translations"
+msgstr "Texto informativo/traducciones"
+
+#: inc/Admin/SBY_Admin.php:344
+msgid "Date Format"
+msgstr "Formato de fecha"
+
+#: inc/Admin/SBY_Admin.php:334
+msgid "Custom (Enter Below)"
+msgstr "Personalizado (Introduce a continuación)"
+
+#: inc/Admin/SBY_Admin.php:330 inc/Customizer/Tabs/Styling_Tab.php:227
+msgid "25th July 2020, 17:30"
+msgstr "25 de julio de 2020, 17:30"
+
+#: inc/Admin/SBY_Admin.php:326 inc/Customizer/Tabs/Styling_Tab.php:226
+msgid "25/07/20"
+msgstr "25/07/20"
+
+#: inc/Admin/SBY_Admin.php:322 inc/Customizer/Tabs/Styling_Tab.php:225
+msgid "25.07.20"
+msgstr "25.07.20"
+
+#: inc/Admin/SBY_Admin.php:318 inc/Customizer/Tabs/Styling_Tab.php:224
+msgid "07/25/20"
+msgstr "07/25/20"
+
+#: inc/Admin/SBY_Admin.php:314 inc/Customizer/Tabs/Styling_Tab.php:223
+msgid "07.25.20 - 17:30"
+msgstr "07.25.20 - 17:30"
+
+#: inc/Admin/SBY_Admin.php:310 inc/Customizer/Tabs/Styling_Tab.php:222
+msgid "07.25.20"
+msgstr "07.25.20"
+
+#: inc/Admin/SBY_Admin.php:306 inc/Customizer/Tabs/Styling_Tab.php:221
+msgid "Monday July 25th, 2020 - 5:30 pm"
+msgstr "Lunes 25 de julio de 2020 - 17:30 h"
+
+#: inc/Admin/SBY_Admin.php:302 inc/Customizer/Tabs/Styling_Tab.php:220
+msgid "Mon Jul 25th, 2020"
+msgstr "Lun 25 julio 2020"
+
+#: inc/Admin/SBY_Admin.php:298 inc/Customizer/Tabs/Styling_Tab.php:219
+msgid "Monday July 25th"
+msgstr "Lunes 25 de julio"
+
+#: inc/Admin/SBY_Admin.php:294 inc/Customizer/Tabs/Styling_Tab.php:218
+msgid "Mon July 25th"
+msgstr "lun 25 julio"
+
+#: inc/Admin/SBY_Admin.php:290 inc/Customizer/Tabs/Styling_Tab.php:217
+msgid "July 25th"
+msgstr "25 de julio"
+
+#: inc/Admin/SBY_Admin.php:286 inc/Customizer/Tabs/Styling_Tab.php:216
+msgid "July 25th, 5:30 pm"
+msgstr "25 de julio, 17:30 h"
+
+#: inc/Admin/SBY_Admin.php:282 inc/Customizer/Tabs/Styling_Tab.php:215
+msgid "WordPress Default (%s)"
+msgstr "WordPress por defecto (%s)"
+
+#: inc/Admin/SBY_Admin.php:274
+msgid "Size of video description text, size of other text in the info display will be relative to this size."
+msgstr "Tamaño del texto de descripción del vídeo, el tamaño del resto del texto en la pantalla de información será relativo a este tamaño."
+
+#: inc/Admin/SBY_Admin.php:271
+msgid "Size of description text, size of other text will be relative to this size."
+msgstr "Tamaño del texto de la descripción, el tamaño del resto del texto será relativo a este tamaño."
+
+#: inc/Admin/SBY_Admin.php:267 inc/Customizer/Tabs/Styling_Tab.php:284
+msgid "Description Text Size"
+msgstr "Tamaño de fuente de la descripción"
+
+#: inc/Admin/SBY_Admin.php:258
+msgid "12px"
+msgstr "12px"
+
+#: inc/Admin/SBY_Admin.php:254
+msgid "13px"
+msgstr "13px"
+
+#: inc/Admin/SBY_Admin.php:250
+msgid "14px"
+msgstr "14px"
+
+#: inc/Admin/SBY_Admin.php:246
+msgid "15px"
+msgstr "15px"
+
+#: inc/Admin/SBY_Admin.php:242
+msgid "16px"
+msgstr "16px"
+
+#: inc/Admin/SBY_Admin.php:238
+msgid "18px"
+msgstr "18px"
+
+#: inc/Admin/SBY_Admin.php:234
+msgid "20px"
+msgstr "20px"
+
+#: inc/Admin/SBY_Admin.php:230
+msgid "inherit"
+msgstr "heredar"
+
+#: inc/Admin/SBY_Admin.php:222
+msgid "Maximum length of the description"
+msgstr "Longitud máxima de la descripción"
+
+#: inc/Admin/SBY_Admin.php:218
+msgid "Description Character Length"
+msgstr "Longitud de la descripción en caracteres"
+
+#: inc/Admin/SBY_Admin.php:203
+msgid "Comma separated list of what video information (title, description, stats) will display when hovering over the video thumbnail. eg."
+msgstr "Lista separada por comas de la información del vídeo (title, description, stats) que se mostrará al pasar el cursor por encima de la miniatura del vídeo. eg."
+
+#: inc/Admin/SBY_Admin.php:199
+msgid "Hover Show/Hide"
+msgstr "Mostrar/ocultar al pasar por encima"
+
+#: inc/Admin/SBY_Admin.php:64
+msgid "Info Display"
+msgstr "Mostrar información"
+
+#: inc/Admin/admin-functions.php:344
+msgid "Custom Text/Translations"
+msgstr "Personalizar texto/traducciones"
+
+#: inc/Admin/admin-functions.php:135
+msgid "You can find the Video ID of your individual videos from the URL. The text you need to use is highlighted below:"
+msgstr "Puedes encontrar el ID de vídeo de cada uno de tus vídeos en la URL. El texto que debes utilizar aparece resaltado a continuación:"
+
+#: inc/Admin/admin-functions.php:134
+msgid "Video ID"
+msgstr "ID de vídeo"
+
+#: inc/Admin/admin-functions.php:133
+msgid "Displays individual videos sorted in order here. Display multiple single videos by using a comma separated list."
+msgstr "Muestra aquí los vídeos individuales ordenados por orden. Muestra varios vídeos individuales utilizando una lista separada por comas."
+
+#: inc/Admin/admin-functions.php:132
+msgid "Display a feed of individual videos"
+msgstr "Mostrar un feed de vídeos individuales"
+
+#: inc/Admin/admin-functions.php:130
+msgid "Eg: Video ID 1, Video ID 2"
+msgstr "Ej: ID de vídeo 1, ID de vídeo 2"
+
+#: inc/Admin/admin-functions.php:127
+#: inc/Services/Admin/Settings/SingleVideoPage.php:23
+#: inc/Services/Admin/Settings/SingleVideoPage.php:24
+#: inc/Services/Admin/Settings/SingleVideoPage.php:32
+msgid "Single Videos"
+msgstr "Vídeos individuales"
+
+#: inc/Admin/admin-functions.php:117
+msgid "Displays a single upcoming or currently playing live streaming video from a channel."
+msgstr "Muestra un único vídeo de transmisión en directo, próximo o en reproducción, de un canal."
+
+#: inc/Admin/admin-functions.php:23 inc/Builder/SBY_Feed_Builder.php:98
+#: inc/Builder/SBY_Feed_Builder.php:99 inc/Builder/SBY_Feed_Builder.php:135
+#: inc/Builder/SBY_Feed_Builder.php:146 inc/Builder/SBY_Feed_Builder.php:1219
+#: inc/Services/Admin/MenuService.php:47 inc/Services/Admin/MenuService.php:48
+msgid "All Feeds"
+msgstr "Todos los feeds"
+
+#: inc/Admin/SBY_Admin.php:1068
+msgid "Check this box if you'd like to enqueue the JavaScript file for the plugin in the head instead of the footer."
+msgstr "Comprueba esta casilla si quieres encolar el archivo JavaScript del plugin en el encabezado en lugar de en el pie de página."
+
+#: inc/Admin/SBY_Admin.php:1066
+msgid "Enqueue JS file in head"
+msgstr "Encolar el archivo JS en la cabecera"
+
+#: inc/Admin/SBY_Admin_Abstract.php:111
+msgid "Select a Feed Type"
+msgstr "Selecciona un tipo de feed"
+
+#: inc/Admin/SBY_Admin_Abstract.php:104
+msgid "Feed Finder"
+msgstr "Buscador de feeds"
+
+#: inc/Builder/SBY_Feed_Builder.php:387
+msgid "Location"
+msgstr "Ubicación"
+
+#: inc/Builder/SBY_Feed_Builder.php:149 inc/Builder/SBY_Feed_Builder.php:379
+#: inc/Builder/SBY_Feed_Builder.php:407
+msgid "Shortcode"
+msgstr "Shortcode"
+
+#: inc/Builder/Tabs/SBY_Settings_Tab.php:32
+msgid "Sources"
+msgstr "Orígenes"
+
+#: inc/Customizer/Tabs/Styling_Tab.php:327
+msgid "Type"
+msgstr "Tipo"
+
+#: inc/Builder/SBY_Feed_Builder.php:1273 inc/Builder/SBY_Feed_Builder.php:1389
+#: inc/Feed_Locator.php:388
+msgid "Footer"
+msgstr "Pie de página"
+
+#: inc/Builder/SBY_Feed_Builder.php:1275 inc/Builder/SBY_Feed_Builder.php:1391
+#: inc/Feed_Locator.php:383
+msgid "Sidebar"
+msgstr "Barra lateral"
+
+#: inc/Builder/SBY_Feed_Builder.php:1277 inc/Builder/SBY_Feed_Builder.php:1393
+#: inc/Feed_Locator.php:374
+msgid "Content"
+msgstr "Contenido"
+
+#: inc/SBY_RSS_Connect.php:50
+msgid "You must have the allow_url_fopen directive enabled in your server's php.ini file to retrieve live streams."
+msgstr "Debes tener activada la directiva allow_url_fopen en el archivo php.ini de tu servidor para recuperar transmisiones en directo."
+
+#: inc/SBY_RSS_Connect.php:48
+msgid "Unable to retrieve new videos due to server configuration."
+msgstr "No se han podido recuperar nuevos vídeos debido a la configuración del servidor."
+
+#: inc/Admin/SBY_Admin.php:1281
+msgid "The plugin will function as normal and load images and videos directly from YouTube."
+msgstr "El plugin funcionará normalmente y cargará imágenes y vídeos directamente desde YouTube."
+
+#: inc/Admin/SBY_Admin.php:1274
+msgid "No requests will be made to third-party websites. To accommodate this, some features of the plugin will be limited:"
+msgstr "No se realizarán solicitudes a sitios web de terceros. Para ello, algunas características del plugin estarán limitadas:"
+
+#: inc/Admin/SBY_Admin.php:1266
+msgid "No GDPR consent plugin detected. Install a compatible <a href=\"https://smashballoon.com/doc/gdpr-plugin-list/?youtube\" target=\"_blank\">GDPR consent plugin</a>, or manually enable the setting above to display a GDPR compliant version of the feed to all visitors."
+msgstr "No se ha detectado ningún plugin de consentimiento RGPD. Instala un plugin de consentimiento <a href=\"https://smashballoon.com/doc/gdpr-plugin-list/?youtube\" target=\"_blank\">RGPD</a> compatible, o activa manualmente la configuración anterior para mostrar una versión del feed que cumpla con el RGPD a todos los visitantes."
+
+#: inc/Admin/SBY_Admin.php:1256
+msgid "Some YouTube Feeds features will be limited for visitors to ensure GDPR compliance until they give consent."
+msgstr "Algunas características de YouTube Feed estarán limitadas para los visitantes para garantizar el cumplimiento del RGPD hasta que den su consentimiento."
+
+#: inc/Admin/SBY_Admin.php:1254
+msgid "%s detected"
+msgstr "%s detectado"
+
+#: inc/Admin/SBY_Admin.php:1238
+msgid "Due to a configuration issue on your web server, the GDPR setting is unable to be enabled. Please see below for more information."
+msgstr "Debido a un problema de configuración en tu servidor web, no se ha podido activar el ajuste de RGPD. Por favor, consulta más abajo para obtener más información."
+
+#: inc/Admin/SBY_Admin.php:1238 inc/Builder/SBY_Feed_Builder.php:412
+msgid "Error:"
+msgstr "Error:"
+
+#: inc/Admin/SBY_Admin.php:1224
+msgid "Block CDN Images"
+msgstr "Bloquear imágenes de CDN"
+
+#: inc/Admin/SBY_Admin.php:1214
+msgid "Click here"
+msgstr "Haz clic aquí"
+
+#: inc/Admin/SBY_Admin.php:1212
+msgid "GDPR cookie plugins"
+msgstr "plugins de cookies RGPD"
+
+#: inc/Admin/SBY_Admin.php:1212
+msgid "The plugin will only videos if consent has been given by one of these integrated %s"
+msgstr "El plugin solo cargará vídeos si el consentimiento ha sido dado por uno de estos %s integrados"
+
+#: inc/Admin/SBY_Admin.php:1209
+msgid "The plugin will still make some requests to display and play videos directly from YouTube."
+msgstr "El plugin seguirá realizando algunas peticiones para mostrar y reproducir vídeos directamente desde YouTube."
+
+#: inc/Admin/SBY_Admin.php:1204 inc/Admin/SBY_Admin.php:1257
+msgid "What will be limited?"
+msgstr "¿Qué será limitado?"
+
+#: inc/Admin/SBY_Admin.php:1204
+msgid "Enabling this setting prevents all videos and external code from loading on your website. To accommodate this, some features of the plugin will be disabled or limited."
+msgstr "Activar este ajuste impide que todos los vídeos y código externo se carguen en tu sitio web. Para ello, algunas características del plugin estarán desactivadas o limitadas."
+
+#: inc/Admin/SBY_Admin.php:1190
+msgid "To view videos, visitors will click on links to view the video on youtube.com."
+msgstr "Para ver vídeos, los visitantes harán clic en enlaces para ver el vídeo en youtube.com."
+
+#: inc/Admin/SBY_Admin.php:1189
+msgid "Thumbnail images for videos will be displayed instead of the actual video."
+msgstr "Se mostrarán miniaturas de los vídeos en lugar del vídeo real."
+
+#: inc/Admin/SBY_Admin.php:1188
+msgid "YouTube Player API will not be loaded."
+msgstr "No se cargará la YouTube Player API."
+
+#: inc/Admin/SBY_Admin.php:1181 inc/Admin/SBY_Admin.php:1209
+#: inc/Admin/SBY_New_User.php:330 inc/Admin/SBY_Notifications.php:615
+msgid "No"
+msgstr "No"
+
+#: inc/Admin/SBY_Admin.php:1173 inc/Admin/SBY_Admin.php:1212
+msgid "Automatic"
+msgstr "Automático"
+
+#: inc/Admin/SBY_Admin.php:972
+msgid "Enable GDPR Settings"
+msgstr "Activar los ajustes del RGPD"
+
+#: inc/Admin/SBY_Admin.php:963
+msgid "GDPR"
+msgstr "RGPD"
+
+#: youtube-feed.php:217
+msgid "Weekly"
+msgstr "Semanalmente"
+
+#: inc/Admin/SBY_Notifications.php:709
+msgid "Next message"
+msgstr "Mensaje siguiente"
+
+#: inc/Admin/SBY_Notifications.php:708
+msgid "Previous message"
+msgstr "Mensaje anterior"
+
+#: inc/Admin/SBY_Admin_Notice.php:49 inc/Admin/SBY_Notifications.php:698
+msgid "Dismiss this message"
+msgstr "Descartar este mensaje"
+
+#: inc/SBY_RSS_Connect.php:65
+msgid "Cannot collect videos from this channel. Please make sure this is a valid channel ID."
+msgstr "No se pueden recuperar vídeos de este canal. Asegúrate de que es un ID de canal válido."
+
+#: inc/SBY_RSS_Connect.php:45
+msgid "Due to your server configuration, an API key is required to update your feed. See %sthis FAQ%s to set up an API key."
+msgstr "Debido a la configuración de tu servidor, se requiere una clave de API para actualizar tu feed. Consulta %sesta FAQ%s para establecer una clave de API."
+
+#: inc/SBY_RSS_Connect.php:43
+msgid "Unable to retrieve new videos without an API key."
+msgstr "No se han podido recuperar nuevos vídeos sin una clave API."
+
+#: inc/Builder/SBY_Source.php:96 inc/SBY_API_Connect.php:131
+msgid "Directions on how to resolve this issue"
+msgstr "Instrucciones sobre cómo resolver este problema"
+
+#: inc/SBY_API_Connect.php:122
+msgid "Error %s: %s."
+msgstr "Error %s: %s."
+
+#: inc/SBY_API_Connect.php:111 inc/SBY_Feed.php:517 inc/SBY_Feed.php:1092
+#: inc/SBY_Feed.php:1157
+msgid "Reconnect in the YouTube Feeds Settings Area"
+msgstr "Volver a conectar en el área de ajustes de YouTube Feed"
+
+#: inc/SBY_API_Connect.php:108 inc/SBY_Feed.php:514 inc/SBY_Feed.php:1089
+#: inc/SBY_Feed.php:1154
+msgid "To create a new feed, first connect to YouTube using the \"Connect to YouTube to Create a Feed\" button on the settings page and connect any account."
+msgstr "Para crear un nuevo feed, conéctate primero a YouTube utilizando el botón «Conéctate a YouTube para crear un feed» de la página de ajustes y conecta cualquier cuenta."
+
+#: inc/SBY_API_Connect.php:107 inc/SBY_Feed.php:513 inc/SBY_Feed.php:1088
+#: inc/SBY_Feed.php:1153
+msgid "Reconnect to YouTube to show this feed."
+msgstr "Vuelve a conectarte a YouTube para mostrar este feed."
+
+#: inc/Blocks/SBY_Blocks.php:116
+msgid "Apply Changes"
+msgstr "Aplicar los cambios"
+
+#: inc/Blocks/SBY_Blocks.php:114
+msgid "Shortcode Settings"
+msgstr "Ajustes del shortcode"
+
+#: inc/Blocks/SBY_Blocks.php:113
+msgid "Add Settings"
+msgstr "Añadir ajustes"
+
+#: inc/Admin/SBY_Admin.php:1058
+msgid "To optimize the performance of your site and feeds, the plugin loads iframes only after a visitor interacts with the feed. Enabling this setting will cause YouTube player iframes to load when the page loads. Some features may work differently when this is enabled."
+msgstr "Para optimizar el rendimiento de tu sitio y de los feeds, el plugin carga iframes solo después de que un visitante interactúe con el feed. Si activas este ajuste, los iframes del reproductor de YouTube se cargarán cuando se cargue la página. Algunas características pueden funcionar de forma diferente cuando se activa esta opción."
+
+#: inc/Admin/SBY_Admin.php:1056
+msgid "Load Iframes on Page Load"
+msgstr "Cargar Iframes al cargar la página"
+
+#: inc/Admin/SBY_Admin.php:742
+msgid "A 9:16 ratio does not leave room for video title and playback tools while a 3:4 ratio does."
+msgstr "Una proporción de 9:16 no deja espacio para herramientas de reproducción y títulos de vídeo, mientras que una proporción de 3:4 sí lo deja."
+
+#: inc/Admin/SBY_Admin.php:738
+msgid "Player height relative to width e.g."
+msgstr "Altura del reproductor en relación con la anchura, por ejemplo"
+
+#: inc/Admin/SBY_Admin.php:734 inc/Customizer/Tabs/Customize_Tab.php:1281
+msgid "Player Size Ratio"
+msgstr "Proporción del tamaño de los reproductores"
+
+#: inc/Admin/SBY_Admin.php:1048
+msgid "The default HTML for the feed can be replaced with custom templates added to your theme's folder. Enable this setting to use these templates. See <a href=\"https://smashballoon.com/youtube-custom-templates/\" target=\"_blank\">this guide</a>"
+msgstr "El HTML por defecto para el feed puede sustituirse por plantillas personalizadas añadidas a la carpeta de tu tema. Activa este ajuste para utilizar estas plantillas. Consulta <a href=\"https://smashballoon.com/youtube-custom-templates/\" target=\"_blank\">esta guía</a>"
+
+#: inc/Admin/SBY_Admin.php:1046
+msgid "Enable Custom Templates"
+msgstr "Activar plantillas personalizadas"
+
+#: inc/Admin/SBY_Admin.php:928
+msgid "These are the specific ID numbers associated with a video or with a post. You can find the ID of a video by viewing the video on YouTube and copy/pasting the ID number from the end of the URL. ex. <code>https://www.youtube.com/watch?v=<span class=\"sbspf-highlight\">Ij1KvL8eN</span></code>"
+msgstr "Son los números de identificación específicos asociados a un vídeo o a una entrada. Puedes encontrar el ID de un vídeo visualizándolo en YouTube y copiando/pegando el número ID del final de la URL. ej. <code>https://www.youtube.com/watch?v=<span class=\"sbspf-highlight\">Ij1KvL8eN</span></code>"
+
+#: inc/Admin/SBY_Admin.php:927
+msgid "Separate IDs with commas."
+msgstr "Separa los ID con comas."
+
+#: inc/Admin/SBY_Admin.php:925
+msgid "Hide Specific Videos"
+msgstr "Ocultar vídeos específicos"
+
+#: inc/Admin/SBY_Admin.php:916
+msgid "\"excludewords\" separate multiple words with commas, include \"#\" for hashtags"
+msgstr "\"excludewords\" separa varias palabras con comas, incluye \"#\" para hashtags"
+
+#: inc/Admin/SBY_Admin.php:913
+msgid "Remove videos that have specific text in the title or description."
+msgstr "Quita los vídeos que tengan un texto específico en el título o en la descripción."
+
+#: inc/Admin/SBY_Admin.php:909
+msgid "Remove videos containing these words or hashtags"
+msgstr "Quita los vídeos que contengan estas palabras o hashtags"
+
+#: inc/Admin/SBY_Admin.php:899
+msgid "\"includewords\" separate multiple words with commas, include \"#\" for hashtags"
+msgstr "\"includewords\" separa varias palabras con comas, incluye \"#\" para hashtags"
+
+#: inc/Admin/SBY_Admin.php:896
+msgid "Show videos that have specific text in the title or description."
+msgstr "Mostrar vídeos que tengan un texto específico en el título o en la descripción."
+
+#: inc/Admin/SBY_Admin.php:892
+msgid "Show videos containing these words or hashtags"
+msgstr "Mostrar vídeos que contengan estas palabras o hashtags"
+
+#: inc/Admin/SBY_Admin.php:879
+msgid "Moderation"
+msgstr "Moderación"
+
+#: inc/Admin/SBY_Admin.php:874
+msgid "Choose what will happen after a video is paused or completes."
+msgstr "Elige qué ocurrirá después de pausar o completar un vídeo."
+
+#: inc/Admin/SBY_Admin.php:871
+msgid "What the user sees when a video pauses or ends. eg."
+msgstr "Lo que el usuario ve cuando un vídeo hace una pausa o termina. ej."
+
+#: inc/Admin/SBY_Admin.php:867
+msgid "What the user sees when a video pauses or ends."
+msgstr "Qué ve el usuario cuando un vídeo hace una pausa o termina."
+
+#: inc/Admin/SBY_Admin.php:866 inc/Customizer/Tabs/Customize_Tab.php:1383
+#: inc/Customizer/Tabs/Customize_Tab.php:1390
+msgid "Call to Action"
+msgstr "Llamada a la acción"
+
+#: inc/Admin/SBY_Admin.php:856
+msgid "YouTube suggested videos from your channel that play on YouTube when clicked."
+msgstr "Vídeos sugeridos por YouTube de tu canal que se reproducen en YouTube al hacer clic."
+
+#: inc/Admin/SBY_Admin.php:854
+msgid "YouTube Default"
+msgstr "Por defecto de YouTube"
+
+#: inc/Admin/SBY_Admin.php:848
+msgid "Color of the text on the call-to-action-button"
+msgstr "Color del texto del botón de llamada a la acción"
+
+#: inc/Admin/SBY_Admin.php:838
+msgid "Button background. Turns opaque on hover."
+msgstr "Fondo del botón. Se vuelve opaco al pasar el cursor."
+
+#: inc/Admin/SBY_Admin.php:828
+msgid "Text that appears on the call-to-action button."
+msgstr "Texto que aparece en el botón de llamada a la acción."
+
+#: inc/Admin/SBY_Admin.php:825 inc/Builder/SBY_Feed_Builder.php:386
+#: inc/Builder/SBY_Feed_Saver.php:571 inc/Builder/Tooltip_Wizard.php:109
+#: inc/SBY_Settings.php:344 inc/Services/AdminAjaxService.php:688
+#: youtube-feed.php:509
+msgid "Learn More"
+msgstr "Aprender más"
+
+#: inc/Admin/SBY_Admin.php:824
+msgid "Default Button Text"
+msgstr "Texto del botón por defecto"
+
+#: inc/Admin/SBY_Admin.php:818
+msgid "Whether to open the page in a new window or the same window."
+msgstr "Si quieres abrir la página en una ventana nueva o en la misma ventana."
+
+#: inc/Admin/SBY_Admin.php:814
+msgid "Link Open Type"
+msgstr "Tipo de apertura de enlace"
+
+#: inc/Admin/SBY_Admin.php:810
+msgid "New window"
+msgstr "Nueva ventana"
+
+#: inc/Admin/SBY_Admin.php:806
+msgid "Same window"
+msgstr "Misma ventana"
+
+#: inc/Admin/SBY_Admin.php:798
+msgid "URL for viewer to visit for the call to action."
+msgstr "URL que el espectador debe visitar para la llamada a la acción."
+
+#: inc/Admin/SBY_Admin.php:793 inc/Customizer/Tabs/Styling_Tab.php:401
+msgid "Default Link"
+msgstr "Enlace por defecto"
+
+#: inc/Admin/SBY_Admin.php:788
+msgid "Custom link for each video"
+msgstr "Enlaza de forma personalizada cada vídeo"
+
+#: inc/Admin/SBY_Admin.php:787
+msgid "To set a link for each video individually, add the link and button text in the video description on YouTube in this format:"
+msgstr "Para establecer un enlace para cada vídeo individualmente, añade el enlace y el texto del botón en la descripción del vídeo en YouTube en este formato:"
+
+#: inc/Admin/SBY_Admin.php:782
+msgid "Display a button link to a custom URL."
+msgstr "Mostrar un enlace de botón a una URL personalizada."
+
+#: inc/Admin/SBY_Admin.php:777
+msgid "Display video thumbnails from the feed that play on your site when clicked."
+msgstr "Muestra miniaturas de vídeos del feed que se reproducen en tu sitio al hacer clic."
+
+#: inc/Admin/SBY_Admin.php:775
+msgid "Related Videos"
+msgstr "Vídeos relacionados"
+
+#: inc/Admin/SBY_Admin.php:553
+msgid "Include the number of subscribers in the header."
+msgstr "Incluye el número de suscriptores en la cabecera."
+
+#: inc/Admin/SBY_Admin.php:548
+msgid "Show Subscribers"
+msgstr "Mostrar suscriptores"
+
+#: inc/Admin/SBY_Admin.php:90
+msgid "Where the information (title, description, stats) will display. eg."
+msgstr "Donde se mostrará la información (título, descripción, estadísticas). ej."
+
+#: inc/Admin/SBY_Admin.php:86
+msgid "Position"
+msgstr "Posición"
+
+#: inc/Admin/SBY_Admin.php:77
+msgid "Next to video thumbnail"
+msgstr "Al lado de la miniatura del vídeo"
+
+#: inc/Admin/SBY_Admin.php:73
+msgid "Below video thumbnail"
+msgstr "Bajo la miniatura del video"
+
+#: inc/Admin/admin-functions.php:340
+msgid "Video Experience Options"
+msgstr "Opciones de experiencia de vídeo"
+
+#: inc/Admin/admin-functions.php:316
+msgid "Duration in milliseconds before the slide changes."
+msgstr "Duración en milisegundos antes de que cambie la diapositiva."
+
+#: inc/Admin/admin-functions.php:312 inc/Builder/Tabs/SBY_Customize_Tab.php:195
+#: inc/Customizer/Tabs/Customize_Tab.php:184
+msgid "Interval Time"
+msgstr "Tiempo de intervalo"
+
+#: inc/Admin/admin-functions.php:306
+msgid "Whether or not to change slides automatically on an interval."
+msgstr "Si cambiar o no las diapositivas automáticamente en un intervalo."
+
+#: inc/Admin/admin-functions.php:302
+msgid "Enable Autoplay"
+msgstr "Activar reproducción automática"
+
+#: inc/Admin/admin-functions.php:296
+msgid "Show dots below carousel for an ordinal indication of which slide is being shown."
+msgstr "Mostrar puntos debajo del carrusel para una indicación ordinal de qué diapositiva se está mostrando."
+
+#: inc/Admin/admin-functions.php:292
+msgid "Show Pagination"
+msgstr "Mostrar paginación"
+
+#: inc/Admin/admin-functions.php:286
+msgid "Show arrows on the sides to navigate posts."
+msgstr "Mostrar flechas en los laterales para navegar por las publicaciones."
+
+#: inc/Admin/admin-functions.php:282
+msgid "Show Navigation Arrows"
+msgstr "Mostrar flechas de navegación"
+
+#: inc/Admin/admin-functions.php:276
+msgid "What happens when the last slide is reached."
+msgstr "Qué ocurre cuando se alcanza la última diapositiva."
+
+#: inc/Admin/admin-functions.php:269 inc/Builder/Tabs/SBY_Customize_Tab.php:184
+#: inc/Customizer/Tabs/Customize_Tab.php:173
+msgid "Infinity"
+msgstr "Infinito"
+
+#: inc/Admin/admin-functions.php:265 inc/Builder/Tabs/SBY_Customize_Tab.php:183
+#: inc/Customizer/Tabs/Customize_Tab.php:172
+msgid "Rewind"
+msgstr "Rebobinar"
+
+#: inc/Admin/admin-functions.php:262 inc/Builder/Tabs/SBY_Customize_Tab.php:180
+#: inc/Customizer/Tabs/Customize_Tab.php:169
+msgid "Loop Type"
+msgstr "Tipo bucle"
+
+#: inc/Admin/admin-functions.php:256
+msgid "Choose 2 rows to show two posts in a single slide."
+msgstr "Elige 2 filas para mostrar dos entradas en una sola diapositiva."
+
+#: inc/Admin/admin-functions.php:250
+msgid "Number of Rows"
+msgstr "Número de filas"
+
+#: inc/Admin/admin-functions.php:222
+msgid "Posts are displayed in a slideshow carousel."
+msgstr "Las entradas se muestran en un carrusel de diapositivas."
+
+#: inc/Admin/admin-functions.php:220 inc/Builder/SBY_Feed_Builder.php:1030
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:145
+#: inc/Customizer/Tabs/Customize_Tab.php:134
+msgid "Carousel"
+msgstr "Carrusel"
+
+#: inc/Admin/admin-functions.php:175 inc/Admin/admin-functions.php:207
+#: inc/Admin/admin-functions.php:245
+msgid "Columns when 480px screen width or less."
+msgstr "Columnas cuando la anchura de pantalla es de 480px o menos."
+
+#: inc/Admin/admin-functions.php:163 inc/Admin/admin-functions.php:195
+#: inc/Admin/admin-functions.php:233
+msgid "Videos in carousel when 480px screen width or less."
+msgstr "Vídeos en carrusel cuando la anchura de pantalla es igual o inferior a 480px."
+
+#: inc/Admin/admin-functions.php:119
+msgid "You can find the ID of your YouTube Channel from the URL. The text you need to use is highlighted below:"
+msgstr "Puedes encontrar el ID de tu canal de YouTube en la URL. El texto que debes utilizar está resaltado a continuación:"
+
+#: inc/Admin/admin-functions.php:116
+msgid "Display upcoming and currently playing live streams (live)"
+msgstr "Mostrar las transmisiones en directo próximas y actuales (live)"
+
+#: inc/Admin/admin-functions.php:114
+msgid "Eg: Channel ID"
+msgstr "Ej: ID de canal"
+
+#: inc/Admin/admin-functions.php:111
+msgid "Live Streams"
+msgstr "Retransmisiones en directo"
+
+#: inc/Admin/admin-functions.php:106
+msgid "Enter any search term or phrase. Separate multiple terms with commas. You can add your own additional query vars using the <a href=\"https://smashballoon.com/youtube-feed/custom-search-guide/\" target=\"_blank\" rel=\"noopener\">guide on our website</a> and the input field above."
+msgstr "Introduce cualquier término o frase de búsqueda. Separa los términos múltiples con comas. Puedes añadir tus propias variables de consulta adicionales utilizando la <a href=\"https://smashballoon.com/youtube-feed/custom-search-guide/\" target=\"_blank\" rel=\"noopener\">guía de nuestro sitio web</a> y el campo de entrada de arriba."
+
+#: inc/Admin/admin-functions.php:105
+msgid "Display a feed of matching search results (search)"
+msgstr "Mostrar un feed de resultados de búsqueda coincidentes (search)"
+
+#: inc/Admin/admin-functions.php:103
+msgid "Eg: Search Term"
+msgstr "Ej: Término de búsqueda"
+
+#: inc/Admin/admin-functions.php:100
+msgid "Search"
+msgstr "Buscar"
+
+#: inc/Admin/admin-functions.php:89
+msgid "Displays all videos marked as \"favorites\" by a YouTube account starting with the most recently published."
+msgstr "Muestra todos los vídeos marcados como «favoritos» por una cuenta de YouTube, empezando por los publicados más recientemente."
+
+#: inc/Admin/admin-functions.php:88
+msgid "Display the \"favorites\" playlist for a channel (favorites)"
+msgstr "Mostrar la lista de reproducción «favoritos» de un canal (favorites)"
+
+#: inc/Admin/admin-functions.php:83
+msgid "Favorites"
+msgstr "Favoritos"
+
+#: inc/Admin/admin-functions.php:76
+msgid "You can find the ID of your YouTube playlist from the URL. The text you need to use is highlighted below:"
+msgstr "Puedes encontrar el ID de tu lista de reproducción de YouTube en la URL. El texto que debes utilizar aparece resaltado a continuación:"
+
+#: inc/Admin/admin-functions.php:75
+msgid "Playlist ID"
+msgstr "ID de lista de reproducción"
+
+#: inc/Admin/admin-functions.php:74
+msgid "Enter any playlist ID to display videos from a playlist starting with the most recently published."
+msgstr "Introduce cualquier ID de lista de reproducción para mostrar los vídeos de una lista de reproducción empezando por los publicados más recientemente."
+
+#: inc/Admin/admin-functions.php:73
+msgid "Display videos from a specific playlist (playlist)"
+msgstr "Mostrar vídeos de una lista de reproducción específica (playlist)"
+
+#: inc/Admin/admin-functions.php:71
+msgid "Eg: Playlist ID"
+msgstr "Ej: ID de la lista de reproducción"
+
+#: inc/Admin/admin-functions.php:68
+msgid "Playlist"
+msgstr "Lista de reproducción"
+
+#: inc/Admin/admin-functions.php:57
+msgid "Enter any channel ID or user name to display all of an accounts latest videos starting with the most recently published."
+msgstr "Introduce cualquier ID de canal o nombre de usuario para ver los últimos vídeos de una cuenta, empezando por el último publicado."
+
+#: inc/Admin/SBY_Admin_Abstract.php:115
+msgid "Type of feed to display"
+msgstr "Tipo de feed a mostrar"
+
+#: inc/Admin/SBY_Admin.php:150
+msgid "Comma separated list of what video information (title, description, stats) will display in the feed. eg."
+msgstr "Lista separada por comas de la información del vídeo (title, description, stats) que se mostrará en el feed. eg."
+
+#: inc/Admin/SBY_Admin.php:146
+msgid "Show/Hide"
+msgstr "Mostrar/ocultar"
+
+#: inc/Admin/SBY_Admin.php:131 inc/Admin/SBY_Admin.php:189
+msgid "Stats (like and comment counts)"
+msgstr "Estadísticas (recuento de me gusta y comentarios)"
+
+#: inc/Admin/SBY_Admin.php:126 inc/Admin/SBY_Admin.php:179
+msgid "Live Stream Countdown (when applies)"
+msgstr "Cuenta atrás de la transmisión en directo (cuando corresponda)"
+
+#: inc/Admin/SBY_Admin.php:121 inc/Admin/SBY_Admin.php:174
+#: inc/Builder/SBY_Feed_Builder.php:1097
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:945
+#: inc/Customizer/Tabs/Customize_Tab.php:835
+#: inc/Customizer/Tabs/Customize_Tab.php:845
+#: inc/Customizer/Tabs/Customize_Tab.php:1002
+#: inc/Customizer/Tabs/Customize_Tab.php:1093
+msgid "Date"
+msgstr "Fecha"
+
+#: inc/Admin/SBY_Admin.php:116 inc/Admin/SBY_Admin.php:169
+#: inc/Customizer/Tabs/Customize_Tab.php:1026
+#: inc/Services/ShortcodeService.php:184
+msgid "Views"
+msgstr "Visualizaciones"
+
+#: inc/Admin/SBY_Admin.php:111 inc/Admin/SBY_Admin.php:164
+msgid "User Name"
+msgstr "Nombre de usuario"
+
+#: inc/Admin/SBY_Admin.php:106 inc/Admin/SBY_Admin.php:159
+msgid "Title"
+msgstr "Título"
+
+#: inc/Admin/SBY_Admin.php:101 inc/Customizer/Tabs/Customize_Tab.php:734
+msgid "Play Icon"
+msgstr "Icono de reproducción"
+
+#. Author of the plugin
+#: youtube-feed.php
+msgid "Smash Balloon YouTube Team"
+msgstr "Smash Balloon YouTube Team"
+
+#: inc/Admin/admin-functions.php:54 inc/Admin/admin-functions.php:86
+msgid "Eg: Channel ID or User Name"
+msgstr "Ej: ID de canal o nombre de usuario"
+
+#: inc/Admin/SBY_Admin.php:1018
+msgid "To preserve your feeds and videos even if the YouTube API is unavailable, a record of each video is added to the wp_posts table in the WordPress database. Please note that changing this setting to \"none\" will limit the number of posts available in the feed to 15 or less."
+msgstr "Para conservar tus feeds y vídeos aunque la API de YouTube no esté disponible, se añade un registro de cada vídeo a la tabla wp_posts de la base de datos de WordPress. Ten en cuenta que si cambias este ajuste a «none», el número de entradas disponibles en el feed se limitará a 15 o menos."
+
+#: inc/Admin/SBY_Admin_Abstract.php:723
+msgid ""
+"Your %s data is temporarily cached by the plugin in your WordPress database. There are two ways that you can set the plugin to check for new data:<br><br>\n"
+"                <b>1. When the page loads</b><br>Selecting this option means that when the cache expires then the plugin will check %s for new posts the next time that the feed is loaded. You can choose how long this data should be cached for with a minimum time of 15 minutes. If you set the time to 60 minutes then the plugin will clear the cached data after that length of time, and the next time the page is viewed it will check for new data. <b>Tip:</b> If you're experiencing an issue with the plugin not updating automatically then try enabling the setting labeled <b>'Cron Clear Cache'</b> which is located on the 'Customize' tab.<br><br>\n"
+"                <b>2. In the background</b><br>Selecting this option means that the plugin will check for new data in the background so that the feed is updated behind the scenes. You can select at what time and how often the plugin should check for new data using the settings below. <b>Please note</b> that the plugin will initially check for data from YouTube when the page first loads, but then after that will check in the background on the schedule selected - unless the cache is cleared."
+msgstr ""
+"Tus datos de %s son almacenados temporalmente por el plugin en la base de datos de tu WordPress. Hay dos formas de establecer que el plugin compruebe si hay datos nuevos:<br><br>\n"
+"                <b>1. Cuando se carga la página</b><br>Si seleccionas esta opción, cuando caduque la caché, el plugin comprobará si hay publicaciones nuevas en %s la siguiente vez que se cargue el feed. Puedes elegir durante cuánto tiempo deben almacenarse en caché estos datos, con un tiempo mínimo de 15 minutos. Si estableces un tiempo de 60 minutos, el plugin vaciará los datos almacenados en caché transcurrido ese tiempo, y la siguiente vez que se visualice la página comprobará si hay datos nuevos. <b>Consejo:</b> Si tienes problemas con la actualización automática del plugin, intenta activar el ajuste <b>«cron de borrar caché»</b> que se encuentra en la pestaña «Personalizar».<br><br>\n"
+"                <b>2. En segundo plano</b><br>Si seleccionas esta opción, el plugin comprobará si hay datos nuevos en segundo plano para que el feed se actualice entre bastidores. Puedes seleccionar a qué hora y con qué frecuencia el plugin debe comprobar si hay datos nuevos utilizando los ajustes que se indican a continuación. <b>Ten en cuenta</b> que el plugin comprobará inicialmente los datos de YouTube cuando se cargue la página por primera vez, pero después lo hará en segundo plano según la programación seleccionada, a menos que se vacíe la caché."
+
+#: inc/Services/ShortcodeService.php:49
+msgid "Please go to the YouTube Feeds settings page to connect an account."
+msgstr "Ve a la página de ajustes de YouTube Feeds para conectar una cuenta."
+
+#: templates/player.php:28
+msgid "YouTube Video %s"
+msgstr "Vídeo de YouTube %s"
+
+#: templates/item.php:27 templates/player.php:20
+msgid "Image for post"
+msgstr "Imagen de la entrada"
+
+#: inc/Admin/SBY_Admin.php:1028
+msgid "When navigating your site, if your theme uses Ajax to load content into your pages (meaning your page doesn't refresh) then check this setting. If you're not sure then it's best to leave this setting unchecked while checking with your theme author, otherwise checking it may cause a problem."
+msgstr "Cuando navegues por tu sitio, si tu tema utiliza Ajax para cargar contenido en tus páginas (lo que significa que tu página no se actualiza), marca este ajuste. Si no estás seguro, es mejor que dejes este ajuste sin marcar mientras lo compruebas con el autor del tema; de lo contrario, marcarlo puede causar algún problema."
+
+#: inc/Admin/SBY_Admin.php:1026
+msgid "Are you using an AJAX theme?"
+msgstr "¿Estás utilizando un tema AJAX?"
+
+#: inc/Admin/SBY_Admin.php:1015
+msgid "Local storage process"
+msgstr "Proceso de almacenamiento local"
+
+#: inc/Admin/SBY_Admin.php:1005
+msgid "None"
+msgstr "Ninguna"
+
+#: inc/Admin/SBY_Admin.php:1001 inc/Builder/SBY_Feed_Builder.php:388
+msgid "Page"
+msgstr "Página"
+
+#: inc/Admin/SBY_Admin.php:997 inc/Builder/SBY_Feed_Builder.php:1000
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:397
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:917
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:1017
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:1136
+#: inc/Customizer/Tabs/Customize_Tab.php:374
+#: inc/Customizer/Tabs/Customize_Tab.php:1065
+#: inc/Customizer/Tabs/Customize_Tab.php:1165
+#: inc/Customizer/Tabs/Customize_Tab.php:1241
+#: inc/Customizer/Tabs/Customize_Tab.php:1336
+msgid "Background"
+msgstr "Fondo"
+
+#: inc/Admin/SBY_Admin.php:978 inc/Builder/SBY_Feed_Builder.php:411
+#: inc/Builder/Tabs/SBY_Settings_Tab.php:58
+#: inc/Customizer/Tabs/Customize_Tab.php:746
+#: inc/Customizer/Tabs/Customize_Tab.php:951
+#: inc/Customizer/Tabs/Settings_Tab.php:53
+msgid "Advanced"
+msgstr "Avanzado"
+
+#: inc/Admin/SBY_Admin.php:958
+msgid "Note: Custom JavaScript reruns every time more videos are loaded into the feed"
+msgstr "Nota: El JavaScript personalizado se vuelve a ejecutar cada vez que se cargan más vídeos en el feed"
+
+#: inc/Admin/SBY_Admin.php:957
+msgid "Enter your own custom JavaScript/jQuery in the box below"
+msgstr "Introduce tu propio JavaScript/jQuery personalizado en el cuadro siguiente"
+
+#: inc/Admin/SBY_Admin.php:955
+msgid "Custom JavaScript"
+msgstr "JavaScript personalizado"
+
+#: inc/Admin/SBY_Admin.php:946
+msgid "Enter your own custom CSS in the box below"
+msgstr "Introduce tu propio CSS personalizado en el cuadro siguiente"
+
+#: inc/Admin/SBY_Admin.php:944
+msgid "Custom CSS"
+msgstr "CSS personalizado"
+
+#: inc/Admin/SBY_Admin.php:933
+msgid "Custom Code Snippets"
+msgstr "Fragmentos de código personalizados"
+
+#: inc/Admin/SBY_Admin.php:769
+msgid "List layout will not play automatically. Choose whether to play the video automatically in the player or wait until the user clicks the play button after the video is loaded."
+msgstr "La disposición en lista no se reproducirá automáticamente. Elige si quieres reproducir el vídeo automáticamente en el reproductor o esperar a que el usuario haga clic en el botón de reproducción después de cargar el vídeo."
+
+#: inc/Admin/SBY_Admin.php:765
+msgid "What the user needs to do to play a video. eg."
+msgstr "Lo que el usuario tiene que hacer para reproducir un vídeo. ej."
+
+#: inc/Admin/SBY_Admin.php:761 inc/Customizer/Tabs/Customize_Tab.php:1298
+msgid "When does video play?"
+msgstr "¿Cuándo se reproduce el vídeo?"
+
+#: inc/Admin/SBY_Admin.php:748
+msgid "Play when clicked"
+msgstr "Reproducir al hacer clic"
+
+#: inc/Admin/SBY_Admin.php:712
+msgid "Video Experience"
+msgstr "Experiencia en vídeo"
+
+#: inc/Admin/SBY_Admin.php:705
+msgid "The text that appers on the \"Subscribe\" button."
+msgstr "El texto que aparece en el botón «Suscríbete»."
+
+#: inc/Admin/SBY_Admin.php:701
+msgid "Subscribe Text"
+msgstr "Texto de «Suscríbete»"
+
+#: inc/Admin/SBY_Admin.php:690
+msgid "Text color for the \"Subscribe\" button. Any hex color code."
+msgstr "Color del texto del botón «Suscríbete». Cualquier código de color hexadecimal."
+
+#: inc/Admin/SBY_Admin.php:686
+msgid "Subscribe Text Color"
+msgstr "Color del texto de «Suscríbete»"
+
+#: inc/Admin/SBY_Admin.php:675
+msgid "Background color for the \"Subscribe\" button. Any hex color code."
+msgstr "Color de fondo del botón «Suscríbete». Cualquier código de color hexadecimal."
+
+#: inc/Admin/SBY_Admin.php:671
+msgid "Subscribe Background Color"
+msgstr "Color de fondo de «Suscríbete»"
+
+#: inc/Admin/SBY_Admin.php:660
+msgid "Include a \"Subscribe\" button at the bottom of the feed to load more videos."
+msgstr "Incluye un botón «Suscríbete» en la parte inferior del feed para cargar más vídeos."
+
+#: inc/Admin/SBY_Admin.php:655
+msgid "Show \"Subscribe\" Button"
+msgstr "Mostrar botón «Suscríbete»"
+
+#: inc/Admin/SBY_Admin.php:644
+msgid "\"Subscribe\" Button"
+msgstr "Botón «Suscríbete»"
+
+#: inc/Admin/SBY_Admin.php:636
+msgid "The text that appers on the \"Load More\" button."
+msgstr "El texto que aparece en el botón «Cargar más»."
+
+#: inc/Admin/SBY_Admin.php:632 inc/Customizer/Tabs/Styling_Tab.php:359
+msgid "Button Text"
+msgstr "Texto del botón"
+
+#: inc/Admin/SBY_Admin.php:621
+msgid "Text color for the \"Load More\" button. Any hex color code."
+msgstr "Color del texto del botón «Cargar más». Cualquier código de color hexadecimal."
+
+#: inc/Admin/SBY_Admin.php:617 inc/Admin/SBY_Admin.php:845
+#: inc/Customizer/Tabs/Styling_Tab.php:379
+msgid "Button Text Color"
+msgstr "Color del texto del botón"
+
+#: inc/Admin/SBY_Admin.php:606
+msgid "Background color for the \"Load More\" button. Any hex color code."
+msgstr "Color de fondo del botón «Cargar más». Cualquier código de color hexadecimal."
+
+#: inc/Admin/SBY_Admin.php:602 inc/Admin/SBY_Admin.php:835
+msgid "Button Background Color"
+msgstr "Color de fondo del botón"
+
+#: inc/Admin/SBY_Admin.php:591
+msgid "Include a \"Load More\" button at the bottom of the feed to load more videos."
+msgstr "Incluye un botón «Cargar más» en la parte inferior del feed para cargar más vídeos."
+
+#: inc/Admin/SBY_Admin.php:586
+msgid "Show \"Load More\" Button"
+msgstr "Mostrar el botón «Cargar más»"
+
+#: inc/Admin/SBY_Admin.php:575
+msgid "\"Load More\" Button"
+msgstr "Botón «Cargar más»"
+
+#: inc/Admin/SBY_Admin.php:538
+msgid "Include the channel description in the header."
+msgstr "Incluye la descripción del canal en la cabecera."
+
+#: inc/Admin/SBY_Admin.php:533
+msgid "Show Channel Description"
+msgstr "Mostrar descripción del canal"
+
+#: inc/Admin/SBY_Admin.php:523
+msgid "Include a header for this feed."
+msgstr "Incluye una cabecera para este feed."
+
+#: inc/Admin/SBY_Admin.php:518
+msgid "Show Header"
+msgstr "Mostrar cabecera"
+
+#: inc/Admin/SBY_Admin.php:508 inc/Builder/SBY_Feed_Builder.php:1020
+#: inc/Builder/SBY_Feed_Builder.php:1271 inc/Builder/SBY_Feed_Builder.php:1387
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:52
+#: inc/Customizer/Tabs/Customize_Tab.php:61 inc/Feed_Locator.php:378
+msgid "Header"
+msgstr "Cabecera"
+
+#: inc/Admin/SBY_Admin.php:55
+msgid "The spacing/padding around the videos in the feed. Any number with a unit like \"px\" or \"em\"."
+msgstr "El espacio/relleno alrededor de los vídeos en el feed. Cualquier número con una unidad como «px» o «em»."
+
+#: inc/Admin/SBY_Admin.php:51 inc/Builder/Tabs/SBY_Customize_Tab.php:251
+#: inc/Customizer/Tabs/Customize_Tab.php:275
+msgid "Spacing between videos"
+msgstr "Espaciado entre vídeos"
+
+#: inc/Admin/SBY_Admin.php:28
+msgid "The number of videos in the feed"
+msgstr "El número de vídeos del feed"
+
+#: inc/Admin/SBY_Admin.php:24
+msgid "Number of videos to show initially."
+msgstr "Número de vídeos a mostrar inicialmente."
+
+#: inc/Admin/SBY_Admin.php:23
+msgid "Number of Videos"
+msgstr "Número de vídeos"
+
+#: inc/Builder/SBY_Feed_Builder.php:405
+msgid "Save Changes"
+msgstr "Guardar los cambios"
+
+#: inc/Blocks/SBY_Blocks.php:115
+msgid "Example"
+msgstr "Ejemplo"
+
+#: inc/Admin/SBY_Admin.php:136 inc/Admin/SBY_Admin.php:184
+#: inc/Customizer/Tabs/Customize_Tab.php:856
+#: inc/Customizer/Tabs/Customize_Tab.php:866
+#: inc/Customizer/Tabs/Customize_Tab.php:989
+msgid "Description"
+msgstr "Descripción"
+
+#: inc/Admin/admin-functions.php:118
+msgid "Channel ID"
+msgstr "ID de canal"
+
+#: inc/Builder/SBY_Feed_Builder.php:377
+msgid "Remove"
+msgstr "Quitar"
+
+#: inc/Services/Admin/MiscService.php:87
+msgid "Could not connect your account. Please check to make sure this is a valid access token for the Smash Balloon YouTube App."
+msgstr "No se ha podido conectar tu cuenta. Por favor, comprueba que se trata de un token de acceso válido para la aplicación Smash Balloon YouTube."
+
+#: inc/Admin/admin-functions.php:356
+msgid "\"Subscribe\" Button Options"
+msgstr "Opciones del botón «Suscríbete»"
+
+#: inc/Admin/admin-functions.php:352
+msgid "\"Load More\" Button Options"
+msgstr "Opciones del botón «Cargar más»"
+
+#: inc/Admin/admin-functions.php:348
+msgid "Header Options"
+msgstr "Opciones de cabecera"
+
+#: inc/Admin/admin-functions.php:336
+msgid "Layout Options"
+msgstr "Opciones de disposición"
+
+#: inc/Admin/admin-functions.php:332
+msgid "Customize Options"
+msgstr "Personalizar opciones"
+
+#: inc/Admin/admin-functions.php:328
+msgid "Configure Options"
+msgstr "Configurar opciones"
+
+#: inc/Admin/admin-functions.php:184
+msgid "One large video that plays when clicked with thumbnails underneath to play more."
+msgstr "Un vídeo grande que se reproduce al hacer clic con miniaturas debajo para reproducir más."
+
+#: inc/Admin/admin-functions.php:182 inc/Builder/Tabs/SBY_Customize_Tab.php:135
+#: inc/Customizer/Tabs/Customize_Tab.php:123
+msgid "Gallery"
+msgstr "Galería"
+
+#: inc/Admin/admin-functions.php:169 inc/Admin/admin-functions.php:201
+#: inc/Admin/admin-functions.php:239
+msgid "Mobile Columns"
+msgstr "Columnas móviles"
+
+#: inc/Admin/admin-functions.php:157 inc/Admin/admin-functions.php:189
+#: inc/Admin/admin-functions.php:227 inc/Builder/SBY_Feed_Builder.php:1033
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:280
+#: inc/Customizer/Tabs/Customize_Tab.php:229
+msgid "Columns"
+msgstr "Columnas"
+
+#: inc/Admin/admin-functions.php:152
+msgid "Video thumbnails are displayed in columns and play in a lightbox when clicked."
+msgstr "Las miniaturas de los vídeos se muestran en columnas y se reproducen en una caja de luz al hacer clic."
+
+#: inc/Admin/admin-functions.php:150 inc/Builder/SBY_Feed_Builder.php:1028
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:130
+#: inc/Customizer/Tabs/Customize_Tab.php:118
+msgid "Grid"
+msgstr "Cuadrícula"
+
+#: inc/Admin/admin-functions.php:216
+msgid "A single columns of videos that play when clicked."
+msgstr "Una sola columna de vídeos que se reproducen al hacer clic."
+
+#: inc/Admin/admin-functions.php:214 inc/Builder/SBY_Feed_Builder.php:1027
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:140
+#: inc/Customizer/Tabs/Customize_Tab.php:128
+msgid "List"
+msgstr "Lista"
+
+#: inc/Admin/admin-functions.php:62 inc/Admin/admin-functions.php:94
+msgid "URL Format 2:"
+msgstr "Formato 2 de URL:"
+
+#: inc/Admin/admin-functions.php:60 inc/Admin/admin-functions.php:92
+msgid "URL Format 1:"
+msgstr "Formato 1 de URL:"
+
+#: inc/Admin/admin-functions.php:59 inc/Admin/admin-functions.php:91
+msgid "You can find the ID or User Name of your YouTube Channel from the URL. In each URL format, the text you need to use is highlighted below:"
+msgstr "Puedes encontrar el ID o Nombre de usuario de tu canal de YouTube en la URL. En cada formato de URL, el texto que debes utilizar aparece resaltado a continuación:"
+
+#: inc/Admin/admin-functions.php:58 inc/Admin/admin-functions.php:90
+msgid "Channel ID or User Name"
+msgstr "ID de canal o nombre de usuario"
+
+#: inc/Admin/admin-functions.php:51
+msgid "Channel"
+msgstr "Canal"
+
+#: inc/Builder/SBY_Feed_Builder.php:1224
+msgid "Support"
+msgstr "Soporte"
+
+#: inc/Builder/SBY_Feed_Builder.php:968 inc/Builder/SBY_Feed_Builder.php:1014
+#: inc/Builder/Tabs/SBY_Builder_Customizer_Tab.php:30
+#: inc/Customizer/Tabs/Customize_Tab.php:22
+msgid "Customize"
+msgstr "Personalizar"
+
+#: inc/Admin/SBY_Admin.php:1351 inc/Admin/SBY_Admin_Abstract.php:684
+#: inc/Admin/SBY_Admin_Abstract.php:821
+msgid "Click for shortcode option"
+msgstr "Haz clic para la opción shortcode"
+
+#: inc/Admin/SBY_Admin.php:1161 inc/Admin/SBY_Admin_Abstract.php:789
+msgid "Nothing currently scheduled"
+msgstr "No hay nada programado"
+
+#: inc/Admin/SBY_Admin.php:1159 inc/Admin/SBY_Admin_Abstract.php:787
+msgid "Note: Saving the settings on this page will clear the cache and reset this schedule"
+msgstr "Nota: Al guardar los ajustes de esta página se vaciará la caché y se restablecerá este horario"
+
+#: inc/Admin/SBY_Admin.php:1159 inc/Admin/SBY_Admin_Abstract.php:787
+#: inc/Services/Admin/Settings/HelpPage.php:176
+msgid "Next check"
+msgstr "Próxima comprobación"
+
+#: inc/Admin/SBY_Admin.php:1157 inc/Admin/SBY_Admin_Abstract.php:785
+#: inc/Services/Admin/Settings/HelpPage.php:173
+msgid "every 12 hours"
+msgstr "cada 12 horas"
+
+#: inc/Admin/SBY_Admin.php:1156 inc/Admin/SBY_Admin_Abstract.php:784
+#: inc/Services/Admin/Settings/HelpPage.php:170
+#: inc/Services/Admin/Settings/SettingsPage.php:113
+msgid "every 30 minutes"
+msgstr "cada 30 minutos"
+
+#: inc/Admin/SBY_Admin.php:1144 inc/Admin/SBY_Admin_Abstract.php:772
+msgid "PM"
+msgstr "PM"
+
+#: inc/Admin/SBY_Admin.php:1143 inc/Admin/SBY_Admin_Abstract.php:771
+msgid "AM"
+msgstr "AM"
+
+#: inc/Admin/SBY_Admin.php:1126 inc/Admin/SBY_Admin_Abstract.php:754
+msgid "at"
+msgstr "a las"
+
+#: inc/Admin/SBY_Admin.php:1122 inc/Admin/SBY_Admin_Abstract.php:750
+msgid "Every 24 hours"
+msgstr "Cada 24 horas"
+
+#: inc/Admin/SBY_Admin.php:1121 inc/Admin/SBY_Admin_Abstract.php:749
+msgid "Every 12 hours"
+msgstr "Cada 12 horas"
+
+#: inc/Admin/SBY_Admin.php:1120 inc/Admin/SBY_Admin_Abstract.php:748
+msgid "Every hour"
+msgstr "Cada hora"
+
+#: inc/Admin/SBY_Admin.php:1114 inc/Admin/SBY_Admin_Abstract.php:742
+msgid "In the background"
+msgstr "En segundo plano"
+
+#: inc/Admin/SBY_Admin.php:1109 inc/Admin/SBY_Admin_Abstract.php:737
+msgid "Your %s posts are temporarily cached by the plugin in your WordPress database. You can choose how long the posts should be cached for. If you set the time to 1 hour then the plugin will clear the cache after that length of time and check %s for posts again."
+msgstr "Las publicaciones de %s son almacenadas temporalmente por el plugin en la base de datos de WordPress. Puedes elegir durante cuánto tiempo se almacenarán en caché las entradas. Si estableces un tiempo de 1 hora, el plugin vaciará la caché transcurrido ese tiempo y volverá a comprobar si hay publicaciones en %s ."
+
+#: inc/Admin/SBY_Admin.php:1108 inc/Admin/SBY_Admin_Abstract.php:736
+#: inc/Admin/SBY_Admin_Abstract.php:987
+msgid "What does this mean?"
+msgstr "¿Qué significa esto?"
+
+#: inc/Admin/SBY_Admin.php:1106 inc/Admin/SBY_Admin_Abstract.php:734
+msgid "Days"
+msgstr "Días"
+
+#: inc/Admin/SBY_Admin.php:1105 inc/Admin/SBY_Admin_Abstract.php:733
+msgid "Hours"
+msgstr "Horas"
+
+#: inc/Admin/SBY_Admin.php:1104 inc/Admin/SBY_Admin_Abstract.php:732
+msgid "Minutes"
+msgstr "Minutos"
+
+#: inc/Admin/SBY_Admin.php:1101 inc/Admin/SBY_Admin_Abstract.php:729
+msgid "Every"
+msgstr "Cada"
+
+#: inc/Admin/SBY_Admin.php:1095
+msgid ""
+"Your %s data is temporarily cached by the plugin in your WordPress database. There are two ways that you can set the plugin to check for new data:<br><br>\n"
+"                <b>1. When the page loads</b><br>Selecting this option means that when the cache expires then the plugin will check %s for new posts the next time that the feed is loaded. You can choose how long this data should be cached for. If you set the time to 60 minutes then the plugin will clear the cached data after that length of time, and the next time the page is viewed it will check for new data. <b>Tip:</b> If you're experiencing an issue with the plugin not updating automatically then try enabling the setting labeled <b>'Cron Clear Cache'</b> which is located on the 'Customize' tab.<br><br>\n"
+"                <b>2. In the background</b><br>Selecting this option means that the plugin will check for new data in the background so that the feed is updated behind the scenes. You can select at what time and how often the plugin should check for new data using the settings below. <b>Please note</b> that the plugin will initially check for data from YouTube when the page first loads, but then after that will check in the background on the schedule selected - unless the cache is cleared."
+msgstr ""
+"Tus datos de %s son almacenados temporalmente por el plugin en la base de datos de tu WordPress. Hay dos formas de hacer que el plugin compruebe si hay datos nuevos:<br><br>\n"
+"                <b>1. Cuando se carga la página</b><br>Si seleccionas esta opción, cuando caduque la caché, el plugin comprobará si hay entradas nuevas en %s la siguiente vez que se cargue el feed. Puedes elegir durante cuánto tiempo se almacenarán en caché estos datos. Si estableces un tiempo de 60 minutos, el plugin vaciará los datos almacenados en la caché transcurrido ese tiempo, y la siguiente vez que se visualice la página comprobará si hay datos nuevos. <b>Consejo:</b> Si tienes problemas con la actualización automática del plugin, intenta activar el ajuste <b>«cron de borrar»</b> que se encuentra en la pestaña «Personalizar».<br><br>\n"
+"                <b>2. En segundo plano</b><br>Si seleccionas esta opción, el plugin comprobará si hay datos nuevos en segundo plano para que el feed se actualice entre bastidores. Puedes seleccionar a qué hora y con qué frecuencia el plugin debe comprobar si hay datos nuevos utilizando los ajustes que se indican a continuación. <b>Ten en cuenta</b> que el plugin comprobará inicialmente los datos de YouTube cuando se cargue la página por primera vez, pero después lo hará en segundo plano según la programación seleccionada, a menos que se vacíe la caché."
+
+#: inc/Admin/SBY_Admin.php:1093 inc/Admin/SBY_Admin_Abstract.php:721
+msgid "When the page loads"
+msgstr "Cuando se carga la página"
+
+#: inc/Admin/SBY_Admin_Abstract.php:628
+msgid "Connect an account above"
+msgstr "Conecta una cuenta arriba"
+
+#: inc/Admin/SBY_Admin.php:1177 inc/Admin/SBY_Admin.php:1204
+#: inc/Admin/SBY_Admin_Abstract.php:446 inc/Admin/SBY_New_User.php:324
+#: inc/Admin/SBY_Notifications.php:610
+msgid "Yes"
+msgstr "Sí"
+
+#: inc/Admin/SBY_Admin_Abstract.php:243
+msgid "How your posts are display visually."
+msgstr "Cómo se muestran visualmente tus publicaciones."
+
+#: inc/Admin/SBY_Admin_Abstract.php:238
+msgid "Layout Type"
+msgstr "Tipo de disposición"
+
+#: inc/Admin/SBY_Admin_Abstract.php:227 inc/Builder/SBY_Feed_Builder.php:1026
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:124
+#: inc/Customizer/Tabs/Customize_Tab.php:112
+#: inc/Customizer/Tabs/Customize_Tab.php:648
+msgid "Layout"
+msgstr "Diseño"
+
+#: inc/Admin/SBY_Admin_Abstract.php:220
+msgid "Background color for the feed. Any hex color code."
+msgstr "Color de fondo del feed. Cualquier código de color hexadecimal."
+
+#: inc/Admin/SBY_Admin_Abstract.php:216 inc/Builder/SBY_Feed_Builder.php:1153
+#: inc/Customizer/Tabs/Customize_Tab.php:677
+msgid "Background Color"
+msgstr "Color de fondo"
+
+#: inc/Admin/SBY_Admin_Abstract.php:203
+msgid "The height of your feed. Any number with a unit like \"px\" or \"em\"."
+msgstr "La altura de tu feed. Cualquier número con una unidad como «px» o «%»."
+
+#: inc/Admin/SBY_Admin_Abstract.php:199
+msgid "Height of Feed"
+msgstr "Altura del feed"
+
+#: inc/Admin/SBY_Admin_Abstract.php:177
+msgid "If you set a width on the feed then this will be used on mobile as well as desktop. Check this setting to set the feed width to be 100% on mobile so that it is responsive."
+msgstr "Si estableces una anchura en el feed, ésta se utilizará tanto en el móvil como en el escritorio. Marca este ajuste para hacer que la anchura del feed sea del 100% en móviles para que sea adaptable."
+
+#: inc/Admin/SBY_Admin_Abstract.php:174
+msgid "Set to be 100% width on mobile?"
+msgstr "¿Establecer una anchura del 100% en el móvil?"
+
+#: inc/Admin/SBY_Admin_Abstract.php:166
+msgid "The width of your feed. Any number with a unit like \"px\" or \"%\"."
+msgstr "La anchura de tu feed. Cualquier número con una unidad como «px» o «%»."
+
+#: inc/Admin/SBY_Admin_Abstract.php:162
+msgid "Width of Feed"
+msgstr "Ancho del feed"
+
+#: inc/Admin/SBY_Admin_Abstract.php:136 inc/Builder/SBY_Feed_Builder.php:408
+msgid "General"
+msgstr "General"
+
+#: inc/Admin/SBY_Admin_Abstract.php:128
+msgid "Check for new posts"
+msgstr "Comprobar nuevas publicaciones"
+
+#: inc/Admin/SBY_Admin.php:991
+msgid "When removing the plugin your settings are automatically erased. Checking this box will prevent any settings from being deleted. This means that you can uninstall and reinstall the plugin without losing your settings."
+msgstr "Al eliminar el plugin, tus ajustes se borran automáticamente. Si marcas esta casilla evitarás que se borre cualquier ajuste. Esto significa que puedes desinstalar y reinstalar el plugin sin perder tus ajustes."
+
+#: inc/Admin/SBY_Admin.php:989
+msgid "Preserve settings when plugin is removed"
+msgstr "Conservar ajustes al desinstalar el plugin"
+
+#: inc/Admin/admin-functions.php:56
+msgid "Display videos from a YouTube channel (channel)"
+msgstr "Mostrar vídeos de un canal de YouTube (canal)"
+
+#: inc/Customizer/Tabs/Settings_Tab.php:38
+msgid "Feed Type"
+msgstr "Tipo de feed"
+
+#: inc/Services/ErrorReportingService.php:28
+#: inc/Services/ShortcodeService.php:47
+msgid "This error message is only visible to WordPress admins"
+msgstr "Este mensaje de error solo es visible para los administradores de WordPress"
+
+#: inc/Builder/SBY_Source.php:88 inc/SBY_API_Connect.php:157
+msgid "Error connecting to %s."
+msgstr "Error al conectarse a %s."
+
+#: inc/SBY_Feed.php:1540
+msgid "No posts found."
+msgstr "No se han encontrado publicaciones."
+
+#: inc/SBY_Feed.php:1371
+msgid "Make sure this is a valid channel ID and that the channel has videos available on youtube.com."
+msgstr "Asegúrate de que se trata de un ID de canal válido y de que el canal tiene vídeos disponibles en youtube.com."
+
+#: inc/SBY_Feed.php:1370
+msgid "Error: No videos found."
+msgstr "Error: No se han encontrado vídeos."
+
+#: inc/SBY_Posts_Manager.php:233
+msgid "There was an error creating the folder for storing resized images."
+msgstr "Se ha producido un error al crear la carpeta para almacenar las imágenes redimensionadas."
+
+#: inc/SbyWidget.php:43
+msgid "Title:"
+msgstr "Título:"
+
+#: inc/SbyWidget.php:17
+msgid "Display your YouTube feeds"
+msgstr "Muestra tus feeds de YouTube"
+
+#: inc/Services/Admin/MenuService.php:36 inc/Services/Admin/MenuService.php:37
+#: inc/Services/Integrations/Divi/SB_YouTube_Feed.php:30
+#: inc/Services/Integrations/Elementor/SBY_Elementor_Widget.php:19
+msgid "YouTube Feed"
+msgstr "Feed de YouTube"
+
+#: inc/Builder/SBY_Feed_Builder.php:349 inc/Builder/SBY_Feed_Builder.php:361
+#: inc/Builder/SBY_Feed_Builder.php:974 inc/Builder/SBY_Feed_Builder.php:1015
+#: inc/Builder/SBY_Feed_Builder.php:1220
+#: inc/Builder/Tabs/SBY_Builder_Customizer_Tab.php:35
+#: inc/Customizer/Tabs/Settings_Tab.php:19
+#: inc/Customizer/Tabs/Styling_Tab.php:347
+#: inc/Services/Admin/Settings/SettingsPage.php:28
+#: inc/Services/Admin/Settings/SettingsPage.php:29 youtube-feed.php:556
+msgid "Settings"
+msgstr "Ajustes"
+
+#: inc/Admin/SBY_Admin.php:698 inc/Builder/SBY_Feed_Saver.php:510
+#: inc/SBY_Settings.php:286 youtube-feed.php:451
+msgid "Subscribe"
+msgstr "Suscríbete"
+
+#: inc/Admin/SBY_Admin.php:629 inc/Builder/SBY_Feed_Saver.php:509
+#: inc/SBY_Settings.php:285 youtube-feed.php:450
+msgid "Load More..."
+msgstr "Cargar más..."
+
+#: inc/Admin/SBY_Admin.php:1119 inc/Admin/SBY_Admin_Abstract.php:747
+#: youtube-feed.php:213
+msgid "Every 30 minutes"
+msgstr "Cada 30 minutos"
+
+#: inc/Builder/Tabs/SBY_Customize_Tab.php:58
+#: inc/Customizer/Tabs/Customize_Tab.php:67
+#: inc/Services/ShortcodeService.php:186
+msgid "Videos"
+msgstr "Vídeos"
+
+#: inc/Builder/SBY_Feed_Builder.php:806 youtube-feed.php:131
+msgid "YouTube"
+msgstr "YouTube"
+
+#: youtube-feed.php:128
+msgid "a"
+msgstr "a"
+
+#. Author URI of the plugin
+#: youtube-feed.php
+msgid "https://smashballoon.com/"
+msgstr "https://smashballoon.com/"
+
+#: inc/Services/Integrations/Elementor/SBY_Elementor_Base.php:135
+msgid "Smash Balloon"
+msgstr "Smash Balloon"
+
+#. Description of the plugin
+#: youtube-feed.php
+msgid "The Feeds for YouTube plugin allows you to display customizable YouTube feeds from any YouTube channel."
+msgstr "El plugin Feeds for YouTube te permite mostrar feeds personalizables de YouTube desde cualquier canal de YouTube."
+
+#. Plugin URI of the plugin
+#: youtube-feed.php
+msgid "https://smashballoon.com/youtube-feed"
+msgstr "https://smashballoon.com/youtube-feed"
+
+#. Plugin Name of the plugin
+#: youtube-feed.php youtube-feed.php:125
+msgid "Feeds for YouTube"
+msgstr "Feeds for YouTube"

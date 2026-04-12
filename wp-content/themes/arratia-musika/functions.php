@@ -29,8 +29,8 @@ add_action('after_setup_theme', 'arratia_setup');
 // ─── Enqueue assets ───────────────────────────────────────────────────────────
 function arratia_scripts() {
     wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css', [], '6.4.0');
-    wp_enqueue_style('arratia-style', get_stylesheet_uri(), ['font-awesome'], '1.0.0');
-    wp_enqueue_script('arratia-main', get_template_directory_uri() . '/assets/js/main.js', [], '1.0.0', true);
+    wp_enqueue_style('arratia-style', get_stylesheet_uri(), ['font-awesome'], filemtime(get_stylesheet_directory() . '/style.css'));
+    wp_enqueue_script('arratia-main', get_template_directory_uri() . '/assets/js/main.js', [], filemtime(get_stylesheet_directory() . '/assets/js/main.js'), true);
 }
 add_action('wp_enqueue_scripts', 'arratia_scripts');
 
@@ -487,10 +487,36 @@ function arratia_settings_menu() {
 }
 add_action('admin_menu', 'arratia_settings_menu');
 
+// ── Matrikula: helper functions for editable lists ───────────────────────────
+function arratia_get_instrumentuak() {
+    $default = "Akordeoia\nArmonia Modernoa\nBaju elektrikoa\nBateria\nBiolina\nGitarra\nGitarra elektrikoa\nKlarinetea\nPanderoa\nPianoa\nSaxofoia\nTalde Instrumentala\nKantu Bakarlaria / Ahotsa (11+)\nTrikirtixa\nTronboia\nTronpeta\nTxalaparta\nTxistu\nZeharkako Txirula";
+    $raw = get_option('arratia_instrumentuak', $default);
+    return array_values(array_filter(array_map('trim', explode("\n", $raw))));
+}
+function arratia_get_instrumentuak7() {
+    $default = "Akordeoia\nBaju elektrikoa\nBateria\nBiolina\nGitarra\nGitarra elektrikoa\nKlarinetea\nPianoa\nSaxofoia\nTrikirtixa\nTronboia\nTronpeta\nTxalaparta\nTxistu\nZeharkako Txirula";
+    $raw = get_option('arratia_instrumentuak7', $default);
+    return array_values(array_filter(array_map('trim', explode("\n", $raw))));
+}
+function arratia_get_asignaturak() {
+    $default = "inst|Tresna bakarrik / Solo instrumento\nhm|Hizkuntza Musikala + Abesbatza\nhm16|Hizkuntza Musikala (16 urtetik gora)\nam|Armonia Modernoa (16 urtetik gora)";
+    $raw = get_option('arratia_asignaturak', $default);
+    $result = [];
+    foreach (array_filter(array_map('trim', explode("\n", $raw))) as $line) {
+        $parts = explode('|', $line, 2);
+        if (count($parts) === 2) $result[trim($parts[0])] = trim($parts[1]);
+    }
+    return $result;
+}
+// ─────────────────────────────────────────────────────────────────────────────
+
 function arratia_settings_page_cb() {
     if (!current_user_can('manage_options')) return;
     if (isset($_POST['arratia_save_settings']) && check_admin_referer('arratia_ezarpenak')) {
         update_option('arratia_matrikula_open', isset($_POST['matrikula_open']) ? '1' : '');
+        update_option('arratia_instrumentuak',  sanitize_textarea_field($_POST['instrumentuak']  ?? ''));
+        update_option('arratia_instrumentuak7', sanitize_textarea_field($_POST['instrumentuak7'] ?? ''));
+        update_option('arratia_asignaturak',    sanitize_textarea_field($_POST['asignaturak']    ?? ''));
         update_option('arratia_front_video_1',      esc_url_raw($_POST['front_video_1']       ?? ''));
         update_option('arratia_front_video_2',      esc_url_raw($_POST['front_video_2']       ?? ''));
         update_option('arratia_front_video_1_desc', sanitize_text_field($_POST['front_video_1_desc'] ?? ''));
@@ -498,6 +524,9 @@ function arratia_settings_page_cb() {
         update_option('arratia_front_video_1_img',  esc_url_raw($_POST['front_video_1_img']   ?? ''));
         update_option('arratia_front_video_2_img',  esc_url_raw($_POST['front_video_2_img']   ?? ''));
         update_option('arratia_antolaketa_img',          esc_url_raw($_POST['antolaketa_img']          ?? ''));
+        update_option('arratia_antolaketa_pdf',          esc_url_raw($_POST['antolaketa_pdf']          ?? ''));
+        update_option('arratia_egutegia_img',            esc_url_raw($_POST['egutegia_img']            ?? ''));
+        update_option('arratia_egutegia_pdf',            esc_url_raw($_POST['egutegia_pdf']            ?? ''));
         update_option('arratia_front_ig_img_tresnak',   esc_url_raw($_POST['front_ig_img_tresnak']   ?? ''));
         update_option('arratia_front_ig_img_teoriko',   esc_url_raw($_POST['front_ig_img_teoriko']   ?? ''));
         update_option('arratia_front_ig_img_taldeak',   esc_url_raw($_POST['front_ig_img_taldeak']   ?? ''));
@@ -505,6 +534,14 @@ function arratia_settings_page_cb() {
         echo '<div class="notice notice-success is-dismissible"><p>&#10003; Gorde da / Guardado.</p></div>';
     }
     $open    = get_option('arratia_matrikula_open', '1');
+
+    $ins_default  = "Akordeoia\nArmonia Modernoa\nBaju elektrikoa\nBateria\nBiolina\nGitarra\nGitarra elektrikoa\nKlarinetea\nPanderoa\nPianoa\nSaxofoia\nTalde Instrumentala\nKantu Bakarlaria / Ahotsa (11+)\nTrikirtixa\nTronboia\nTronpeta\nTxalaparta\nTxistu\nZeharkako Txirula";
+    $ins7_default = "Akordeoia\nBaju elektrikoa\nBateria\nBiolina\nGitarra\nGitarra elektrikoa\nKlarinetea\nPianoa\nSaxofoia\nTrikirtixa\nTronboia\nTronpeta\nTxalaparta\nTxistu\nZeharkako Txirula";
+    $asig_default = "inst|Tresna bakarrik / Solo instrumento\nhm|Hizkuntza Musikala + Abesbatza\nhm16|Hizkuntza Musikala (16 urtetik gora)\nam|Armonia Modernoa (16 urtetik gora)";
+    $ins_val  = get_option('arratia_instrumentuak',  $ins_default);
+    $ins7_val = get_option('arratia_instrumentuak7', $ins7_default);
+    $asig_val = get_option('arratia_asignaturak',    $asig_default);
+
     $video_1      = get_option('arratia_front_video_1', '');
     $video_2      = get_option('arratia_front_video_2', '');
     $video_1_desc = get_option('arratia_front_video_1_desc', '');
@@ -512,6 +549,9 @@ function arratia_settings_page_cb() {
     $video_1_img  = get_option('arratia_front_video_1_img', '');
     $video_2_img  = get_option('arratia_front_video_2_img', '');
     $antolaketa_img = get_option('arratia_antolaketa_img', '');
+    $antolaketa_pdf = get_option('arratia_antolaketa_pdf', '');
+    $egutegia_img   = get_option('arratia_egutegia_img',   '');
+    $egutegia_pdf   = get_option('arratia_egutegia_pdf',   '');
     $ig_img_tresnak = get_option('arratia_front_ig_img_tresnak', '');
     $ig_img_teoriko = get_option('arratia_front_ig_img_teoriko', '');
     $ig_img_taldeak = get_option('arratia_front_ig_img_taldeak', '');
@@ -536,6 +576,31 @@ function arratia_settings_page_cb() {
                     </td>
                 </tr>
                 <tr>
+                    <th scope="row">🎸 Instrumentuak (zerrenda nagusia)<br><small style="font-weight:400">Instruments list (main, 8+ urte)</small></th>
+                    <td>
+                        <textarea name="instrumentuak" rows="10" style="width:100%;max-width:500px;font-family:monospace;font-size:13px;"><?php echo esc_textarea($ins_val); ?></textarea>
+                        <p class="description">Instrumentu bat lerro bakoitzean / Un instrumento por línea. Ordenatu nahi duzun bezala / Ordena como prefieras.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">🎵 Instrumentuak (7 urte, aukerakoa)<br><small style="font-weight:400">Instruments (age 7, optional if places)</small></th>
+                    <td>
+                        <textarea name="instrumentuak7" rows="8" style="width:100%;max-width:500px;font-family:monospace;font-size:13px;"><?php echo esc_textarea($ins7_val); ?></textarea>
+                        <p class="description">Instrumentu bat lerro bakoitzean / Un instrumento por línea.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">📚 Asignaturak (13+ urte, hautaketa)<br><small style="font-weight:400">Subjects dropdown (age 13+)</small></th>
+                    <td>
+                        <textarea name="asignaturak" rows="6" style="width:100%;max-width:500px;font-family:monospace;font-size:13px;"><?php echo esc_textarea($asig_val); ?></textarea>
+                        <p class="description">
+                            Formatua / Formato: <code>kodea|Etiketa</code> lerro bakoitzean / por línea.<br>
+                            Adib. / Ej.: <code>hm|Hizkuntza Musikala + Abesbatza</code><br>
+                            <em>Kodea aldatu gabe utzi / No cambies el código (primera parte antes del |).</em>
+                        </p>
+                    </td>
+                </tr>
+                <tr>
                     <th scope="row">📋 Hezkuntza Antolaketa irudia<br><small style="font-weight:400">Imagen del organigrama en Matrikulazioa</small></th>
                     <td>
                         <div style="display:flex;gap:8px;align-items:center;">
@@ -547,6 +612,34 @@ function arratia_settings_page_cb() {
                             <?php endif; ?>
                         </div>
                         <p class="description">Pega la URL de la imagen (Media → Biblioteca → copia URL del archivo).</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">📄 Hezkuntza Antolaketa PDF<br><small style="font-weight:400">PDF del organigrama (página Hezkuntza Antolaketa)</small></th>
+                    <td>
+                        <input type="url" name="antolaketa_pdf" value="<?php echo esc_attr($antolaketa_pdf); ?>"
+                               style="width:100%;max-width:580px;padding:6px 10px;font-size:13px;"
+                               placeholder="https://...URL del PDF...">
+                        <p class="description">Media → Biblioteca → selecciona el PDF → copia la URL del archivo.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">📅 Egutegia<br><small style="font-weight:400">Calendario — imagen o PDF (página Egutegia)</small></th>
+                    <td>
+                        <p style="margin-bottom:4px;font-weight:600;">Irudia / Imagen</p>
+                        <div style="display:flex;gap:8px;align-items:center;margin-bottom:12px;">
+                            <input type="url" name="egutegia_img" value="<?php echo esc_attr($egutegia_img); ?>"
+                                   style="flex:1;max-width:580px;padding:6px 10px;font-size:13px;"
+                                   placeholder="https://...URL de la imagen...">
+                            <?php if ($egutegia_img): ?>
+                                <img src="<?php echo esc_url($egutegia_img); ?>" style="height:48px;width:auto;border-radius:4px;object-fit:cover;">
+                            <?php endif; ?>
+                        </div>
+                        <p style="margin-bottom:4px;font-weight:600;">PDF</p>
+                        <input type="url" name="egutegia_pdf" value="<?php echo esc_attr($egutegia_pdf); ?>"
+                               style="width:100%;max-width:580px;padding:6px 10px;font-size:13px;"
+                               placeholder="https://...URL del PDF...">
+                        <p class="description">Si hay imagen, se muestra la imagen. Si solo hay PDF, se muestra el PDF. Media → Biblioteca → copia la URL del archivo.</p>
                     </td>
                 </tr>
                 <tr>
@@ -657,6 +750,69 @@ function arratia_month_eu(int $m): string {
         10 => 'Urria',   11 => 'Azaroa',   12 => 'Abendua',
     ][$m] ?? '';
 }
+
+// ─── Meta box: Ongi Etorri slider galeria ────────────────────────────────────
+add_action('add_meta_boxes', function() {
+    add_meta_box(
+        'arratia_ongi_galeria',
+        'Slider-eko argazkiak / Fotos del slider',
+        'arratia_ongi_galeria_box',
+        'page',
+        'normal',
+        'default',
+        null
+    );
+});
+
+function arratia_ongi_galeria_box($post) {
+    // Solo mostrar en la página con template Ongi Etorri
+    if (get_post_meta($post->ID, '_wp_page_template', true) !== 'page-ongi-etorri.php') {
+        echo '<p style="color:#888;">Esta meta box solo es relevante en la página con template <em>Ongi Etorri</em>.</p>';
+        return;
+    }
+    wp_nonce_field('arratia_ongi_galeria_nonce', 'ongi_galeria_nonce');
+    $ids = get_post_meta($post->ID, '_ongi_slider_ids', true);
+    $inp = 'width:100%;padding:7px 10px;border:1px solid #ddd;border-radius:4px;font-size:13px;';
+    echo '<p style="color:#555;font-size:13px;margin-bottom:8px;">Aukeratu argazkiak slider-erako. / Selecciona las fotos del slider.</p>';
+    echo '<input type="text" id="ongi_slider_ids" name="ongi_slider_ids" value="' . esc_attr($ids) . '" style="' . $inp . '" placeholder="123,456,789">';
+    echo '<p style="color:#888;font-size:11px;margin:4px 0 8px;">IDak koma bidez bereizita / IDs separados por coma.</p>';
+    echo '<button type="button" class="button" onclick="arratiaOpenOngiGaleria()">+ Argazkiak aukeratu / Seleccionar fotos</button>';
+
+    // Vista previa de imágenes seleccionadas
+    if ($ids) {
+        echo '<div style="margin-top:12px;display:flex;flex-wrap:wrap;gap:8px;">';
+        foreach (explode(',', $ids) as $id) {
+            $id = intval(trim($id));
+            if (!$id) continue;
+            $url = wp_get_attachment_image_url($id, 'thumbnail');
+            if ($url) {
+                echo '<img src="' . esc_url($url) . '" style="width:80px;height:60px;object-fit:cover;border-radius:4px;border:1px solid #ddd;">';
+            }
+        }
+        echo '</div>';
+    }
+    ?>
+    <script>
+    function arratiaOpenOngiGaleria() {
+        var frame = wp.media({title: 'Slider-eko argazkiak aukeratu', button: {text: 'Aukeratu'}, multiple: true});
+        frame.on('select', function() {
+            var ids = frame.state().get('selection').map(function(a){ return a.id; }).join(',');
+            document.getElementById('ongi_slider_ids').value = ids;
+        });
+        frame.open();
+    }
+    </script>
+    <?php
+}
+
+add_action('save_post_page', function($post_id) {
+    if (!isset($_POST['ongi_galeria_nonce']) || !wp_verify_nonce($_POST['ongi_galeria_nonce'], 'arratia_ongi_galeria_nonce')) return;
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
+    if (!current_user_can('edit_post', $post_id)) return;
+    if (isset($_POST['ongi_slider_ids'])) {
+        update_post_meta($post_id, '_ongi_slider_ids', sanitize_text_field($_POST['ongi_slider_ids']));
+    }
+});
 
 // ─── Video embed helper ───────────────────────────────────────────────────────
 // Detects URL format and renders appropriate embed or link

@@ -3,10 +3,10 @@
  * Template Name: Matrikula Eskaera (Formularioa)
  *
  * Age groups (age as of 31/12/$ref_year):
- *  4–5  → HH4–HH5  → Musika & Mugimendua only
- *  6–7  → LH1–LH2  → MM + optional instrument
- *  8–12 → LH3–LH6  → HM + instrument
- *  13+  → DBH+     → instrument ± HM
+ *  4–6  → Musika & Mugimendua only
+ *  7    → MM + optional instrument (if places available)
+ *  8–12 → HM + instrument
+ *  13+  → instrument ± HM
  */
 
 $now      = new DateTime();
@@ -57,7 +57,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['arratia_matrikula_non
 
         if (!$error) {
             function fmt_asig_arratia($v) {
-                return ['mm'=>'Musika & Mugimendua','hm'=>'Hizkuntza Musikala + Abesbatza','hm16'=>'Hizkuntza Musikala (16+)','am'=>'Armonia Modernoa','inst'=>'Tresna bakarrik'][$v] ?? $v;
+                $map = array_merge(['mm'=>'Musika & Mugimendua'], arratia_get_asignaturak());
+                return $map[$v] ?? $v;
             }
             $p      = array_map('sanitize_text_field', $_POST);
             $emisor = 'info@arratiakomusikaeskola.eu';
@@ -326,12 +327,12 @@ get_header();
         <fieldset class="mf-fieldset">
             <legend><i class="fas fa-music"></i> Matrikularako Datuak <span>/ Datos de Matrícula</span></legend>
 
-            <div class="mf-maila-group" id="mf-maila-group">
-                <p class="mf-maila-label">Adina / Maila: <span class="req">*</span></p>
-                <label class="mf-radio"><input type="radio" name="nino" value="4-5 urte (HH4-HH5)" id="nino1"> <strong>4–5 urte</strong> — Musika &amp; Mugimendua (HH4–HH5)</label>
-                <label class="mf-radio"><input type="radio" name="nino" value="6-7 urte (LH1-LH2)" id="nino2"> <strong>6–7 urte</strong> — Musika &amp; Mugimendua + Tresna aukera (LH1–LH2)</label>
-                <label class="mf-radio"><input type="radio" name="nino" value="8-12 urte (LH3-LH6)" id="nino3"> <strong>8–12 urte</strong> — Abesbatza + Hizkuntza Musikala + Tresna (LH3–LH6)</label>
-                <label class="mf-radio"><input type="radio" name="nino" value="13+ urte (DBH+)" id="nino4"> <strong>13+ urte</strong> — DBH eta aurrera</label>
+            <div class="mf-maila-group" id="mf-maila-group" style="display:none;">
+                <p class="mf-maila-label">Adina:</p>
+                <label class="mf-radio"><input type="radio" name="nino" value="4-6 urte" id="nino1" onclick="return false;"> <strong>4–6 urte</strong> — Musika &amp; Mugimendua</label>
+                <label class="mf-radio"><input type="radio" name="nino" value="7 urte" id="nino2" onclick="return false;"> <strong>7 urte</strong> — Musika &amp; Mugimendua + Tresna aukera (plazak badaude / si hay plazas)</label>
+                <label class="mf-radio"><input type="radio" name="nino" value="8-12 urte" id="nino3" onclick="return false;"> <strong>8–12 urte</strong> — Abesbatza + Hizkuntza Musikala + Tresna</label>
+                <label class="mf-radio"><input type="radio" name="nino" value="13+ urte" id="nino4" onclick="return false;"> <strong>13+ urte</strong></label>
             </div>
             <p id="mf-maila-hint" class="mf-hint" style="display:none;"></p>
 
@@ -349,10 +350,9 @@ get_header();
                     <label>Ikasgaia <span class="req">*</span> <em>/ Asignatura</em></label>
                     <select name="asignatura" id="asignatura">
                         <option value="">Aukeratu gaia / Elige asignatura</option>
-                        <option value="inst">Tresna bakarrik / Solo instrumento</option>
-                        <option value="hm">Hizkuntza Musikala + Abesbatza</option>
-                        <option value="hm16">Hizkuntza Musikala (16 urtetik gora)</option>
-                        <option value="am">Armonia Modernoa (16 urtetik gora)</option>
+                        <?php foreach (arratia_get_asignaturak() as $val => $lbl): ?>
+                        <option value="<?php echo esc_attr($val); ?>"><?php echo esc_html($lbl); ?></option>
+                        <?php endforeach; ?>
                     </select>
                 </div>
 
@@ -360,7 +360,7 @@ get_header();
                     <label id="label-instrumento">Instrumentua <em>/ Instrumento</em></label>
                     <select name="instrumento" id="instrumento">
                         <option value="">Aukeratu instrumentua</option>
-                        <?php foreach (['Akordeoia','Armonia Modernoa','Baju elektrikoa','Bateria','Biolina','Gitarra','Gitarra elektrikoa','Klarinetea','Panderoa','Pianoa','Saxofoia','Talde Instrumentala','Kantu Bakarlaria / Ahotsa (11+)','Trikitixa','Tronboia','Tronpeta','Txalaparta','Txistu','Zeharkako Txirula'] as $ins): ?>
+                        <?php foreach (arratia_get_instrumentuak() as $ins): ?>
                         <option value="<?php echo esc_attr($ins); ?>"><?php echo esc_html($ins); ?></option>
                         <?php endforeach; ?>
                     </select>
@@ -371,7 +371,7 @@ get_header();
                     <label>Instrumentua <em>(aukerakoa, plazak badaude / opcional si hay plazas)</em></label>
                     <select name="instrumento7" id="instrumento7">
                         <option value="">Sin instrumento</option>
-                        <?php foreach (['Akordeoia','Baju elektrikoa','Bateria','Biolina','Gitarra','Gitarra elektrikoa','Klarinetea','Pianoa','Saxofoia','Trikitixa','Tronboia','Tronpeta','Txalaparta','Txistu','Zeharkako Txirula'] as $ins): ?>
+                        <?php foreach (arratia_get_instrumentuak7() as $ins): ?>
                         <option value="<?php echo esc_attr($ins); ?>"><?php echo esc_html($ins); ?></option>
                         <?php endforeach; ?>
                     </select>
@@ -443,7 +443,7 @@ get_header();
     // Age groups: 4-5, 6-7, 8-12, 13+
     var groupConfig = {
         nino1: { asig: 'mm',  label: 'Musika &amp; Mugimendua',         inst: false, inst7: false, instLabel: '' },
-        nino2: { asig: 'mm',  label: 'Musika &amp; Mugimendua',         inst: false, inst7: true,  instLabel: 'Instrumentua <em>(aukerakoa, plazak badaude)</em>' },
+        nino2: { asig: 'mm',  label: 'Musika &amp; Mugimendua',         inst: false, inst7: true,  instLabel: 'Instrumentua <em>(aukerakoa, plazak badaude / opcional si hay plazas)</em>' },
         nino3: { asig: 'hm',  label: 'Hizkuntza Musikala + Abesbatza', inst: true,  inst7: false, instLabel: 'Instrumentua <span class="req">*</span> <em>(derrigorrezkoa)</em>' },
         nino4: { asig: null,  label: '',                                 inst: true,  inst7: false, instLabel: 'Instrumentua <em>(aukerakoa)</em>' },
     };
@@ -484,10 +484,12 @@ get_header();
 
     function ajustar(birthDateStr) {
         var age = ageAt31Dec(birthDateStr);
-        if (age < 4) { showAgeWarn(true); return; }
+        var mailaGroup = document.getElementById('mf-maila-group');
+        if (age < 4) { showAgeWarn(true); if (mailaGroup) mailaGroup.style.display = 'none'; return; }
         showAgeWarn(false);
-        if (age <= 5)       setGroup('nino1');  // 4-5
-        else if (age <= 7)  setGroup('nino2');  // 6-7
+        if (mailaGroup) mailaGroup.style.display = 'block';
+        if (age <= 6)       setGroup('nino1');  // 4-6
+        else if (age === 7) setGroup('nino2');  // 7
         else if (age <= 12) setGroup('nino3');  // 8-12
         else                setGroup('nino4');  // 13+
     }
@@ -507,14 +509,7 @@ get_header();
         if (fecha && fecha.value) ajustar(fecha.value);
     });
 
-    document.querySelectorAll('input[name="nino"]').forEach(function(r) {
-        r.addEventListener('change', function() {
-            fieldInst.style.display  = 'none';
-            fieldInst7.style.display = 'none';
-            if (r.id === 'nino2') fieldInst7.style.display = 'block';
-            if (r.id === 'nino3' || r.id === 'nino4') fieldInst.style.display = 'block';
-        });
-    });
+    // Age group radios are read-only — set by birth date only
 
     // ── IBAN formatting & validation ──────────────────────────────────────────
     var ibanInput = document.getElementById('iban');

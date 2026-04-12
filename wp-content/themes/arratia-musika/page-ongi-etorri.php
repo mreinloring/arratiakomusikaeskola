@@ -3,16 +3,6 @@
  * Template Name: Ongi Etorri
  */
 get_header();
-
-// Gallery images: all images attached to this page
-$images = get_posts([
-    'post_type'      => 'attachment',
-    'post_mime_type' => 'image',
-    'post_parent'    => get_the_ID(),
-    'posts_per_page' => -1,
-    'orderby'        => 'menu_order date',
-    'order'          => 'ASC',
-]);
 ?>
 
 <div class="ongi-etorri-page">
@@ -20,101 +10,85 @@ $images = get_posts([
 
         <?php arratia_page_hero('Ongi Etorri', 'Arratiako Musika Eskola'); ?>
 
-        <!-- Page content -->
-        <div class="ongi-etorri-content">
-            <?php
-            while (have_posts()): the_post();
-                the_content();
-            endwhile;
-            ?>
+        <!-- Texto -->
+        <div class="ongi-etorri-text">
+            <p>Gure historia, musika irakasteko zentro ofizial bezala, 1986an hasi zen, Oinarrizko Musika Kontserbatorio gisa.</p>
+            <p>Lehenago eta 70eko hamarkadaz geroztik, tokiko akademiak sortzen ari ziren, Sorkunde, Inmakulada eta Edurne Gumuzio ahizpek Artean bultzatutakoa, edo Areatza eta Igorren, Ruper Lekueren eskutik sortutakoak, Kaixo fanfarrearen eta Luis Iruarrizaga Abesbatzaren laguntzarekin –tokiko korporazioen laguntza ekonomikoaz gain– ikasle ugari zein sortzen ari den irakasle klaustro bat ere lortuko dutenak.</p>
+            <p>Aipatutako akademien bilerak, beharrezko ofizialtze-eskaerarekin batera, "Arratiako Oinarrizko Musika Kontserbatorioa" sortzea ekarriko du, 1992tik aurrera eta LOGSE indarrean sartzearekin batera "Arratiako Musika Eskola" izena hartuko duena.</p>
         </div>
 
-        <?php if ($images): ?>
-        <!-- Gallery -->
-        <div class="ongi-galeria">
-            <h2 class="section-title" style="margin-bottom:1.5rem;">
-                <i class="fas fa-images"></i> Argazkiak
-            </h2>
-            <div class="ongi-galeria-grid">
-                <?php foreach ($images as $img):
-                    $full  = wp_get_attachment_image_url($img->ID, 'full');
-                    $thumb = wp_get_attachment_image_url($img->ID, 'large');
-                    $alt   = get_post_meta($img->ID, '_wp_attachment_image_alt', true) ?: get_the_title($img->ID);
+        <!-- Slider -->
+        <?php
+        $slider_ids_raw = get_post_meta(get_the_ID(), '_ongi_slider_ids', true);
+        $slider_ids = array_filter(array_map('intval', explode(',', $slider_ids_raw)));
+        if ($slider_ids):
+        ?>
+        <div class="ongi-slider" id="ongiSlider">
+            <div class="ongi-slider-track" id="ongiSliderTrack">
+                <?php foreach ($slider_ids as $img_id):
+                    $full = wp_get_attachment_image_url($img_id, 'large');
+                    if (!$full) continue;
+                    $alt  = get_post_meta($img_id, '_wp_attachment_image_alt', true) ?: '';
                 ?>
-                <a href="<?php echo esc_url($full); ?>"
-                   class="ongi-galeria-item"
-                   data-lightbox="<?php echo esc_attr($alt); ?>">
-                    <img src="<?php echo esc_url($thumb); ?>"
-                         alt="<?php echo esc_attr($alt); ?>"
-                         loading="lazy">
-                    <div class="ongi-galeria-overlay"><i class="fas fa-expand"></i></div>
-                </a>
+                <div class="ongi-slide">
+                    <img src="<?php echo esc_url($full); ?>" alt="<?php echo esc_attr($alt); ?>" loading="lazy">
+                </div>
                 <?php endforeach; ?>
             </div>
+            <button class="ongi-slider-btn ongi-slider-prev" id="ongiPrev" aria-label="Aurrekoa">&#8249;</button>
+            <button class="ongi-slider-btn ongi-slider-next" id="ongiNext" aria-label="Hurrengoa">&#8250;</button>
+            <div class="ongi-slider-dots" id="ongiDots"></div>
         </div>
         <?php endif; ?>
 
     </div>
 </div>
 
-<!-- Lightbox -->
-<div class="ongi-lightbox" id="ongiLightbox" aria-hidden="true">
-    <button class="ongi-lightbox-close" id="ongiLightboxClose" aria-label="Itxi">&times;</button>
-    <button class="ongi-lightbox-prev" id="ongiLightboxPrev" aria-label="Aurrekoa">&#8249;</button>
-    <button class="ongi-lightbox-next" id="ongiLightboxNext" aria-label="Hurrengoa">&#8250;</button>
-    <div class="ongi-lightbox-wrap">
-        <img src="" alt="" id="ongiLightboxImg">
-    </div>
-</div>
-
 <script>
 (function(){
-    var items = Array.from(document.querySelectorAll('.ongi-galeria-item'));
-    if (!items.length) return;
-    var lb     = document.getElementById('ongiLightbox');
-    var lbImg  = document.getElementById('ongiLightboxImg');
-    var lbClose= document.getElementById('ongiLightboxClose');
-    var lbPrev = document.getElementById('ongiLightboxPrev');
-    var lbNext = document.getElementById('ongiLightboxNext');
-    var current= 0;
+    var track  = document.getElementById('ongiSliderTrack');
+    var prev   = document.getElementById('ongiPrev');
+    var next   = document.getElementById('ongiNext');
+    var dotsEl = document.getElementById('ongiDots');
+    if (!track) return;
 
-    function open(idx) {
-        current = idx;
-        lbImg.src = items[idx].href;
-        lbImg.alt = items[idx].dataset.lightbox;
-        lb.classList.add('active');
-        lb.setAttribute('aria-hidden','false');
-        document.body.style.overflow = 'hidden';
-    }
-    function close() {
-        lb.classList.remove('active');
-        lb.setAttribute('aria-hidden','true');
-        document.body.style.overflow = '';
-        lbImg.src = '';
-    }
-    function go(dir) {
-        current = (current + dir + items.length) % items.length;
-        lbImg.src = '';
-        lbImg.src = items[current].href;
-        lbImg.alt = items[current].dataset.lightbox;
-    }
+    var slides  = track.querySelectorAll('.ongi-slide');
+    var total   = slides.length;
+    var current = 0;
+    var timer;
 
-    items.forEach(function(el, i){
-        el.addEventListener('click', function(e){
-            e.preventDefault();
-            open(i);
-        });
+    // Build dots
+    slides.forEach(function(_, i) {
+        var d = document.createElement('button');
+        d.className = 'ongi-dot' + (i === 0 ? ' active' : '');
+        d.setAttribute('aria-label', 'Slide ' + (i+1));
+        d.addEventListener('click', function(){ go(i); });
+        dotsEl.appendChild(d);
     });
-    lbClose.addEventListener('click', close);
-    lb.addEventListener('click', function(e){ if (e.target === lb) close(); });
-    lbPrev.addEventListener('click', function(){ go(-1); });
-    lbNext.addEventListener('click', function(){ go(1); });
+
+    function go(idx) {
+        slides[current].classList.remove('active');
+        dotsEl.children[current].classList.remove('active');
+        current = (idx + total) % total;
+        slides[current].classList.add('active');
+        dotsEl.children[current].classList.add('active');
+        track.style.transform = 'translateX(-' + (current * 100) + '%)';
+        resetTimer();
+    }
+
+    function resetTimer() {
+        clearInterval(timer);
+        timer = setInterval(function(){ go(current + 1); }, 4000);
+    }
+
+    slides[0].classList.add('active');
+    prev.addEventListener('click', function(){ go(current - 1); });
+    next.addEventListener('click', function(){ go(current + 1); });
     document.addEventListener('keydown', function(e){
-        if (!lb.classList.contains('active')) return;
-        if (e.key === 'Escape')      close();
-        if (e.key === 'ArrowLeft')   go(-1);
-        if (e.key === 'ArrowRight')  go(1);
+        if (e.key === 'ArrowLeft')  go(current - 1);
+        if (e.key === 'ArrowRight') go(current + 1);
     });
+    resetTimer();
 })();
 </script>
 
