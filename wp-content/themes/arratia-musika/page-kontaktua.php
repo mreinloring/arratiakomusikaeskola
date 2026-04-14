@@ -52,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['kf_nonce'])) {
                     $subject  = 'Kontaktu mezua — ' . $kf_izena;
                     $tel_line = $kf_telefonoa ? "\nTelefonoa: {$kf_telefonoa}" : '';
                     $body     = "Igorlea: {$kf_izena}\nEmail: {$kf_email}{$tel_line}\n\nMezua:\n{$kf_mezua}";
-                    $ok = wp_mail('info@arratiakomusikaeskola.eu', $subject, $body, $headers);
+                    $ok = wp_mail( ARRATIA_EMAIL_ADMIN, $subject, $body, $headers );
                     if ($ok) {
                         $kf_sent = true;
                     } else {
@@ -79,11 +79,11 @@ set_transient('kf_cap_' . $kf_captcha_token, $kf_n1 + $kf_n2, 30 * MINUTE_IN_SEC
 
         <!-- Contact info bar -->
         <div class="kontaktua-info-bar">
-            <a href="tel:946317352" class="kontaktua-info-item">
-                <i class="fas fa-phone-alt"></i> 946 317 352
+            <a href="<?php echo esc_url( ARRATIA_TELEFONO_HREF ); ?>" class="kontaktua-info-item">
+                <i class="fas fa-phone-alt"></i> <?php echo esc_html( ARRATIA_TELEFONO ); ?>
             </a>
-            <a href="mailto:info@arratiakomusikaeskola.eu" class="kontaktua-info-item">
-                <i class="fas fa-envelope"></i> info@arratiakomusikaeskola.eu
+            <a href="mailto:<?php echo esc_attr( ARRATIA_EMAIL ); ?>" class="kontaktua-info-item">
+                <i class="fas fa-envelope"></i> <?php echo esc_html( ARRATIA_EMAIL ); ?>
             </a>
         </div>
 

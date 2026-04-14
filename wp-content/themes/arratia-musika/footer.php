@@ -8,18 +8,18 @@
                     <span></span><span></span><span></span><span></span><span></span>
                 </div>
                 <div class="pentagrama-content">
-                    <a href="tel:+34946317352" class="pentagrama-item">
-                        <i class="fas fa-phone-alt"></i> 946 317 352
+                    <a href="<?php echo esc_url( ARRATIA_TELEFONO_HREF ); ?>" class="pentagrama-item">
+                        <i class="fas fa-phone-alt"></i> <?php echo esc_html( ARRATIA_TELEFONO ); ?>
                     </a>
-                    <a href="mailto:info@arratiakomusikaeskola.eu" class="pentagrama-item">
-                        <i class="fas fa-envelope"></i> info@arratiakomusikaeskola.eu
+                    <a href="mailto:<?php echo esc_attr( ARRATIA_EMAIL ); ?>" class="pentagrama-item">
+                        <i class="fas fa-envelope"></i> <?php echo esc_html( ARRATIA_EMAIL ); ?>
                     </a>
                     <span class="pentagrama-item">
-                        <i class="fas fa-map-marker-alt"></i> Herriko Plaza 1 · 48142 Artea · Bizkaia
+                        <i class="fas fa-map-marker-alt"></i> <?php echo esc_html( ARRATIA_HELBIDEA ); ?>
                     </span>
                     <span class="pentagrama-item pentagrama-social">
-                        <a href="https://www.instagram.com/arratiakomusikaeskola/" target="_blank" rel="noopener" aria-label="Instagram" class="footer-social-icon"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.facebook.com/arratiakomusikaeskola" target="_blank" rel="noopener" aria-label="Facebook" class="footer-social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="<?php echo esc_url( ARRATIA_INSTAGRAM_URL ); ?>" target="_blank" rel="noopener" aria-label="Instagram" class="footer-social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="<?php echo esc_url( ARRATIA_FACEBOOK_URL ); ?>" target="_blank" rel="noopener" aria-label="Facebook" class="footer-social-icon"><i class="fab fa-facebook-f"></i></a>
                     </span>
                 </div>
             </div>
@@ -27,7 +27,7 @@
 
         <div class="footer-bottom">
             <span>&copy; <?php echo date('Y'); ?> Arratiako Musika Eskola</span>
-            <span>Artea · Bizkaia</span>
+            <span><?php echo esc_html( ARRATIA_HERRIA ); ?></span>
         </div>
     </div>
 </footer>

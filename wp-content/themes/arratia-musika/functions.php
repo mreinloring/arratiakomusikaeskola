@@ -3,6 +3,22 @@
  * Arratiako Musika Eskola — Theme Functions
  */
 
+// ─── Konfigurazio nagusia (telefonoa, emaila, sare sozialak…) ──────────────────
+require_once get_template_directory() . '/inc/site-config.php';
+
+// ─── Local dev: asegurar logo y menú en entorno de pruebas ────────────────────
+if ( defined('WP_HOME') && WP_HOME === 'http://arratiakomusikaeskola.test' ) {
+    add_action('after_setup_theme', function() {
+        if ( ! get_theme_mod('custom_logo') ) {
+            set_theme_mod('custom_logo', 5309);
+        }
+        $locs = get_theme_mod('nav_menu_locations', []);
+        if ( empty($locs['primary']) ) {
+            set_theme_mod('nav_menu_locations', array_merge($locs, ['primary' => 47]));
+        }
+    }, 99);
+}
+
 
 // ─── Theme setup ──────────────────────────────────────────────────────────────
 function arratia_setup() {
@@ -272,7 +288,7 @@ function arratia_register_ekintza() {
         'show_in_menu'  => true,
         'menu_icon'     => 'dashicons-calendar-alt',
         'menu_position' => 4,
-        'supports'      => ['title', 'thumbnail', 'editor'],
+        'supports'      => ['title', 'thumbnail', 'editor', 'page-attributes'],
         'has_archive'   => false,
         'rewrite'       => ['slug' => 'ekintza'],
     ]);

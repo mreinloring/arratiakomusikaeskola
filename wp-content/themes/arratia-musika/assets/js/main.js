@@ -1,4 +1,33 @@
 document.addEventListener('DOMContentLoaded', function () {
+
+    // ── Scroll reveal ─────────────────────────────────────────
+    if ('IntersectionObserver' in window &&
+        !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+
+        // Stagger: whole grid observed, children animate via CSS nth-child delays
+        document.querySelectorAll(
+            '.azken-ekintzak-grid, .front-ig-grid, .front-bideoak-grid, .social-grid'
+        ).forEach(function (grid) { grid.classList.add('reveal-stagger'); });
+
+        // Individual reveals
+        document.querySelectorAll(
+            '.section-header'
+        ).forEach(function (el) { el.classList.add('reveal'); });
+
+        var revealObs = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObs.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+
+        document.querySelectorAll('.reveal, .reveal-stagger').forEach(function (el) {
+            revealObs.observe(el);
+        });
+    }
+
     // ── Mobile menu ───────────────────────────────────────────
     const toggle = document.getElementById('menuToggle');
     const nav    = document.getElementById('siteNav');

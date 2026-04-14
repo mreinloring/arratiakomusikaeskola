@@ -15,6 +15,8 @@ get_header();
             <i class="fas fa-info-circle"></i>
             <p>Matrikulatu aurretik, ikasgai eta adinaren araberako informazioa irakurtzea gomendatzen dizugu.
                Dudarik izanez gero, jarri gurekin kontaktuan.
+               <!-- ADULTS NOTE: quitar esta línea si no se quiere mostrar -->
+               <br><em>Formularioa helduendako ere baliozko da / El formulario también es válido para adultos.</em>
             </p>
         </div>
 

@@ -27,10 +27,9 @@
 </section>
 
 <!-- ═══ AZKEN EKINTZAK ══════════════════════════════════════════════════════ -->
-<section class="section">
+<section class="section section--white">
     <div class="container">
         <div class="section-header text-center">
-            <span class="section-label">Jarduerak</span>
             <h2 class="section-title">Azken jarduerak</h2>
         </div>
 
@@ -104,7 +103,6 @@ if ($videos):
 <section class="section section-alt front-bideoak-section">
     <div class="container">
         <div class="section-header text-center">
-            <span class="section-label">Bideoak</span>
             <h2 class="section-title">Ikasleen lanak</h2>
         </div>
         <div class="front-bideoak-grid front-bideoak-grid--<?php echo count($videos) === 1 ? 'one' : 'two'; ?>">
@@ -137,11 +135,49 @@ if ($videos):
 </section>
 <?php endif; ?>
 
+<!-- ═══ SARE SOZIALAK ═══════════════════════════════════════════════════════ -->
+<section class="section section--white front-social-section">
+    <div class="container">
+        <div class="front-social-grid">
+
+            <!-- Instagram -->
+            <div class="front-social-insta">
+                <div class="text-center" style="margin-bottom:1rem;">
+                    <h2 class="section-title" style="font-size:1.3rem;"><i class="fab fa-instagram" style="color:#C13584;"></i> Instagram</h2>
+                    <p style="font-size:0.85rem;color:var(--gray-600);"><?php echo esc_html( ARRATIA_INSTAGRAM_HANDLE ); ?></p>
+                </div>
+                <?php echo do_shortcode('[instagram-feed num=6 cols=3]'); ?>
+                <div class="text-center mt-2">
+                    <a href="<?php echo esc_url( ARRATIA_INSTAGRAM_URL ); ?>" target="_blank" rel="noopener" class="btn btn-outline" style="font-size:0.85rem;">
+                        <i class="fab fa-instagram"></i> Instagramen ikusi &rarr;
+                    </a>
+                </div>
+            </div>
+
+            <!-- Facebook -->
+            <div class="front-social-fb">
+                <div class="text-center" style="margin-bottom:1rem;">
+                    <h2 class="section-title" style="font-size:1.3rem;"><i class="fab fa-facebook" style="color:#1877F2;"></i> Facebook</h2>
+                    <p style="font-size:0.85rem;color:var(--gray-600);"><?php echo esc_html( ARRATIA_FACEBOOK_NAME ); ?></p>
+                </div>
+                <div class="fb-static">
+                    <i class="fab fa-facebook fb-static-icon"></i>
+                    <p class="fb-static-name"><?php echo esc_html( ARRATIA_FACEBOOK_NAME ); ?></p>
+                    <p class="fb-static-desc">Jarraitu gure Facebook orrian azken berriak eta argazkiak ikusteko.</p>
+                    <a href="<?php echo esc_url( ARRATIA_FACEBOOK_URL ); ?>" target="_blank" rel="noopener" class="btn btn-accent" style="margin-top:1rem;">
+                        <i class="fab fa-facebook"></i> Orria ikusi
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
 <!-- ═══ IKASGAIAK ══════════════════════════════════════════════════════════ -->
 <section class="section">
     <div class="container">
         <div class="section-header text-center">
-            <span class="section-label">Ikasgaiak</span>
             <h2 class="section-title">Zer ikasi daiteke?</h2>
         </div>
 
@@ -223,58 +259,6 @@ if ($videos):
             <a href="<?php echo $ikasgai_url; ?>" class="btn btn-accent">
                 Ikasgai guztiak &rarr;
             </a>
-        </div>
-    </div>
-</section>
-
-<!-- ═══ SARE SOZIALAK ══════════════════════════════════════════════════════ -->
-<section class="social-section">
-    <div class="container">
-        <div class="section-header text-center">
-            <span class="section-label">Sare sozialak</span>
-            <h2 class="section-title">Jarraitu gurekin</h2>
-        </div>
-        <div class="social-grid">
-
-            <!-- Instagram -->
-            <div class="social-card social-card--instagram">
-                <div class="social-card-header">
-                    <span class="label"><i class="fab fa-instagram"></i> Instagram</span>
-                    <span style="font-size:0.78rem;color:#999;">@arratiakomusikaeskola</span>
-                </div>
-                <div class="social-card-body">
-                    <?php echo do_shortcode('[instagram-feed num=9 cols=3]'); ?>
-                </div>
-                <div class="social-card-footer">
-                    <a href="https://www.instagram.com/arratiakomusikaeskola/" target="_blank" rel="noopener">
-                        <i class="fab fa-instagram"></i> Instagramen ikusi &rarr;
-                    </a>
-                </div>
-            </div>
-
-            <!-- Facebook -->
-            <div class="social-card social-card--facebook">
-                <div class="social-card-header">
-                    <span class="label"><i class="fab fa-facebook"></i> Facebook</span>
-                    <span style="font-size:0.78rem;color:#999;">Arratiako Musika Eskola</span>
-                </div>
-                <div class="social-card-body social-card-body--fb">
-                    <div class="fb-static">
-                        <i class="fab fa-facebook fb-static-icon"></i>
-                        <p class="fb-static-name">Arratiako Musika Eskola</p>
-                        <p class="fb-static-desc">Jarraitu gure Facebook orrian azken berriak eta argazkiak ikusteko.</p>
-                        <a href="https://www.facebook.com/arratiakomusikaeskola" target="_blank" rel="noopener" class="btn btn-accent" style="margin-top:1rem;">
-                            <i class="fab fa-facebook"></i> Orria ikusi
-                        </a>
-                    </div>
-                </div>
-                <div class="social-card-footer">
-                    <a href="https://www.facebook.com/arratiakomusikaeskola" target="_blank" rel="noopener">
-                        <i class="fab fa-facebook"></i> Facebooken ikusi &rarr;
-                    </a>
-                </div>
-            </div>
-
         </div>
     </div>
 </section>

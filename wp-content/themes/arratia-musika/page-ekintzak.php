@@ -37,8 +37,7 @@ $query = new WP_Query([
     'post_type'      => 'ekintza',
     'post_status'    => 'publish',
     'posts_per_page' => -1,
-    'orderby'        => 'date',
-    'order'          => 'DESC',
+    'orderby'        => ['menu_order' => 'ASC', 'date' => 'DESC'],
 ]);
 
 // Group: $years[ year_slug ][ 'label', 'months'[ month_slug ][ 'label', 'posts' ] ]
@@ -83,6 +82,13 @@ foreach ($years as &$year_data) {
     uksort($year_data['months'], function($a, $b) use ($hilabete_order) {
         return ($hilabete_order[$a] ?? 99) - ($hilabete_order[$b] ?? 99);
     });
+    // Sort posts within each month by menu_order (0 = no order set → keep original)
+    foreach ($year_data['months'] as &$month_data) {
+        usort($month_data['posts'], function($a, $b) {
+            return $a->menu_order - $b->menu_order;
+        });
+    }
+    unset($month_data);
 }
 unset($year_data);
 ?>

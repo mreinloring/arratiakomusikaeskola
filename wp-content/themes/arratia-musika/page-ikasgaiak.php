@@ -29,13 +29,13 @@ $kategoriak = [
         'mota'         => 'parent',
         'azpikategoriak' => [
             [
-                'izena'     => 'Sokazko Tresnak',
+                'izena'     => 'Sokazko instrumentuak',
                 'ikasgaiak' => [
                     ['izena' => 'Biolina',  'irakaslea' => [], 'img' => ''],
                 ],
             ],
             [
-                'izena'     => 'Haizezko Tresnak',
+                'izena'     => 'Haizezko instrumentuak',
                 'ikasgaiak' => [
                     ['izena' => 'Tronpeta',   'irakaslea' => [], 'img' => ''],
                     ['izena' => 'Tronboia',   'irakaslea' => [], 'img' => ''],
@@ -192,13 +192,35 @@ if ($use_cpt) {
     }
     wp_reset_postdata();
 
+    // Normalize old category names (DB may still have legacy "tresnak" labels)
+    $label_map = [
+        'Bakarka - Tekla-tresnak'    => 'Bakarka - Tekla-instrumentuak',
+        'Bakarka - Perkusio-tresnak' => 'Bakarka - Perkusio-instrumentuak',
+        'Bakarka - Sokazko Tresnak'  => 'Bakarka - Hari igurtzizko instrumentuak',
+        'Bakarka - Haizezko Tresnak' => 'Bakarka - Zurezko haize-instrumentuak',
+        'Bakarka - Euskal Tresnak'   => 'Bakarka - Euskal instrumentu tradizionalak',
+        'Bakarka - Teklatu eta Korda'=> 'Bakarka - Tekla-instrumentuak',
+        'Bakarka - Perkusio Modernoa'=> 'Bakarka - Perkusio-instrumentuak',
+        'Bakarka - Ahotsa'           => 'Bakarka - Kantuko espezialitatea',
+    ];
+    $normalized = [];
+    foreach ($cpt_groups as $cat => $cards) {
+        $new_cat = $label_map[$cat] ?? $cat;
+        if (isset($normalized[$new_cat])) {
+            $normalized[$new_cat] = array_merge($normalized[$new_cat], $cards);
+        } else {
+            $normalized[$new_cat] = $cards;
+        }
+    }
+    $cpt_groups = $normalized;
+
     // Reorder categories to match production site order
     $cat_order = [
         'Bakarka - Hari igurtzizko instrumentuak',
         'Bakarka - Zurezko haize-instrumentuak',
         'Bakarka - Metalezko haize-instrumentuak',
-        'Bakarka - Tekla-tresnak',
-        'Bakarka - Perkusio-tresnak',
+        'Bakarka - Tekla-instrumentuak',
+        'Bakarka - Perkusio-instrumentuak',
         'Bakarka - Hari pultsatuko instrumentuak',
         'Bakarka - Euskal instrumentu tradizionalak',
         'Bakarka - Kantuko espezialitatea',

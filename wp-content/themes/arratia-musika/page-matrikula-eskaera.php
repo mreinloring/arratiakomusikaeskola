@@ -21,8 +21,9 @@ $date_max = $min_birth_year . '-12-31';
 $date_min = $max_birth_year . '-01-01';
 
 // ─────────────────────────────────────────────────────────────────────────────
-$sent  = false;
-$error = '';
+$sent         = false;
+$error        = '';
+$error_fields = [];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['arratia_matrikula_nonce'])) {
     if (!wp_verify_nonce($_POST['arratia_matrikula_nonce'], 'arratia_matrikula_submit')) {
@@ -48,11 +49,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['arratia_matrikula_non
             'autorizo'      => 'Argazkien baimena',
             'condiciones'   => 'Baldintzak onartu',
         ];
+        $missing = [];
         foreach ($required as $field => $label) {
             if (empty($_POST[$field])) {
-                $error = $label . ' eremua bete gabe dago.';
-                break;
+                $missing[]            = $label;
+                $error_fields[$field] = true;
             }
+        }
+        if ($missing) {
+            $error = count($missing) === 1
+                ? $missing[0] . ' eremua bete gabe dago.'
+                : count($missing) . ' eremu bete gabe daude: ' . implode(', ', $missing) . '.';
         }
 
         if (!$error) {
@@ -61,7 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['arratia_matrikula_non
                 return $map[$v] ?? $v;
             }
             $p      = array_map('sanitize_text_field', $_POST);
-            $emisor = 'info@arratiakomusikaeskola.eu';
+            $emisor = ARRATIA_EMAIL_ADMIN;
             $titulo = 'Prematrikula Arratia ' . $ikasturtea_label . ' — ' . $p['nombre'] . ' ' . $p['apellido1'];
 
             $html = '<html><head><meta charset="utf-8"><style>
@@ -177,7 +184,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['arratia_matrikula_non
               <tr><td>Instrumentua</td><td>' . ($p['instrumento'] ?? '—') . '</td></tr>
               <tr><td>Ikasle ohia</td><td>' . $p['alumno'] . '</td></tr>
             </table>
-            <p style="color:#888;font-size:13px;margin-top:24px">info@arratiakomusikaeskola.eu</p>
+            <p style="color:#888;font-size:13px;margin-top:24px">' . esc_html( ARRATIA_EMAIL ) . '</p>
             </body></html>';
             $headers_conf = [
                 'Content-Type: text/html; charset=UTF-8',
@@ -206,7 +213,6 @@ get_header();
         ?>
         <img src="<?php echo esc_url($logo_url); ?>" alt="Arratiako Musika Eskola" class="mf-page-logo">
         <div>
-            <span class="section-label">Izena Eman</span>
             <h1>Matrikula Eskaera<br><span class="mf-ikasturtea"><?php echo esc_html($ikasturtea_label); ?></span></h1>
         </div>
     </div>
@@ -225,7 +231,9 @@ get_header();
         <i class="fas fa-check-circle"></i>
         <div>
             <strong>Eskaera behar bezala bidali da!</strong><br>
-            Berrespena zure emailera bidali dugu. Ekain bukaeran jakinaraziko dizugu erantzuna.
+            Berrespena zure emailera bidali dugu. Ekain bukaeran jakinaraziko dizugu erantzuna.<br>
+            <em style="opacity:0.75">¡Solicitud enviada correctamente! Hemos enviado la confirmación a tu email. Te informaremos a finales de junio.</em><br>
+            <small style="opacity:0.65">Spam karpeta begiratu berrespena aurkitzen ez baduzu / Revisa la carpeta de spam si no recibes la confirmación.</small>
         </div>
     </div>
     <?php else: ?>
@@ -421,6 +429,78 @@ get_header();
 
 </div>
 </div>
+
+<script>
+// ── Error highlighting ────────────────────────────────────────────────────────
+(function(){
+    var MF_ERROR_FIELDS = <?php echo json_encode(array_keys($error_fields)); ?>;
+    var IS_POST = <?php echo ($_SERVER['REQUEST_METHOD'] === 'POST') ? 'true' : 'false'; ?>;
+
+    if (MF_ERROR_FIELDS.length) {
+        MF_ERROR_FIELDS.forEach(function(name) {
+            var els = document.querySelectorAll('[name="' + name + '"]');
+            if (!els.length) return;
+            var container = els[0].closest('.mf-field')
+                || els[0].closest('.mf-maila-group')
+                || els[0].closest('.mf-radio-group')
+                || els[0].closest('.mf-checkbox')
+                || els[0].closest('fieldset');
+            if (container) container.classList.add('mf-field--error');
+        });
+        setTimeout(function() {
+            var first = document.querySelector('.mf-field--error');
+            if (first) first.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 80);
+    }
+
+    // ── localStorage: pre-fill parent/contact data for subsequent children ────
+    var PARENT_FIELDS = ['telefono1','telefono2','email','email2','nombre_padres','direccion','poblacion','iban','titularCuenta'];
+    var form = document.getElementById('mf-form');
+    if (!form) return;
+
+    // Save on submit
+    form.addEventListener('submit', function() {
+        var data = {};
+        PARENT_FIELDS.forEach(function(f) {
+            var el = form.elements[f];
+            if (el) data[f] = el.tagName === 'SELECT' ? el.value : el.value;
+        });
+        try { localStorage.setItem('mf_parent_data', JSON.stringify(data)); } catch(e) {}
+    });
+
+    // Restore on fresh load (no POST errors)
+    if (!IS_POST || !MF_ERROR_FIELDS.length) {
+        try {
+            var saved = JSON.parse(localStorage.getItem('mf_parent_data') || 'null');
+            if (saved && Object.values(saved).some(function(v) { return v; })) {
+                var banner = document.createElement('div');
+                banner.className = 'mf-restore-banner';
+                banner.innerHTML =
+                    '<i class="fas fa-history"></i>'
+                    + '<span>Zure aurreko datuak gordeta daude. Erabili berriz? / ¿Usar tus datos anteriores?</span>'
+                    + '<button type="button" id="mf-restore-yes" class="btn btn-sm">Bai / Sí</button>'
+                    + '<button type="button" id="mf-restore-no" class="btn-link">Ez / No</button>';
+                form.insertBefore(banner, form.firstChild);
+
+                document.getElementById('mf-restore-yes').addEventListener('click', function() {
+                    PARENT_FIELDS.forEach(function(f) {
+                        var el = form.elements[f];
+                        if (el && saved[f]) {
+                            el.value = saved[f];
+                            el.dispatchEvent(new Event('change', { bubbles: true }));
+                        }
+                    });
+                    banner.remove();
+                });
+                document.getElementById('mf-restore-no').addEventListener('click', function() {
+                    try { localStorage.removeItem('mf_parent_data'); } catch(e) {}
+                    banner.remove();
+                });
+            }
+        } catch(e) {}
+    }
+})();
+</script>
 
 <script>
 (function(){
