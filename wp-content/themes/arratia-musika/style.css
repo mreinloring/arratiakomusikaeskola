@@ -522,6 +522,7 @@ h2 > i.fas, h3 > i.fas {
 .front-social-fb {
     display: flex; flex-direction: column; align-items: center;
     justify-content: center; text-align: center;
+    padding-top: 6rem;
     padding-top: 1rem;
 }
 @media (max-width: 860px) {
@@ -1485,4 +1486,147 @@ h2 > i.fas, h3 > i.fas {
     .mf-success { animation: none; }
     .site-nav.open .menu-item { animation: none; }
     .btn:active { transform: none !important; }
+}
+
+/* ===================== PRIVACY PAGE ===================== */
+.privacy-page { padding: clamp(2rem, 5vw, 4rem) 0; }
+.privacy-updated { color: var(--gray-600); font-size: 0.85rem; margin-bottom: 1.5rem; }
+.privacy-lang-tabs {
+    display: flex; gap: 0.5rem; margin-bottom: 2rem;
+    border-bottom: 2px solid var(--gray-200); padding-bottom: 0;
+}
+.privacy-tab {
+    background: none; border: none; cursor: pointer;
+    font-family: var(--font); font-size: 0.95rem; font-weight: 600;
+    color: var(--gray-600); padding: 0.5rem 1.25rem;
+    border-bottom: 3px solid transparent; margin-bottom: -2px;
+    transition: var(--transition);
+}
+.privacy-tab:hover { color: var(--black); }
+.privacy-tab--active { color: var(--accent); border-bottom-color: var(--accent); }
+.privacy-body { line-height: 1.75; }
+.privacy-body h2 {
+    font-size: 1.1rem; font-weight: 700; margin: 2rem 0 0.75rem;
+    color: var(--black); border-left: 3px solid var(--accent); padding-left: 0.75rem;
+}
+.privacy-body p { margin-bottom: 0.75rem; }
+.privacy-body ul { margin: 0.5rem 0 0.75rem 1.5rem; }
+.privacy-body ul li { margin-bottom: 0.4rem; }
+.privacy-body a { color: var(--accent); text-decoration: underline; }
+.privacy-table { width: 100%; border-collapse: collapse; margin-bottom: 1rem; font-size: 0.92rem; }
+.privacy-table td { padding: 0.5rem 0.75rem; border-bottom: 1px solid var(--gray-200); }
+.privacy-table td:first-child { font-weight: 600; width: 40%; color: var(--gray-600); }
+
+/* ===================== LANG SWITCHER ===================== */
+.lang-switcher {
+    display: flex;
+    gap: 2px;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 0.75rem;
+}
+.lang-btn {
+    font-family: var(--font);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    padding: 3px 8px;
+    border-radius: 4px;
+    color: var(--gray-600);
+    transition: var(--transition);
+    line-height: 1.4;
+}
+.lang-btn:hover { color: var(--black); background: var(--gray-100); }
+.lang-btn--active {
+    background: var(--green);
+    color: var(--white) !important;
+}
+@media (max-width: 768px) {
+    .lang-switcher { margin-right: 0.5rem; }
+}
+
+/* ===================== DATORREN IKASTURTEA — DOKUMENTUAK ===================== */
+.section-sub {
+    color: var(--gray-600);
+    font-size: 0.95rem;
+    margin-top: 0.4rem;
+}
+.front-docs-section { padding: clamp(2rem, 5vw, 3.5rem) 0; }
+
+.front-docs-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+.front-doc-card {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-sm);
+    padding: 0.9rem 1.4rem;
+    color: var(--black);
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+    min-width: 180px;
+}
+.front-doc-card:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+}
+.front-doc-icon {
+    font-size: 1.4rem;
+    color: var(--accent);
+    flex-shrink: 0;
+}
+.front-doc-label { flex: 1; }
+.front-doc-dl {
+    font-size: 0.8rem;
+    color: var(--gray-400);
+    flex-shrink: 0;
+}
+.front-doc-card:hover .front-doc-dl { color: var(--accent); }
+
+/* ===================== EKINTZA — MEMORIA CARD ===================== */
+.ekintza-card--memoria {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    text-decoration: none;
+    color: var(--black);
+    border: 1px dashed var(--gray-400);
+    background: var(--gray-100);
+    transition: var(--transition);
+}
+.ekintza-card--memoria:hover {
+    border-color: var(--accent);
+    background: var(--accent-lt);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+.ekintza-card--memoria-icon {
+    font-size: 2rem;
+    color: var(--accent);
+    flex-shrink: 0;
+}
+
+/* ===================== EKINTZA — PDF MEMORIA LINK ===================== */
+.ekintza-link--pdf {
+    background: rgba(188,71,73,0.08);
+    color: var(--accent);
+    border: 1px solid rgba(188,71,73,0.25);
+}
+.ekintza-link--pdf:hover {
+    background: var(--accent);
+    color: var(--white);
+    border-color: var(--accent);
 }

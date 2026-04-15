@@ -11,7 +11,7 @@ $pdf_url = get_option('arratia_egutegia_pdf', '');
 <div class="hezantolaketa-page">
     <div class="container">
 
-        <?php arratia_page_hero('Egutegia', 'Ikasturte Egutegia'); ?>
+        <?php arratia_page_hero(arratia_t('Egutegia', 'Calendario'), arratia_t('Ikasturte Egutegia', 'Calendario del curso')); ?>
 
         <?php if ($img_url): ?>
         <div class="hezantolaketa-img-wrap">

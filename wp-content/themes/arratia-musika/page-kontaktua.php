@@ -75,7 +75,7 @@ set_transient('kf_cap_' . $kf_captcha_token, $kf_n1 + $kf_n2, 30 * MINUTE_IN_SEC
 <div class="kontaktua-page">
     <div class="container">
 
-        <?php arratia_page_hero('Kontaktua', 'Jarri gurekin harremanetan'); ?>
+        <?php arratia_page_hero(arratia_t('Kontaktua', 'Contacto'), arratia_t('Jarri gurekin harremanetan', 'Contacta con nosotros')); ?>
 
         <!-- Contact info bar -->
         <div class="kontaktua-info-bar">

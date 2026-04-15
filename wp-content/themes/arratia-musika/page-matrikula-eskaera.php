@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['arratia_matrikula_non
             'nino'          => 'Adina / Maila',
             'alumno'        => 'Ikasle berria / ohia',
             'autorizo'      => 'Argazkien baimena',
-            'condiciones'   => 'Baldintzak onartu',
+            'pribatutasuna' => 'Pribatutasun Politika onartu',
         ];
         $missing = [];
         foreach ($required as $field => $label) {
@@ -410,11 +410,10 @@ get_header();
         <fieldset class="mf-fieldset">
             <legend><i class="fas fa-file-contract"></i> Baldintzak <span>/ Condiciones</span></legend>
             <label class="mf-checkbox">
-                <input type="checkbox" name="condiciones" value="Onartu" required>
-                <span>Matrikulari dagokion
-                    <a href="<?php echo esc_url(home_url('/barne-arauak/')); ?>" target="_blank">informazioa</a>
-                    irakurri eta onartzen dudala ziurtatzen dut. / He leído y acepto las
-                    <a href="<?php echo esc_url(home_url('/barne-arauak/')); ?>" target="_blank">condiciones</a>.</span>
+                <input type="checkbox" name="pribatutasuna" value="Onartu" required>
+                <span><a href="<?php echo esc_url(home_url('/pribatutasun-politika/')); ?>" target="_blank">Pribatutasun Politika</a>
+                    irakurri eta onartzen dudala ziurtatzen dut. /
+                    He leído y acepto la <a href="<?php echo esc_url(home_url('/pribatutasun-politika/')); ?>" target="_blank">Política de Privacidad</a>.</span>
             </label>
         </fieldset>
 

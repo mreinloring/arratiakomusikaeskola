@@ -6,6 +6,50 @@
 // ─── Konfigurazio nagusia (telefonoa, emaila, sare sozialak…) ──────────────────
 require_once get_template_directory() . '/inc/site-config.php';
 
+// ─── Language switcher (EU / ES) ──────────────────────────────────────────────
+add_action('init', function() {
+    if (isset($_GET['lang']) && in_array($_GET['lang'], ['eu', 'es'], true)) {
+        setcookie('arratia_lang', $_GET['lang'], time() + YEAR_IN_SECONDS, '/');
+        $_COOKIE['arratia_lang'] = $_GET['lang'];
+        wp_safe_redirect(remove_query_arg('lang'));
+        exit;
+    }
+}, 5);
+
+function arratia_lang(): string {
+    return (isset($_COOKIE['arratia_lang']) && $_COOKIE['arratia_lang'] === 'es') ? 'es' : 'eu';
+}
+
+/** Returns $eu or $es depending on the active language. */
+function arratia_t(string $eu, string $es = ''): string {
+    return arratia_lang() === 'es' ? ($es ?: $eu) : $eu;
+}
+
+// ─── Menu translation EU → ES ─────────────────────────────────────────────────
+add_filter('wp_nav_menu_objects', function($items) {
+    if (arratia_lang() !== 'es') return $items;
+    $tr = [
+        'Hasiera'               => 'Inicio',
+        'Ongi etorri!!'         => 'Bienvenidos',
+        'Ongi Etorri'           => 'Bienvenidos',
+        'Ikasgaiak'             => 'Asignaturas',
+        'Ekintzak'              => 'Actividades',
+        '25/26 Ikasturtea'      => 'Curso 25/26',
+        'Egutegia'              => 'Calendario',
+        'Hezkuntza antolaketa'  => 'Organización educativa',
+        'Matrikula'             => 'Matrícula',
+        'Nortzuk gara'          => 'Quiénes somos',
+        'Non Gaude'             => 'Dónde estamos',
+        'Kontaktua'             => 'Contacto',
+    ];
+    foreach ($items as $item) {
+        if (isset($tr[$item->title])) {
+            $item->title = $tr[$item->title];
+        }
+    }
+    return $items;
+}, 10, 1);
+
 // ─── Local dev: asegurar logo y menú en entorno de pruebas ────────────────────
 if ( defined('WP_HOME') && WP_HOME === 'http://arratiakomusikaeskola.test' ) {
     add_action('after_setup_theme', function() {
@@ -327,17 +371,22 @@ add_action('add_meta_boxes', 'arratia_ekintza_meta_boxes');
 
 function arratia_ekintza_links_cb($post) {
     wp_nonce_field('arratia_ekintza_nonce', 'ekintza_nonce');
-    $argazkiak = get_post_meta($post->ID, '_ekintza_argazkiak', true);
-    $bideoa    = get_post_meta($post->ID, '_ekintza_bideoa', true);
+    $argazkiak   = get_post_meta($post->ID, '_ekintza_argazkiak', true);
+    $bideoa      = get_post_meta($post->ID, '_ekintza_bideoa', true);
+    $memoria_pdf = get_post_meta($post->ID, '_ekintza_memoria_pdf', true);
+    $s = 'width:100%;padding:7px 10px;border:1px solid #ddd;border-radius:4px;';
     echo '<table style="width:100%;border-collapse:collapse;">';
     echo '<tr><td style="padding:8px 12px 8px 0;width:120px;font-weight:600;">📷 Argazkiak</td>';
     echo '<td><input type="url" name="ekintza_argazkiak" value="' . esc_attr($argazkiak) . '"
-        style="width:100%;padding:7px 10px;border:1px solid #ddd;border-radius:4px;"
-        placeholder="https://photos.google.com/..." /></td></tr>';
+        style="' . $s . '" placeholder="https://photos.google.com/..." /></td></tr>';
     echo '<tr><td style="padding:8px 12px 8px 0;font-weight:600;">🎬 Bideoa</td>';
     echo '<td><input type="url" name="ekintza_bideoa" value="' . esc_attr($bideoa) . '"
-        style="width:100%;padding:7px 10px;border:1px solid #ddd;border-radius:4px;"
-        placeholder="YouTube, Vimeo, Google Drive, Google Photos..." /></td></tr>';
+        style="' . $s . '" placeholder="YouTube, Vimeo, Google Drive, Google Photos..." /></td></tr>';
+    echo '<tr><td style="padding:8px 12px 8px 0;font-weight:600;">📋 Memoria PDF</td>';
+    echo '<td><input type="url" name="ekintza_memoria_pdf" value="' . esc_attr($memoria_pdf) . '"
+        style="' . $s . '" placeholder="https://...URL del PDF de la memoria anual..." />';
+    echo '<p style="color:#888;font-size:11px;margin:4px 0 0;">Ikasturte memoria PDF bat badago, txartelean agertuko da esteka gisa. / Si hay un PDF de memoria anual, aparecerá como enlace en la ficha.</p>';
+    echo '</td></tr>';
     echo '</table>';
     echo '<p style="color:#888;font-size:12px;margin-top:8px;">Irudia: "Irudia nabarmendua" atalean igo. Bideo formatuak: YouTube, Vimeo, Google Drive, .mp4...</p>';
 }
@@ -346,8 +395,9 @@ function arratia_save_ekintza_meta($post_id) {
     if (!isset($_POST['ekintza_nonce']) || !wp_verify_nonce($_POST['ekintza_nonce'], 'arratia_ekintza_nonce')) return;
     if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
     if (!current_user_can('edit_post', $post_id)) return;
-    if (isset($_POST['ekintza_argazkiak'])) update_post_meta($post_id, '_ekintza_argazkiak', esc_url_raw($_POST['ekintza_argazkiak']));
-    if (isset($_POST['ekintza_bideoa']))    update_post_meta($post_id, '_ekintza_bideoa',    esc_url_raw($_POST['ekintza_bideoa']));
+    if (isset($_POST['ekintza_argazkiak']))  update_post_meta($post_id, '_ekintza_argazkiak',  esc_url_raw($_POST['ekintza_argazkiak']));
+    if (isset($_POST['ekintza_bideoa']))     update_post_meta($post_id, '_ekintza_bideoa',     esc_url_raw($_POST['ekintza_bideoa']));
+    if (isset($_POST['ekintza_memoria_pdf'])) update_post_meta($post_id, '_ekintza_memoria_pdf', esc_url_raw($_POST['ekintza_memoria_pdf']));
 }
 add_action('save_post_ekintza', 'arratia_save_ekintza_meta');
 
@@ -547,6 +597,11 @@ function arratia_settings_page_cb() {
         update_option('arratia_front_ig_img_teoriko',   esc_url_raw($_POST['front_ig_img_teoriko']   ?? ''));
         update_option('arratia_front_ig_img_taldeak',   esc_url_raw($_POST['front_ig_img_taldeak']   ?? ''));
         update_option('arratia_front_ig_img_ahotsa',    esc_url_raw($_POST['front_ig_img_ahotsa']    ?? ''));
+        update_option('arratia_front_pdf_mm',          esc_url_raw($_POST['front_pdf_mm']           ?? ''));
+        update_option('arratia_front_pdf_hm',          esc_url_raw($_POST['front_pdf_hm']           ?? ''));
+        update_option('arratia_front_pdf_egutegia',    esc_url_raw($_POST['front_pdf_egutegia']     ?? ''));
+        update_option('arratia_front_pdf_beste',       esc_url_raw($_POST['front_pdf_beste']        ?? ''));
+        update_option('arratia_front_pdf_beste_label', sanitize_text_field($_POST['front_pdf_beste_label'] ?? ''));
         echo '<div class="notice notice-success is-dismissible"><p>&#10003; Gorde da / Guardado.</p></div>';
     }
     $open    = get_option('arratia_matrikula_open', '1');
@@ -572,6 +627,11 @@ function arratia_settings_page_cb() {
     $ig_img_teoriko = get_option('arratia_front_ig_img_teoriko', '');
     $ig_img_taldeak = get_option('arratia_front_ig_img_taldeak', '');
     $ig_img_ahotsa  = get_option('arratia_front_ig_img_ahotsa',  '');
+    $front_pdf_mm          = get_option('arratia_front_pdf_mm',          '');
+    $front_pdf_hm          = get_option('arratia_front_pdf_hm',          '');
+    $front_pdf_egutegia    = get_option('arratia_front_pdf_egutegia',    '');
+    $front_pdf_beste       = get_option('arratia_front_pdf_beste',       '');
+    $front_pdf_beste_label = get_option('arratia_front_pdf_beste_label', '');
     ?>
     <div class="wrap">
         <h1>🎵 Arratiako Musika Eskola — Ezarpenak</h1>
@@ -706,6 +766,28 @@ function arratia_settings_page_cb() {
                         </div>
                         <?php endforeach; ?>
                         <p class="description">YouTube, Vimeo, Google Drive edo MP4. Hutsik → ez da agertuko.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">📄 Datorren ikasturtea — PDFak<br><small style="font-weight:400">Próximo curso — documentos (portada)</small></th>
+                    <td>
+                        <?php foreach ([
+                            ['front_pdf_mm',       'Ordutegi MM / Horario MM',           $front_pdf_mm,       false],
+                            ['front_pdf_hm',       'Ordutegi HM / Horario HM',           $front_pdf_hm,       false],
+                            ['front_pdf_egutegia', 'Egutegia / Calendario',              $front_pdf_egutegia, false],
+                            ['front_pdf_beste',    'Beste dokumentua / Otro documento',  $front_pdf_beste,    true],
+                        ] as [$fname, $flabel, $fval, $hasLabel]): ?>
+                        <p style="margin:8px 0 4px;font-weight:600;"><?php echo esc_html($flabel); ?></p>
+                        <input type="url" name="<?php echo esc_attr($fname); ?>" value="<?php echo esc_attr($fval); ?>"
+                               style="width:100%;max-width:580px;padding:6px 10px;font-size:13px;margin-bottom:4px;"
+                               placeholder="https://...URL del PDF...">
+                        <?php if ($hasLabel): ?>
+                        <input type="text" name="front_pdf_beste_label" value="<?php echo esc_attr($front_pdf_beste_label); ?>"
+                               style="width:100%;max-width:360px;padding:6px 10px;font-size:13px;margin-bottom:4px;"
+                               placeholder="Etiketa / Etiqueta (adib.: Matrikula informazioa)">
+                        <?php endif; ?>
+                        <?php endforeach; ?>
+                        <p class="description">Media → Biblioteca → selecciona el PDF → copia la URL del archivo. Hutsik → ez da agertzen / Vacío → no aparece.</p>
                     </td>
                 </tr>
             </table>

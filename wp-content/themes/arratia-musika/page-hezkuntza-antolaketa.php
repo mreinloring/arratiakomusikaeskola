@@ -10,7 +10,7 @@ $img_url = get_option('arratia_antolaketa_img', '');
 <div class="hezantolaketa-page">
     <div class="container">
 
-        <?php arratia_page_hero('Hezkuntza Antolaketa', 'Hezkuntza Antolaketa'); ?>
+        <?php arratia_page_hero(arratia_t('Hezkuntza Antolaketa', 'Organización educativa'), arratia_t('Hezkuntza Antolaketa', 'Organización educativa')); ?>
 
         <?php if ($img_url): ?>
         <div class="hezantolaketa-img-wrap">

@@ -74,7 +74,7 @@ $zuzendaritza = new WP_Query([
 <div class="nortzuk-page">
     <div class="container">
 
-        <?php arratia_page_hero('Nortzuk gara', 'Gure taldea'); ?>
+        <?php arratia_page_hero(arratia_t('Nortzuk gara', 'Quiénes somos'), arratia_t('Gure taldea', 'Nuestro equipo')); ?>
 
         <!-- Irakasleak -->
         <?php if ($irakasleak->have_posts()): ?>

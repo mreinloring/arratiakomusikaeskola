@@ -96,7 +96,7 @@ unset($year_data);
 <div class="ekintzak-page">
     <div class="container">
 
-        <?php arratia_page_hero('Ekintzak', $current_label . ' Ikasturtea'); ?>
+        <?php arratia_page_hero(arratia_t('Ekintzak', 'Actividades'), $current_label . ' ' . arratia_t('Ikasturtea', 'Curso')); ?>
 
         <?php if (empty($years)): ?>
             <p style="text-align:center;color:#888;padding:3rem 0;">Oraindik ez dago ekintzarik. Laster!<br><em>(Aún no hay actividades registradas)</em></p>
@@ -122,12 +122,24 @@ unset($year_data);
                 <div class="ekintza-cards">
                     <?php foreach ($month_data['posts'] as $post): setup_postdata($post);
                         $pid       = $post->ID;
-                        $argazkiak = get_post_meta($pid, '_ekintza_argazkiak', true)
-                                  ?: get_post_meta($pid, '_google_photos_url', true);
-                        $bideoa    = get_post_meta($pid, '_ekintza_bideoa', true)
-                                  ?: get_post_meta($pid, '_video_url', true);
-                        $thumb_url = get_the_post_thumbnail_url($pid, 'large');
+                        $argazkiak   = get_post_meta($pid, '_ekintza_argazkiak', true)
+                                    ?: get_post_meta($pid, '_google_photos_url', true);
+                        $bideoa      = get_post_meta($pid, '_ekintza_bideoa', true)
+                                    ?: get_post_meta($pid, '_video_url', true);
+                        $memoria_pdf = get_post_meta($pid, '_ekintza_memoria_pdf', true);
+                        $thumb_url   = get_the_post_thumbnail_url($pid, 'large');
                     ?>
+                    <?php if ($memoria_pdf && !$argazkiak && !$bideoa): ?>
+                    <a href="<?php echo esc_url($memoria_pdf); ?>" target="_blank" rel="noopener" class="ekintza-card ekintza-card--memoria">
+                        <i class="fas fa-file-pdf ekintza-card--memoria-icon"></i>
+                        <div class="ekintza-card-body">
+                            <h4 class="ekintza-card-title"><?php echo esc_html(get_the_title($pid)); ?></h4>
+                            <span class="ekintza-link ekintza-link--pdf" style="pointer-events:none;">
+                                <i class="fas fa-download"></i> <?php echo arratia_t('Deskargatu', 'Descargar'); ?>
+                            </span>
+                        </div>
+                    </a>
+                    <?php else: ?>
                     <div class="ekintza-card">
                         <?php if ($thumb_url): ?>
                         <div class="ekintza-card-img">
@@ -147,24 +159,19 @@ unset($year_data);
                                 </a>
                                 <?php endif; ?>
                                 <?php if ($bideoa): ?>
-                                    <?php
-                                    // Check if embeddable or just a link
-                                    $is_direct_video = preg_match('/\.(mp4|webm|ogv)(\?.*)?$/i', $bideoa)
-                                        || preg_match('/(?:youtube\.com|youtu\.be|vimeo\.com|drive\.google\.com)/', $bideoa);
-                                    if ($is_direct_video):
-                                    ?>
-                                    <a href="<?php echo esc_url($bideoa); ?>" target="_blank" rel="noopener" class="ekintza-link ekintza-link--video">
-                                        <i class="fas fa-video"></i> Bideoa
-                                    </a>
-                                    <?php else: ?>
-                                    <a href="<?php echo esc_url($bideoa); ?>" target="_blank" rel="noopener" class="ekintza-link ekintza-link--video">
-                                        <i class="fas fa-video"></i> Bideoa
-                                    </a>
-                                    <?php endif; ?>
+                                <a href="<?php echo esc_url($bideoa); ?>" target="_blank" rel="noopener" class="ekintza-link ekintza-link--video">
+                                    <i class="fas fa-video"></i> Bideoa
+                                </a>
+                                <?php endif; ?>
+                                <?php if ($memoria_pdf): ?>
+                                <a href="<?php echo esc_url($memoria_pdf); ?>" target="_blank" rel="noopener" class="ekintza-link ekintza-link--pdf">
+                                    <i class="fas fa-file-pdf"></i> Memoria
+                                </a>
                                 <?php endif; ?>
                             </div>
                         </div>
                     </div>
+                    <?php endif; ?>
                     <?php endforeach; wp_reset_postdata(); ?>
                 </div>
             </div>

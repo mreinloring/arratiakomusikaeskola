@@ -20,6 +20,20 @@
             <?php endif; ?>
         </div>
 
+        <?php
+        $arratia_cur_lang = arratia_lang();
+        $arratia_url_eu   = esc_url(add_query_arg('lang', 'eu', home_url('/')));
+        $arratia_url_es   = esc_url(add_query_arg('lang', 'es', home_url('/')));
+        ?>
+        <div class="lang-switcher" aria-label="Hizkuntza / Idioma">
+            <a href="<?php echo $arratia_url_eu; ?>"
+               class="lang-btn<?php echo $arratia_cur_lang === 'eu' ? ' lang-btn--active' : ''; ?>"
+               <?php echo $arratia_cur_lang === 'eu' ? 'aria-current="true"' : ''; ?>>EU</a>
+            <a href="<?php echo $arratia_url_es; ?>"
+               class="lang-btn<?php echo $arratia_cur_lang === 'es' ? ' lang-btn--active' : ''; ?>"
+               <?php echo $arratia_cur_lang === 'es' ? 'aria-current="true"' : ''; ?>>ES</a>
+        </div>
+
         <button class="menu-toggle" id="menuToggle" aria-label="Menú" aria-expanded="false">
             <span></span><span></span><span></span>
         </button>

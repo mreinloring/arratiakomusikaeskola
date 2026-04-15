@@ -23,7 +23,7 @@ $herriak = [
 <div class="nongaude-page">
     <div class="container">
 
-        <?php arratia_page_hero('Non Gaude', 'Non Gaude'); ?>
+        <?php arratia_page_hero(arratia_t('Non Gaude', 'Dónde estamos'), arratia_t('Non Gaude', 'Dónde estamos')); ?>
 
         <div class="nongaude-grid">
         <?php foreach ($herriak as $h):

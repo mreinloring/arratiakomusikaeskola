@@ -8,13 +8,19 @@ get_header();
 <div class="ongi-etorri-page">
     <div class="container">
 
-        <?php arratia_page_hero('Ongi Etorri', 'Arratiako Musika Eskola'); ?>
+        <?php arratia_page_hero(arratia_t('Ongi Etorri', 'Bienvenidos'), 'Arratiako Musika Eskola'); ?>
 
         <!-- Texto -->
         <div class="ongi-etorri-text">
+            <?php if (arratia_lang() === 'es'): ?>
+            <p>Nuestra historia como centro oficial de enseñanza musical comenzó en 1986, como Conservatorio Elemental de Música.</p>
+            <p>Con anterioridad, y desde la década de los 70, iban surgiendo academias locales, como la impulsada en Artea por las hermanas Sorkunde, Inmakulada y Edurne Gumuzio, o las de Areatza e Igorre, de la mano de Ruper Lekue, con el apoyo de la fanfarre Kaixo y la Coral Luis Iruarrizaga —además del apoyo económico de las corporaciones locales— que lograrían numerosos alumnos y un claustro de profesores en formación.</p>
+            <p>La confluencia de las academias mencionadas, junto con la necesaria solicitud de oficialización, daría lugar a la creación del "Conservatorio Elemental de Música de Arratia", que a partir de 1992 y con la entrada en vigor de la LOGSE pasaría a denominarse "Escuela de Música de Arratia".</p>
+            <?php else: ?>
             <p>Gure historia, musika irakasteko zentro ofizial bezala, 1986an hasi zen, Oinarrizko Musika Kontserbatorio gisa.</p>
             <p>Lehenago eta 70eko hamarkadaz geroztik, tokiko akademiak sortzen ari ziren, Sorkunde, Inmakulada eta Edurne Gumuzio ahizpek Artean bultzatutakoa, edo Areatza eta Igorren, Ruper Lekueren eskutik sortutakoak, Kaixo fanfarrearen eta Luis Iruarrizaga Abesbatzaren laguntzarekin –tokiko korporazioen laguntza ekonomikoaz gain– ikasle ugari zein sortzen ari den irakasle klaustro bat ere lortuko dutenak.</p>
             <p>Aipatutako akademien bilerak, beharrezko ofizialtze-eskaerarekin batera, "Arratiako Oinarrizko Musika Kontserbatorioa" sortzea ekarriko du, 1992tik aurrera eta LOGSE indarrean sartzearekin batera "Arratiako Musika Eskola" izena hartuko duena.</p>
+            <?php endif; ?>
         </div>
 
         <!-- Slider -->

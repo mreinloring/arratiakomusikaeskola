@@ -240,7 +240,7 @@ if ($use_cpt) {
 
 <div class="ikasgaiak-page">
     <div class="container">
-    <?php arratia_page_hero('Ikasgaiak', 'Ikasgaiak'); ?>
+    <?php arratia_page_hero(arratia_t('Ikasgaiak', 'Asignaturas'), arratia_t('Ikasgaiak', 'Asignaturas')); ?>
 
     <?php if ($use_cpt): ?>
 
