@@ -19,7 +19,8 @@
                 <?php echo arratia_t('Matrikula', 'Matrícula'); ?> &rarr;
             </a>
             <?php endif; ?>
-            <a href="<?php echo esc_url(get_permalink(get_page_by_path('ikasgaiak'))); ?>" class="btn btn-outline-white btn-lg">
+            <?php $ikasgaiak_page = get_page_by_path('ikasgaiak'); ?>
+            <a href="<?php echo esc_url($ikasgaiak_page ? get_permalink($ikasgaiak_page->ID) : home_url('/ikasgaiak/')); ?>" class="btn btn-outline-white btn-lg">
                 <?php echo arratia_t('Ikasgaiak', 'Asignaturas'); ?>
             </a>
         </div>
@@ -227,7 +228,7 @@ if ($videos):
 
         <?php
         $ikasgai_page = get_page_by_path('ikasgaiak');
-        $ikasgai_url  = esc_url($ikasgai_page ? get_permalink($ikasgai_page->ID) : home_url('/arratiakomusikaeskola/ikasgaiak/'));
+        $ikasgai_url  = esc_url($ikasgai_page ? get_permalink($ikasgai_page->ID) : home_url('/ikasgaiak/'));
 
         // Get one thumbnail from a category
         function arratia_front_cat_img($kategoria) {

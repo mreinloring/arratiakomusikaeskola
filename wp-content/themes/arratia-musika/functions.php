@@ -38,6 +38,7 @@ add_filter('wp_nav_menu_objects', function($items) {
         'Egutegia'              => 'Calendario',
         'Hezkuntza antolaketa'  => 'Organización educativa',
         'Matrikula'             => 'Matrícula',
+        'Matrikulazioa'         => 'Matriculación',
         'Nortzuk gara'          => 'Quiénes somos',
         'Non Gaude'             => 'Dónde estamos',
         'Kontaktua'             => 'Contacto',
@@ -600,6 +601,7 @@ function arratia_settings_page_cb() {
         update_option('arratia_front_pdf_mm',          esc_url_raw($_POST['front_pdf_mm']           ?? ''));
         update_option('arratia_front_pdf_hm',          esc_url_raw($_POST['front_pdf_hm']           ?? ''));
         update_option('arratia_front_pdf_egutegia',    esc_url_raw($_POST['front_pdf_egutegia']     ?? ''));
+        update_option('arratia_front_pdf_tasak',       esc_url_raw($_POST['front_pdf_tasak']        ?? ''));
         update_option('arratia_front_pdf_beste',       esc_url_raw($_POST['front_pdf_beste']        ?? ''));
         update_option('arratia_front_pdf_beste_label', sanitize_text_field($_POST['front_pdf_beste_label'] ?? ''));
         echo '<div class="notice notice-success is-dismissible"><p>&#10003; Gorde da / Guardado.</p></div>';
@@ -630,6 +632,7 @@ function arratia_settings_page_cb() {
     $front_pdf_mm          = get_option('arratia_front_pdf_mm',          '');
     $front_pdf_hm          = get_option('arratia_front_pdf_hm',          '');
     $front_pdf_egutegia    = get_option('arratia_front_pdf_egutegia',    '');
+    $front_pdf_tasak       = get_option('arratia_front_pdf_tasak',       '');
     $front_pdf_beste       = get_option('arratia_front_pdf_beste',       '');
     $front_pdf_beste_label = get_option('arratia_front_pdf_beste_label', '');
     ?>
@@ -775,6 +778,7 @@ function arratia_settings_page_cb() {
                             ['front_pdf_mm',       'Ordutegi MM / Horario MM',           $front_pdf_mm,       false],
                             ['front_pdf_hm',       'Ordutegi HM / Horario HM',           $front_pdf_hm,       false],
                             ['front_pdf_egutegia', 'Egutegia / Calendario',              $front_pdf_egutegia, false],
+                            ['front_pdf_tasak',    'Tasak / Tarifas',                    $front_pdf_tasak,    false],
                             ['front_pdf_beste',    'Beste dokumentua / Otro documento',  $front_pdf_beste,    true],
                         ] as [$fname, $flabel, $fval, $hasLabel]): ?>
                         <p style="margin:8px 0 4px;font-weight:600;"><?php echo esc_html($flabel); ?></p>

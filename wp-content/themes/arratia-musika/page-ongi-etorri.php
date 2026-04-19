@@ -10,7 +10,8 @@ get_header();
 
         <?php arratia_page_hero(arratia_t('Ongi Etorri', 'Bienvenidos'), 'Arratiako Musika Eskola'); ?>
 
-        <!-- Texto -->
+        <!-- Texto + Slider (columna centrada común) -->
+        <div class="ongi-etorri-body">
         <div class="ongi-etorri-text">
             <?php if (arratia_lang() === 'es'): ?>
             <p>Nuestra historia como centro oficial de enseñanza musical comenzó en 1986, como Conservatorio Elemental de Música.</p>
@@ -46,6 +47,7 @@ get_header();
             <div class="ongi-slider-dots" id="ongiDots"></div>
         </div>
         <?php endif; ?>
+        </div><!-- /.ongi-etorri-body -->
 
     </div>
 </div>

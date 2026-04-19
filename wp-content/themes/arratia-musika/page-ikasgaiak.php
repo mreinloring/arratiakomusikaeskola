@@ -149,8 +149,17 @@ function arratia_render_ikasgai_slider( $card ) {
         <?php endif; ?>
         <?php if (!empty($card['irakaslea'])): ?>
         <div class="ig-slider-irakasleak">
-            <?php foreach ($card['irakaslea'] as $ir): ?>
+            <?php foreach ($card['irakaslea'] as $ir):
+                $dash = strpos($ir, '-');
+                if ($dash !== false && strlen($ir) > 40):
+                    $label  = substr($ir, 0, $dash + 1);
+                    $names  = ltrim(substr($ir, $dash + 1));
+                ?>
+                <span class="ig-ir-label"><?php echo esc_html($label); ?></span>
+                <span class="ig-ir-names"><?php echo esc_html($names); ?></span>
+                <?php else: ?>
                 <span><?php echo esc_html($ir); ?></span>
+                <?php endif; ?>
             <?php endforeach; ?>
         </div>
         <?php endif; ?>

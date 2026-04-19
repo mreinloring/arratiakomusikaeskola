@@ -779,6 +779,10 @@ h2 > i.fas, h3 > i.fas {
 }
 .ig-slider-irakasleak span {
     font-size: 0.88rem; color: #5D4037; font-weight: 600;
+    text-align: center;
+}
+.ig-ir-names {
+    font-weight: 400; color: var(--gray-600); margin-bottom: 0.35rem;
 }
 
 /* ===================== NORTZUK GARA ===================== */
@@ -1380,17 +1384,48 @@ h2 > i.fas, h3 > i.fas {
 
 /* ===================== ONGI ETORRI ===================== */
 .ongi-etorri-page { padding: 2rem 0 4rem; }
-.ongi-etorri-content {
-    max-width: 780px; margin: 0 auto 3rem;
-    font-size: 1.05rem; line-height: 1.8;
+
+.ongi-etorri-body {
+    max-width: 66ch;
+    margin: 0 auto;
 }
-.ongi-etorri-content p { margin-bottom: 1rem; }
+
+.ongi-etorri-text {
+    margin-bottom: 3.5rem;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: var(--body);
+}
+
+/* Párrafo introductorio — entrada editorial */
+.ongi-etorri-text p:first-child {
+    font-family: var(--font-heading);
+    font-size: clamp(1.15rem, 2vw, 1.35rem);
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1.6;
+    color: var(--black);
+    margin-bottom: 1.75rem;
+}
+
+.ongi-etorri-text p {
+    margin-bottom: 1.25rem;
+}
+
+.ongi-etorri-text p:last-child {
+    margin-bottom: 0;
+}
+
+/* Separador visual antes del slider */
+.ongi-etorri-text + .ongi-slider,
+.ongi-etorri-text ~ .ongi-slider {
+    margin-top: 3rem;
+}
 
 /* Slider */
 .ongi-slider {
     position: relative; overflow: hidden;
     border-radius: var(--radius); margin-top: 2rem;
-    max-width: 480px; margin-left: auto; margin-right: auto;
     aspect-ratio: 4/3; background: var(--gray-200);
 }
 .ongi-slider-track {

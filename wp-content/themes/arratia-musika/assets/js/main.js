@@ -65,6 +65,13 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    // ── Parent menu items: dropdown-only (no navigation) ─────
+    document.querySelectorAll('.site-nav .menu-item-has-children > a').forEach(function (link) {
+        link.addEventListener('click', function (e) {
+            e.preventDefault();
+        });
+    });
+
     // ── Bideo desc "Irakurri gehiago" ─────────────────────────
     document.querySelectorAll('.front-bideo-desc').forEach(function(desc) {
         var btn = desc.parentElement.querySelector('.front-bideo-more');
