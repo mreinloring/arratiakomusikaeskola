@@ -699,6 +699,20 @@ function arratia_is_matrikula_open() {
     if ($val === 'auto') return (int) date('n') === 5;
     return $val === '1';
 }
+
+function arratia_validate_enrollment_token( string $token ): array|false {
+    $parts = explode( '.', $token, 2 );
+    if ( count( $parts ) !== 2 ) return false;
+    [ $payload, $sig ] = $parts;
+    $secret = defined( 'ARRATIA_ENROLLMENT_SECRET' ) ? ARRATIA_ENROLLMENT_SECRET : '';
+    if ( ! $secret ) return false;
+    $expected = hash_hmac( 'sha256', $payload, $secret );
+    if ( ! hash_equals( $expected, $sig ) ) return false;
+    $data = json_decode( base64_decode( strtr( $payload, '-_', '+/' ) ), true );
+    if ( ! $data || empty( $data['exp'] ) ) return false;
+    if ( $data['exp'] < time() ) return false;
+    return $data;
+}
 // ─────────────────────────────────────────────────────────────────────────────
 
 function arratia_settings_page_cb() {

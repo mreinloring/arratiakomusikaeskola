@@ -25,6 +25,18 @@ $sent         = false;
 $error        = '';
 $error_fields = [];
 
+// Token de lista de espera: permite acceder aunque esté cerrado
+$token_data = false;
+if ( ! empty( $_GET['token'] ) ) {
+    $token_data = arratia_validate_enrollment_token( sanitize_text_field( $_GET['token'] ) );
+}
+// Pre-relleno de nombre/apellidos desde el token (solo en GET limpio)
+if ( $token_data && $_SERVER['REQUEST_METHOD'] === 'GET' ) {
+    $_POST['nombre']    = $token_data['name'] ?? '';
+    $_POST['apellido1'] = $token_data['ap1']  ?? '';
+    $_POST['apellido2'] = $token_data['ap2']  ?? '';
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['arratia_matrikula_nonce'])) {
     if (!wp_verify_nonce($_POST['arratia_matrikula_nonce'], 'arratia_matrikula_submit')) {
         $error = 'Segurtasun errorea. Mesedez, saiatu berriro.';
@@ -244,7 +256,7 @@ get_header();
         </div>
     </div>
 
-    <?php if (!arratia_is_matrikula_open() && !$sent): ?>
+    <?php if (!arratia_is_matrikula_open() && !$sent && !$token_data): ?>
     <div class="mf-closed-notice">
         <i class="fas fa-lock"></i>
         <div>
