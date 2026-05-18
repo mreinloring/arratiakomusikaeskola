@@ -35,7 +35,7 @@ get_header();
                 <h2 class="matrikula-section-title"><i class="fas fa-mouse-pointer"></i> <?php echo arratia_t('Nola matrikulatu on-line', 'Cómo matricularse on-line'); ?></h2>
                 <ol class="matrikula-steps">
                     <li>
-                        <?php if (get_option('arratia_matrikula_open', '1')): ?>
+                        <?php if (arratia_is_matrikula_open()): ?>
                         <a href="<?php echo esc_url(home_url('/matrikula-eskaera/')); ?>" class="btn btn-accent" style="font-size:.9rem;padding:.55rem 1.4rem;">
                             <i class="fas fa-edit"></i> «<?php echo arratia_t('MATRIKULATU ON-LINE', 'MATRICULARSE ON-LINE'); ?>»
                         </a>
@@ -82,7 +82,7 @@ get_header();
                     <?php $antolaketa_img = get_option('arratia_antolaketa_img', ''); if ($antolaketa_img): ?>
                     <a href="<?php echo esc_url(home_url('/hezkuntza-antolaketa/')); ?>" class="matrikula-link-card">
                         <i class="fas fa-sitemap"></i>
-                        <span><?php echo arratia_t('Hezkuntza Antolaketa 2025/2026', 'Organización Educativa 2025/2026'); ?></span>
+                        <span><?php echo arratia_t('Hezkuntza Antolaketa ', 'Organización Educativa '); ?></span>
                     </a>
                     <?php endif; ?>
                 </div>
@@ -109,15 +109,12 @@ get_header();
                     <div class="matrikula-maila-item">
                         <span class="matrikula-maila-badge">8+ <?php echo arratia_t('urte', 'años'); ?></span>
                         <div>
-                            <p><?php echo arratia_t('Hizkuntza musikala + abesbatza + tresna', 'Lenguaje musical + coro + instrumento'); ?></p>
+                            <p><?php echo arratia_t('Hizkuntza musikala + tresna', 'Lenguaje musical + instrumento'); ?></p>
                             <p class="matrikula-maila-note"><?php echo arratia_t(
-                                'Tresna aukeratuz gero, Hizkuntza musikala eta abesbatza derrigorrak.',
-                                'Si se elige instrumento, lenguaje musical y coro son obligatorios.'
+                                'Instrumentua eta hizkuntza musikala nahitaezkoak dira. Abesbatza hautazkoa da eta instrumenturik gabe egin daiteke."',
+                                'Instrumento y lenguaje musical son obligatorios. Coro es opcional y se puede cursar sin instrumento.'
                             ); ?></p>
-                            <p class="matrikula-maila-note"><?php echo arratia_t(
-                                'Hizkuntza musikala eta abesbatza aukeran, tresnarik gabe.',
-                                'Lenguaje musical y coro también pueden cursarse sin instrumento.'
-                            ); ?></p>
+
                         </div>
                     </div>
                     <div class="matrikula-maila-item">
@@ -139,7 +136,7 @@ get_header();
                         <i class="fas fa-calendar-alt"></i> <?php echo arratia_t('Matrikulazio epea 2026/2027', 'Período de matriculación 2026/2027'); ?>
                     </div>
                     <div class="matrikula-epea-body">
-                        <?php echo arratia_t('Maiatzaren 15 – Ekainaren 5 (2026)', '15 de mayo – 5 de junio (2026)'); ?>
+                        <?php echo arratia_t('Maiatzean zehar', 'durante el mes  de mayo'); ?>
                     </div>
                 </div>
 
@@ -171,13 +168,7 @@ get_header();
                         'El alumno/a que se matricule adquiere el <strong>compromiso de completar el curso completo</strong>.'
                     ); ?></p>
                 </div>
-                <div class="matrikula-ohar-item">
-                    <i class="fas fa-door-open"></i>
-                    <p><?php echo arratia_t(
-                        '<strong>Baja epea: Urriaren 31a.</strong> Epe hau pasata, ezin izango da bajarik eman. Bajak eskaria aurkezten den hurrengo hilabetetik izango ditu ondorioak.',
-                        '<strong>Plazo de baja: 31 de octubre.</strong> Pasado este plazo no se podrá dar de baja. La baja tendrá efecto a partir del mes siguiente a la solicitud.'
-                    ); ?></p>
-                </div>
+
                 <div class="matrikula-ohar-item">
                     <i class="fas fa-envelope"></i>
                     <p><?php echo arratia_t(
@@ -204,7 +195,7 @@ get_header();
 
         <!-- CTA -->
         <div class="matrikula-cta">
-        <?php if (get_option('arratia_matrikula_open', '1')): ?>
+        <?php if (arratia_is_matrikula_open()): ?>
             <a href="<?php echo esc_url(home_url('/matrikula-eskaera/')); ?>" class="btn btn-accent btn-lg">
                 <i class="fas fa-edit"></i> <?php echo arratia_t('Matrikulatu On-Line', 'Matricularse On-Line'); ?>
             </a>

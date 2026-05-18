@@ -56,6 +56,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['arratia_matrikula_non
                 $error_fields[$field] = true;
             }
         }
+        // Instrumentua beharrezkoa da 8 urtetik gorako ikasleentzat
+        $nino_val = $_POST['nino'] ?? '';
+        if (in_array($nino_val, ['8-12 urte', '13+ urte']) && empty($_POST['instrumento'])) {
+            $missing[]                   = 'Instrumentua';
+            $error_fields['instrumento'] = true;
+        }
         if ($missing) {
             $error = count($missing) === 1
                 ? $missing[0] . ' eremua bete gabe dago.'
@@ -122,9 +128,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['arratia_matrikula_non
             ];
             wp_mail($emisor, $titulo, $html, $headers_admin);
 
-            // Save to DB
+            // Save to DB — comprobar duplicado (mismo nombre+apellido+nacimiento+curso en las últimas 2h)
             global $wpdb;
             $jaiotze = !empty($p['fecha_nto']) ? $p['fecha_nto'] : null;
+            $dup = $wpdb->get_var($wpdb->prepare(
+                "SELECT id FROM {$wpdb->prefix}arratia_matriculas
+                 WHERE izena=%s AND abizena1=%s AND jaiotze_data=%s AND ikasturtea=%s
+                   AND fecha >= %s",
+                $p['nombre'], $p['apellido1'], $jaiotze, $ikasturtea_label,
+                date('Y-m-d H:i:s', strtotime('-2 hours'))
+            ));
+            if ($dup) {
+                $error = 'Matrikula hau dagoeneko jaso dugu / Ya hemos recibido esta matrícula. Eskerrik asko!';
+            } else {
             $wpdb->insert(
                 $wpdb->prefix . 'arratia_matriculas',
                 [
@@ -195,9 +211,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['arratia_matrikula_non
                 wp_mail($p['email2'], 'Arratiako Musika Eskola — Matrikula berrespena ' . $ikasturtea_label, $conf, $headers_conf);
             }
 
-            $sent = true;
+            } // fin else (no duplicado)
+
+            if (!$error) {
+                // Redirect-after-post: evita reenvío por F5
+                wp_safe_redirect(add_query_arg('bidalia', '1', get_permalink()));
+                exit;
+            }
         }
     }
+}
+
+// Envío completado (llegamos por redirect)
+if (isset($_GET['bidalia'])) {
+    $sent = true;
 }
 
 get_header();
@@ -217,7 +244,7 @@ get_header();
         </div>
     </div>
 
-    <?php if (!get_option('arratia_matrikula_open', '1') && !$sent): ?>
+    <?php if (!arratia_is_matrikula_open() && !$sent): ?>
     <div class="mf-closed-notice">
         <i class="fas fa-lock"></i>
         <div>
@@ -269,7 +296,7 @@ get_header();
                     <label>Udalerria <span class="req">*</span> <em>/ Municipio</em></label>
                     <select name="poblacion" required>
                         <option value="">Aukeratu / Selecciona</option>
-                        <?php foreach (['Arantzazu','Areatza','Artea','Bedia','Dimako','Dima','Igorre','Lemoa','Murga','Orozko','Urduliz','Ugao-Miraballes','Zeberio','Zeanuri','Beste bat'] as $m): ?>
+                        <?php foreach (['Arantzazu','Areatza','Artea','Bedia','Dima','Igorre','Lemoa','Otxandio','Zeberio','Zeanuri'] as $m): ?>
                         <option value="<?php echo esc_attr($m); ?>"<?php selected($_POST['poblacion'] ?? '', $m); ?>><?php echo esc_html($m); ?></option>
                         <?php endforeach; ?>
                     </select>
@@ -524,7 +551,7 @@ get_header();
         nino1: { asig: 'mm',  label: 'Musika &amp; Mugimendua',         inst: false, inst7: false, instLabel: '' },
         nino2: { asig: 'mm',  label: 'Musika &amp; Mugimendua',         inst: false, inst7: true,  instLabel: 'Instrumentua <em>(aukerakoa, plazak badaude / opcional si hay plazas)</em>' },
         nino3: { asig: 'hm',  label: 'Hizkuntza Musikala + Abesbatza', inst: true,  inst7: false, instLabel: 'Instrumentua <span class="req">*</span> <em>(derrigorrezkoa)</em>' },
-        nino4: { asig: null,  label: '',                                 inst: true,  inst7: false, instLabel: 'Instrumentua <em>(aukerakoa)</em>' },
+        nino4: { asig: 'none', label: '',                                inst: true,  inst7: false, instLabel: 'Instrumentua <span class="req">*</span> <em>(derrigorrezkoa / obligatorio)</em>' },
     };
 
     function ageAt31Dec(birthDateStr) {
@@ -541,8 +568,13 @@ get_header();
         var cfg = groupConfig[id];
         fieldInst.style.display  = cfg.inst  ? 'block' : 'none';
         fieldInst7.style.display = cfg.inst7 ? 'block' : 'none';
+        var instSelect = document.getElementById('instrumento');
+        if (instSelect) instSelect.required = cfg.inst;
         if (labelInst && cfg.instLabel) labelInst.innerHTML = cfg.instLabel;
-        if (cfg.asig) {
+        if (cfg.asig === 'none') {
+            if (fieldAsigBadge)  fieldAsigBadge.style.display  = 'none';
+            if (fieldAsigSelect) fieldAsigSelect.style.display  = 'none';
+        } else if (cfg.asig) {
             if (fieldAsigBadge)  fieldAsigBadge.style.display  = 'block';
             if (fieldAsigSelect) fieldAsigSelect.style.display  = 'none';
             if (asigBadge)  asigBadge.innerHTML = cfg.label;

@@ -14,7 +14,7 @@
         <p><?php echo arratia_t('Musikaren bidez hazi, sortu eta partekatu', 'Crece, crea y comparte a través de la música'); ?></p>
 
         <div class="hero-actions hero-actions--center">
-            <?php if (get_option('arratia_matrikula_open', '1')): ?>
+            <?php if (arratia_is_matrikula_open()): ?>
             <a href="<?php echo esc_url(get_permalink(get_page_by_path('matrikula-eskaera'))); ?>" class="btn btn-accent btn-lg">
                 <?php echo arratia_t('Matrikula', 'Matrícula'); ?> &rarr;
             </a>
@@ -26,6 +26,24 @@
         </div>
     </div>
 </section>
+
+<!-- ═══ KARTELA ══════════════════════════════════════════════════════════════ -->
+<?php
+$cartel_img  = get_option('arratia_front_cartel_img',  '');
+$cartel_link = get_option('arratia_front_cartel_link', '');
+if ($cartel_img): ?>
+<div class="front-cartel">
+    <div class="container">
+        <?php if ($cartel_link): ?>
+        <a href="<?php echo esc_url($cartel_link); ?>">
+        <?php endif; ?>
+        <img src="<?php echo esc_url($cartel_img); ?>" alt="Kartela" class="front-cartel__img">
+        <?php if ($cartel_link): ?>
+        </a>
+        <?php endif; ?>
+    </div>
+</div>
+<?php endif; ?>
 
 <!-- ═══ DATORREN IKASTURTEA — DOKUMENTUAK ══════════════════════════════════ -->
 <?php
@@ -270,7 +288,7 @@ if ($videos):
             [
                 'label'  => arratia_t('Ahotsa', 'Voz'),
                 'img'    => arratia_front_ig_opt_img('arratia_front_ig_img_ahotsa', ['Bakarka - Kantuko espezialitatea']),
-                'lines'  => [arratia_t('Ahozko teknika', 'Técnica vocal'), arratia_t('Kirikinusi korua', 'Coro Kirikinusi'), arratia_t('Helduen korua', 'Coro adultos')],
+                'lines'  => [arratia_t('Ahozko teknika', 'Técnica vocal'), arratia_t('Kirikinusi korua', 'Coro Kirikinusi')],
                 'anchor' => 'ahotsa',
             ],
         ];

@@ -449,6 +449,116 @@ function arratia_matriculas_page() {
     global $wpdb;
     $table = $wpdb->prefix . 'arratia_matriculas';
 
+    $now_mo = (int)(new DateTime())->format('n');
+    $now_yr = (int)(new DateTime())->format('Y');
+    $ref_yr = ($now_mo >= 3) ? $now_yr : $now_yr - 1;
+    $def_ikasturtea = $ref_yr . '/' . ($ref_yr + 1);
+    $ikasturtea = sanitize_text_field($_GET['ikasturtea'] ?? $def_ikasturtea);
+    $back_url = admin_url('admin.php?page=arratia-matrikulak&ikasturtea=' . urlencode($ikasturtea));
+
+    // ── Guardar edición ───────────────────────────────────────────────────────
+    if (isset($_POST['arratia_edit_mat']) && check_admin_referer('arratia_edit_mat')) {
+        $id = intval($_POST['mat_id']);
+        $wpdb->update($table, [
+            'izena'        => sanitize_text_field($_POST['izena']        ?? ''),
+            'abizena1'     => sanitize_text_field($_POST['abizena1']     ?? ''),
+            'abizena2'     => sanitize_text_field($_POST['abizena2']     ?? ''),
+            'jaiotze_data' => sanitize_text_field($_POST['jaiotze_data'] ?? '') ?: null,
+            'maila'        => sanitize_text_field($_POST['maila']        ?? ''),
+            'ikasgaia'     => sanitize_text_field($_POST['ikasgaia']     ?? ''),
+            'instrumentua' => sanitize_text_field($_POST['instrumentua'] ?? ''),
+            'instrumento7' => sanitize_text_field($_POST['instrumento7'] ?? ''),
+            'ikasle_mota'  => sanitize_text_field($_POST['ikasle_mota']  ?? ''),
+            'helbidea'     => sanitize_text_field($_POST['helbidea']     ?? ''),
+            'udalerria'    => sanitize_text_field($_POST['udalerria']    ?? ''),
+            'telefono1'    => sanitize_text_field($_POST['telefono1']    ?? ''),
+            'telefono2'    => sanitize_text_field($_POST['telefono2']    ?? ''),
+            'email'        => sanitize_email($_POST['email']             ?? ''),
+            'email2'       => sanitize_email($_POST['email2']            ?? ''),
+            'gurasoak'     => sanitize_text_field($_POST['gurasoak']     ?? ''),
+            'iban'         => sanitize_text_field($_POST['iban']         ?? ''),
+            'titular'      => sanitize_text_field($_POST['titular']      ?? ''),
+            'argazkiak'    => sanitize_text_field($_POST['argazkiak']    ?? ''),
+            'egoera'       => sanitize_text_field($_POST['egoera']       ?? 'jasota'),
+        ], ['id' => $id]);
+        wp_safe_redirect($back_url . '&mat_updated=1');
+        exit;
+    }
+
+    // ── Vista edición ─────────────────────────────────────────────────────────
+    if (isset($_GET['action'], $_GET['id']) && $_GET['action'] === 'edit' && check_admin_referer('arratia_mat_edit')) {
+        $r = $wpdb->get_row($wpdb->prepare("SELECT * FROM $table WHERE id = %d", intval($_GET['id'])));
+        if (!$r) { echo '<div class="wrap"><p>Ez da aurkitu.</p></div>'; return; }
+
+        $inp  = 'style="width:100%;padding:6px 10px;font-size:13px;border:1px solid #ddd;border-radius:4px;"';
+        $td1  = 'style="padding:8px 12px 8px 0;width:160px;font-weight:600;font-size:13px;vertical-align:top;padding-top:11px;"';
+        $td2  = 'style="padding:6px 0;"';
+        echo '<div class="wrap">';
+        echo '<h1>✏️ Matrikula editatu — #' . $r->id . ' — ' . esc_html($r->izena . ' ' . $r->abizena1) . '</h1>';
+        echo '<p><a href="' . esc_url($back_url) . '" class="button">← Atzera</a></p>';
+        echo '<form method="post">';
+        wp_nonce_field('arratia_edit_mat');
+        echo '<input type="hidden" name="arratia_edit_mat" value="1">';
+        echo '<input type="hidden" name="mat_id" value="' . $r->id . '">';
+        echo '<div style="background:#fff;border:1px solid #ddd;border-radius:8px;padding:24px;max-width:820px;">';
+
+        $sections = [
+            '👤 Ikaslearen datuak' => [
+                ['izena',        'Izena',           'text', $r->izena],
+                ['abizena1',     '1. Abizena',      'text', $r->abizena1],
+                ['abizena2',     '2. Abizena',      'text', $r->abizena2],
+                ['jaiotze_data', 'Jaiotze data',    'date', $r->jaiotze_data],
+                ['helbidea',     'Helbidea',        'text', $r->helbidea],
+                ['udalerria',    'Udalerria',       'text', $r->udalerria],
+                ['telefono1',    'Telefonoa 1',     'text', $r->telefono1],
+                ['telefono2',    'Telefonoa 2',     'text', $r->telefono2],
+                ['email',        'Email',           'email', $r->email],
+                ['email2',       'Email 2',         'email', $r->email2],
+                ['gurasoak',     'Gurasoak',        'text', $r->gurasoak],
+            ],
+            '🎵 Matrikula datuak' => [
+                ['maila',        'Maila / Adina',   'text', $r->maila],
+                ['ikasgaia',     'Ikasgaia',        'text', $r->ikasgaia],
+                ['instrumentua', 'Instrumentua',    'text', $r->instrumentua],
+                ['instrumento7', 'Instrumentua (7 urte)', 'text', $r->instrumento7],
+                ['ikasle_mota',  'Ikasle mota',     'text', $r->ikasle_mota],
+            ],
+            '🏦 Bankuko datuak' => [
+                ['iban',         'IBAN',            'text', $r->iban],
+                ['titular',      'Titularra',       'text', $r->titular],
+            ],
+            '⚙️ Egoera' => [
+                ['argazkiak',    'Argazkiak',       'text', $r->argazkiak],
+                ['egoera',       'Egoera',          'select', $r->egoera],
+            ],
+        ];
+
+        foreach ($sections as $sec_title => $fields) {
+            echo '<h3 style="border-bottom:2px solid #eee;padding-bottom:6px;margin:20px 0 12px;">' . $sec_title . '</h3>';
+            echo '<table style="width:100%;border-collapse:collapse;">';
+            foreach ($fields as [$name, $label, $type, $val]) {
+                echo '<tr><td ' . $td1 . '>' . esc_html($label) . '</td><td ' . $td2 . '>';
+                if ($type === 'select') {
+                    echo '<select name="' . esc_attr($name) . '" style="padding:6px 10px;font-size:13px;border:1px solid #ddd;border-radius:4px;">';
+                    foreach (['jasota' => 'Jasota', 'onartua' => 'Onartua', 'ukatua' => 'Ukatua'] as $v => $l) {
+                        echo '<option value="' . $v . '"' . selected($val, $v, false) . '>' . $l . '</option>';
+                    }
+                    echo '</select>';
+                } else {
+                    echo '<input type="' . $type . '" name="' . esc_attr($name) . '" value="' . esc_attr($val ?? '') . '" ' . $inp . '>';
+                }
+                echo '</td></tr>';
+            }
+            echo '</table>';
+        }
+
+        echo '</div>';
+        echo '<p style="margin-top:16px;"><input type="submit" class="button button-primary button-large" value="💾 Gorde aldaketak / Guardar cambios"></p>';
+        echo '</form></div>';
+        return;
+    }
+
+    // ── Notificaciones ────────────────────────────────────────────────────────
     if (isset($_GET['egoera'], $_GET['id']) && check_admin_referer('arratia_mat_action')) {
         $wpdb->update($table, ['egoera' => sanitize_text_field($_GET['egoera'])], ['id' => intval($_GET['id'])]);
         echo '<div class="notice notice-success"><p>Egoera eguneratu da.</p></div>';
@@ -457,12 +567,10 @@ function arratia_matriculas_page() {
         $wpdb->delete($table, ['id' => intval($_GET['id'])]);
         echo '<div class="notice notice-success"><p>Ezabatu da.</p></div>';
     }
+    if (isset($_GET['mat_updated'])) {
+        echo '<div class="notice notice-success is-dismissible"><p>✓ Matrikula eguneratu da / Matrícula actualizada.</p></div>';
+    }
 
-    $now_mo = (int)(new DateTime())->format('n');
-    $now_yr = (int)(new DateTime())->format('Y');
-    $ref_yr = ($now_mo >= 3) ? $now_yr : $now_yr - 1;
-    $def_ikasturtea = $ref_yr . '/' . ($ref_yr + 1);
-    $ikasturtea = sanitize_text_field($_GET['ikasturtea'] ?? $def_ikasturtea);
     $rows = $wpdb->get_results($wpdb->prepare(
         "SELECT * FROM $table WHERE ikasturtea = %s ORDER BY fecha DESC", $ikasturtea
     ));
@@ -486,6 +594,7 @@ function arratia_matriculas_page() {
     $nonce_url = wp_nonce_url('', 'arratia_mat_action');
     parse_str(parse_url($nonce_url, PHP_URL_QUERY), $nonce_parts);
     $n = $nonce_parts['_wpnonce'];
+    $edit_nonce = wp_create_nonce('arratia_mat_edit');
 
     echo '<style>
         .mat-table{width:100%;border-collapse:collapse;background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.08);}
@@ -504,18 +613,24 @@ function arratia_matriculas_page() {
 
     foreach ($rows as $r) {
         $badge_class = 'mat-' . esc_attr($r->egoera);
-        $base = admin_url('admin.php?page=arratia-matrikulak&ikasturtea=' . urlencode($ikasturtea) . '&id=' . $r->id . '&_wpnonce=' . $n);
+        $base      = admin_url('admin.php?page=arratia-matrikulak&ikasturtea=' . urlencode($ikasturtea) . '&id=' . $r->id . '&_wpnonce=' . $n);
+        $edit_url  = admin_url('admin.php?page=arratia-matrikulak&ikasturtea=' . urlencode($ikasturtea) . '&action=edit&id=' . $r->id . '&_wpnonce=' . $edit_nonce);
         echo '<tr>';
         echo '<td>' . $r->id . '</td>';
         echo '<td style="white-space:nowrap;">' . esc_html(date('d/m/y', strtotime($r->fecha))) . '</td>';
         echo '<td><strong>' . esc_html($r->izena . ' ' . $r->abizena1) . '</strong><br><small style="color:#888;">' . esc_html($r->jaiotze_data ?? '') . '</small></td>';
         echo '<td>' . esc_html($r->maila) . '</td>';
-        echo '<td>' . esc_html($r->ikasgaia) . ($r->instrumentua ? '<br><small>' . esc_html($r->instrumentua) . '</small>' : '') . '</td>';
+        $needs_inst = in_array($r->maila, ['8-12 urte', '13+ urte'], true);
+        $inst_html  = $r->instrumentua
+            ? '<br><small>' . esc_html($r->instrumentua) . '</small>'
+            : ($needs_inst ? '<br><small style="color:#c00;">— instrumenturik ez —</small>' : '');
+        echo '<td>' . esc_html($r->ikasgaia) . $inst_html . '</td>';
         echo '<td><a href="mailto:' . esc_attr($r->email) . '">' . esc_html($r->email) . '</a></td>';
         echo '<td>' . esc_html($r->telefono1) . '</td>';
         echo '<td style="font-size:11px;">' . esc_html($r->iban) . '<br><small>' . esc_html($r->titular) . '</small></td>';
         echo '<td><span class="mat-badge ' . $badge_class . '">' . esc_html($r->egoera) . '</span></td>';
         echo '<td style="white-space:nowrap;">
+            <a href="' . esc_url($edit_url) . '" style="color:#007B81;text-decoration:none;margin-right:6px;" title="Editatu">✏️</a>
             <a href="' . esc_url(add_query_arg('egoera','onartua',$base)) . '" style="color:green;text-decoration:none;" title="Onartu">✓</a>
             <a href="' . esc_url(add_query_arg('egoera','ukatua',$base)) . '" style="color:#c00;text-decoration:none;margin:0 6px;" title="Ukatu">✗</a>
             <a href="' . esc_url(add_query_arg('ezabatu',1,$base)) . '" style="color:#888;text-decoration:none;" title="Ezabatu" onclick="return confirm(\'Ezabatu?\')">🗑</a>
@@ -576,11 +691,21 @@ function arratia_get_asignaturak() {
     return $result;
 }
 // ─────────────────────────────────────────────────────────────────────────────
+// 'auto' → abre automáticamente en Mayo (día 1-31)
+// '1'    → abierto manualmente
+// ''     → cerrado manualmente
+function arratia_is_matrikula_open() {
+    $val = get_option('arratia_matrikula_open', 'auto');
+    if ($val === 'auto') return (int) date('n') === 5;
+    return $val === '1';
+}
+// ─────────────────────────────────────────────────────────────────────────────
 
 function arratia_settings_page_cb() {
     if (!current_user_can('manage_options')) return;
     if (isset($_POST['arratia_save_settings']) && check_admin_referer('arratia_ezarpenak')) {
-        update_option('arratia_matrikula_open', isset($_POST['matrikula_open']) ? '1' : '');
+        $matrikula_val = in_array($_POST['matrikula_open'] ?? '', ['auto','1',''], true) ? $_POST['matrikula_open'] : 'auto';
+        update_option('arratia_matrikula_open', $matrikula_val);
         update_option('arratia_instrumentuak',  sanitize_textarea_field($_POST['instrumentuak']  ?? ''));
         update_option('arratia_instrumentuak7', sanitize_textarea_field($_POST['instrumentuak7'] ?? ''));
         update_option('arratia_asignaturak',    sanitize_textarea_field($_POST['asignaturak']    ?? ''));
@@ -604,9 +729,13 @@ function arratia_settings_page_cb() {
         update_option('arratia_front_pdf_tasak',       esc_url_raw($_POST['front_pdf_tasak']        ?? ''));
         update_option('arratia_front_pdf_beste',       esc_url_raw($_POST['front_pdf_beste']        ?? ''));
         update_option('arratia_front_pdf_beste_label', sanitize_text_field($_POST['front_pdf_beste_label'] ?? ''));
+        update_option('arratia_antolaketa_ikasturtea', sanitize_text_field($_POST['antolaketa_ikasturtea'] ?? ''));
+        update_option('arratia_front_cartel_img',      esc_url_raw($_POST['front_cartel_img']      ?? ''));
+        update_option('arratia_front_cartel_link',     esc_url_raw($_POST['front_cartel_link']     ?? ''));
         echo '<div class="notice notice-success is-dismissible"><p>&#10003; Gorde da / Guardado.</p></div>';
     }
-    $open    = get_option('arratia_matrikula_open', '1');
+    $open    = get_option('arratia_matrikula_open', 'auto');
+    $antolaketa_ikasturtea = get_option('arratia_antolaketa_ikasturtea', '2026/2027');
 
     $ins_default  = "Akordeoia\nArmonia Modernoa\nBaju elektrikoa\nBateria\nBiolina\nGitarra\nGitarra elektrikoa\nKlarinetea\nPanderoa\nPianoa\nSaxofoia\nTalde Instrumentala\nKantu Bakarlaria / Ahotsa (11+)\nTrikirtixa\nTronboia\nTronpeta\nTxalaparta\nTxistu\nZeharkako Txirula";
     $ins7_default = "Akordeoia\nBaju elektrikoa\nBateria\nBiolina\nGitarra\nGitarra elektrikoa\nKlarinetea\nPianoa\nSaxofoia\nTrikirtixa\nTronboia\nTronpeta\nTxalaparta\nTxistu\nZeharkako Txirula";
@@ -644,13 +773,21 @@ function arratia_settings_page_cb() {
                 <tr>
                     <th scope="row">Matrikula formularioa<br><small style="font-weight:400">Formulario de matrícula</small></th>
                     <td>
-                        <label>
-                            <input type="checkbox" name="matrikula_open" value="1" <?php checked($open, '1'); ?>>
-                            <strong>Matrikula aldia IREKITA dago</strong> / El período de matriculación está ABIERTO
+                        <label style="display:block;margin-bottom:6px;">
+                            <input type="radio" name="matrikula_open" value="auto" <?php checked($open, 'auto'); ?>>
+                            <strong>Auto (Maiatza / Mayo)</strong> — <?php echo arratia_is_matrikula_open() ? '✅ Orain irekita / Ahora abierto' : '🔒 Orain itxita / Ahora cerrado'; ?>
+                        </label>
+                        <label style="display:block;margin-bottom:6px;">
+                            <input type="radio" name="matrikula_open" value="1" <?php checked($open, '1'); ?>>
+                            Beti IREKITA / Siempre ABIERTO
+                        </label>
+                        <label style="display:block;margin-bottom:6px;">
+                            <input type="radio" name="matrikula_open" value="" <?php checked($open, ''); ?>>
+                            Beti ITXITA / Siempre CERRADO
                         </label>
                         <p class="description">
-                            Markatuta → formularioa ikusgai dago.<br>
-                            Desmarkatuta → "itxita" mezua agertuko da eta inork ezin du matrikulatu.
+                            Auto → Maiatzean automatikoki irekitzen eta ixten da (1-31 maiatza).<br>
+                            Auto → Se abre y cierra automáticamente en mayo (1-31 de mayo).
                         </p>
                     </td>
                 </tr>
@@ -680,26 +817,20 @@ function arratia_settings_page_cb() {
                     </td>
                 </tr>
                 <tr>
-                    <th scope="row">📋 Hezkuntza Antolaketa irudia<br><small style="font-weight:400">Imagen del organigrama en Matrikulazioa</small></th>
+                    <th scope="row">📊 Hezkuntza Antolaketa — Ikasturtea<br><small style="font-weight:400">Datos que cambian cada año</small></th>
                     <td>
-                        <div style="display:flex;gap:8px;align-items:center;">
-                            <input type="url" name="antolaketa_img" value="<?php echo esc_attr($antolaketa_img); ?>"
-                                   style="flex:1;max-width:580px;padding:6px 10px;font-size:13px;"
-                                   placeholder="https://...URL de la imagen del organigrama...">
-                            <?php if ($antolaketa_img): ?>
-                                <img src="<?php echo esc_url($antolaketa_img); ?>" style="height:48px;width:auto;border-radius:4px;object-fit:cover;">
-                            <?php endif; ?>
-                        </div>
-                        <p class="description">Pega la URL de la imagen (Media → Biblioteca → copia URL del archivo).</p>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">📄 Hezkuntza Antolaketa PDF<br><small style="font-weight:400">PDF del organigrama (página Hezkuntza Antolaketa)</small></th>
-                    <td>
-                        <input type="url" name="antolaketa_pdf" value="<?php echo esc_attr($antolaketa_pdf); ?>"
-                               style="width:100%;max-width:580px;padding:6px 10px;font-size:13px;"
-                               placeholder="https://...URL del PDF...">
-                        <p class="description">Media → Biblioteca → selecciona el PDF → copia la URL del archivo.</p>
+                        <table style="border-collapse:collapse;">
+                            <tr>
+                                <td style="padding:4px 12px 4px 0;font-weight:600;font-size:13px;">Ikasturtea / Curso:</td>
+                                <td><input type="text" name="antolaketa_ikasturtea" value="<?php echo esc_attr($antolaketa_ikasturtea); ?>" style="width:120px;padding:5px 8px;font-size:13px;" placeholder="2026/2027"></td>
+                            </tr>
+                        </table>
+                        <?php
+                        $by = (int) explode('/', $antolaketa_ikasturtea)[0];
+                        echo '<p class="description" style="margin-top:6px;">✅ Urte tarteak automatikoki kalkulatzen dira / Las edades se calculan automáticamente:<br>';
+                        echo '&nbsp;&nbsp;1. Nibela: <strong>' . ($by-4) . ' – ' . ($by-7) . '</strong> urte bitartean jaioak &nbsp;|&nbsp; ';
+                        echo '2. Nibela: <strong>' . ($by-8) . '</strong> urtean jaioak eta nagusiagoak</p>';
+                        ?>
                     </td>
                 </tr>
                 <tr>
@@ -792,6 +923,29 @@ function arratia_settings_page_cb() {
                         <?php endif; ?>
                         <?php endforeach; ?>
                         <p class="description">Media → Biblioteca → selecciona el PDF → copia la URL del archivo. Hutsik → ez da agertzen / Vacío → no aparece.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">🪧 Portadako kartela<br><small style="font-weight:400">Cartel en la portada (debajo del hero)</small></th>
+                    <td>
+                        <?php
+                        $cartel_img  = get_option('arratia_front_cartel_img',  '');
+                        $cartel_link = get_option('arratia_front_cartel_link', '');
+                        ?>
+                        <p style="margin-bottom:4px;font-weight:600;">Irudia / Imagen</p>
+                        <div style="display:flex;gap:8px;align-items:center;margin-bottom:10px;">
+                            <input type="url" name="front_cartel_img" value="<?php echo esc_attr($cartel_img); ?>"
+                                   style="flex:1;max-width:580px;padding:6px 10px;font-size:13px;"
+                                   placeholder="https://...URL de la imagen del cartel...">
+                            <?php if ($cartel_img): ?>
+                                <img src="<?php echo esc_url($cartel_img); ?>" style="height:60px;width:auto;border-radius:4px;object-fit:cover;border:1px solid #ddd;">
+                            <?php endif; ?>
+                        </div>
+                        <p style="margin-bottom:4px;font-weight:600;">Esteka / Enlace <small style="font-weight:400;">(aukerakoa / opcional)</small></p>
+                        <input type="url" name="front_cartel_link" value="<?php echo esc_attr($cartel_link); ?>"
+                               style="width:100%;max-width:580px;padding:6px 10px;font-size:13px;"
+                               placeholder="https://...URL de destino al hacer clic...">
+                        <p class="description">Hutsik → irudia ez da esteka / Vacío → la imagen no tendrá enlace.</p>
                     </td>
                 </tr>
             </table>

@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['kf_nonce'])) {
                 delete_transient('kf_cap_' . $kf_captcha_token);
             }
             if (!$kf_captcha_expected || intval($_POST['kf_captcha'] ?? '') !== $kf_captcha_expected) {
-                $kf_error = 'Babeserako galdera ez da zuzena. Saiatu berriro.';
+                $kf_error = arratia_t('Babeserako galdera ez da zuzena. Saiatu berriro.', 'La pregunta de seguridad no es correcta. Inténtalo de nuevo.');
             } else {
                 $kf_izena     = sanitize_text_field($_POST['kf_izena'] ?? '');
                 $kf_email     = sanitize_email($_POST['kf_email'] ?? '');
@@ -87,6 +87,24 @@ set_transient('kf_cap_' . $kf_captcha_token, $kf_n1 + $kf_n2, 30 * MINUTE_IN_SEC
             </a>
         </div>
 
+        <!-- Bulegoko ordutegia / Horario de oficina  -->
+        <div class="kontaktua-ordutegia">
+            <h2 class="kontaktua-ordutegia-title">
+                <i class="fas fa-clock"></i>
+                <?php echo arratia_t('Bulegoko ordutegia', 'Horario de oficina'); ?>
+            </h2>
+            <div class="kontaktua-ordutegia-grid">
+                <div class="kontaktua-ordutegia-item">
+                    <span class="ordutegia-eguna"><?php echo arratia_t('Astelehena eta asteazkena', 'Lunes y miércoles'); ?></span>
+                    <span class="ordutegia-orduak">10:00 – 13:00</span>
+                </div>
+                <div class="kontaktua-ordutegia-item">
+                    <span class="ordutegia-eguna"><?php echo arratia_t('Asteartea eta osteguna', 'Martes y jueves'); ?></span>
+                    <span class="ordutegia-orduak">12:00 – 15:00</span>
+                </div>
+            </div>
+        </div>
+
         <!-- Formulario de contacto -->
         <div class="kontaktua-form-section">
             <h2 class="kontaktua-form-title"><i class="fas fa-paper-plane"></i> Idatzi iezaguzu</h2>
@@ -134,15 +152,15 @@ set_transient('kf_cap_' . $kf_captcha_token, $kf_n1 + $kf_n2, 30 * MINUTE_IN_SEC
                     <!-- CAPTCHA DINÁMICO (token de un solo uso) -->
                     <input type="hidden" name="kf_captcha_token" value="<?php echo esc_attr($kf_captcha_token); ?>">
                     <div class="kf-group" style="background: #f9f9f9; padding: 12px; border-radius: 6px; margin-top: 15px;">
-                        <label for="kf_captcha"><strong>Babeserako galdera: zenbat da <?php echo (int)$kf_n1; ?> + <?php echo (int)$kf_n2; ?>? *</strong></label>
+                        <label for="kf_captcha"><strong><?php echo arratia_t('Babeserako galdera: zenbat da', 'Pregunta de seguridad: ¿cuánto es'); ?> <?php echo (int)$kf_n1; ?> + <?php echo (int)$kf_n2; ?>? *</strong></label>
                         <input type="text" id="kf_captcha" name="kf_captcha" required size="4" autocomplete="off"
                             style="width: 80px; text-align: center; display: inline-block; margin-left: 10px;"
                             value="">
-                        <small>(idatzi zenbakia)</small>
+                        <small>(<?php echo arratia_t('idatzi zenbakia', 'escribe el número'); ?>)</small>
                     </div>
 
                     <button type="submit" class="btn btn-accent">
-                        <i class="fas fa-paper-plane"></i> Bidali
+                        <i class="fas fa-paper-plane"></i> <?php echo arratia_t('Bidali', 'Enviar'); ?>
                     </button>
                 </form>
             <?php endif; ?>
