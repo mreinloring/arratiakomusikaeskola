@@ -55,7 +55,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['arratia_matrikula_non
             'telefono1'     => '1. Telefonoa',
             'email'         => 'E-posta',
             'iban'          => 'IBAN',
-            'titularCuenta' => 'Kontuaren titularra',
+            'titularCuenta' => 'Titularraren izen-abizenak',
+            'titularDni'    => 'Titularraren NAN',
             'nino'          => 'Adina / Maila',
             'alumno'        => 'Ikasle berria / ohia',
             'autorizo'      => 'Argazkien baimena',
@@ -115,7 +116,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['arratia_matrikula_non
             <h3>Banku datuak</h3>
             <table>
               <tr><td>IBAN</td><td>' . $p['iban'] . '</td></tr>
-              <tr><td>Titularra</td><td>' . $p['titularCuenta'] . '</td></tr>
+              <tr><td>Titularraren izen-abizenak</td><td>' . $p['titularCuenta'] . '</td></tr>
+              <tr><td>Titularraren NAN</td><td>' . $p['titularDni'] . '</td></tr>
             </table>
             <h3>Matrikula datuak</h3>
             <table>
@@ -170,6 +172,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['arratia_matrikula_non
                     'gurasoak'     => $p['nombre_padres'] ?? '',
                     'iban'         => $p['iban'],
                     'titular'      => $p['titularCuenta'],
+                    'titular_dni'  => $p['titularDni'],
                     'maila'        => $p['nino'] ?? '',
                     'ikasgaia'     => $p['asignatura'] ?? '',
                     'instrumentua' => $p['instrumento'] ?? '',
@@ -179,7 +182,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['arratia_matrikula_non
                     'baldintzak'   => 'bai',
                     'egoera'       => 'jasota',
                 ],
-                ['%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s']
+                ['%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s']
             );
 
             // Confirmation to applicant
@@ -363,9 +366,15 @@ get_header();
                         value="<?php echo esc_attr($_POST['iban'] ?? ''); ?>">
                     <small id="iban-msg" style="display:none;margin-top:4px;font-weight:600;"></small>
                 </div>
-                <div class="mf-field mf-field--full">
-                    <label>Kontuaren Titularra <span class="req">*</span> <em>/ Titular de la cuenta</em></label>
+                <div class="mf-field">
+                    <label>Titularraren Izen-abizenak <span class="req">*</span> <em>/ Nombre y apellidos del titular</em></label>
                     <input type="text" name="titularCuenta" required value="<?php echo esc_attr($_POST['titularCuenta'] ?? ''); ?>">
+                </div>
+                <div class="mf-field">
+                    <label>Titularraren NAN <span class="req">*</span> <em>/ DNI o NIE del titular</em></label>
+                    <input type="text" name="titularDni" required maxlength="9" autocomplete="off"
+                        placeholder="12345678A"
+                        value="<?php echo esc_attr($_POST['titularDni'] ?? ''); ?>">
                 </div>
             </div>
         </fieldset>
@@ -492,7 +501,7 @@ get_header();
     }
 
     // ── localStorage: pre-fill parent/contact data for subsequent children ────
-    var PARENT_FIELDS = ['telefono1','telefono2','email','email2','nombre_padres','direccion','poblacion','iban','titularCuenta'];
+    var PARENT_FIELDS = ['telefono1','telefono2','email','email2','nombre_padres','direccion','poblacion','iban','titularCuenta','titularDni'];
     var form = document.getElementById('mf-form');
     if (!form) return;
 

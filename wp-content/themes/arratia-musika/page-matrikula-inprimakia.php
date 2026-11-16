@@ -115,7 +115,8 @@ $ikasturtea = $ref_year . '/' . ( $ref_year + 1 );
       <label>IBAN <span class="req">*</span> &nbsp;<small>(ES__ ____ ____ ____ ____ ____)</small></label>
       <div class="line"></div>
     </div>
-    <div class="field full"><label>Kontuaren Titularra <span class="req">*</span> / Titular de la cuenta</label><div class="line"></div></div>
+    <div class="field"><label>Titularraren Izen-abizenak <span class="req">*</span> / Nombre y apellidos del titular</label><div class="line"></div></div>
+    <div class="field"><label>Titularraren NAN <span class="req">*</span> / DNI o NIE del titular</label><div class="line"></div></div>
   </div>
 </div>
 

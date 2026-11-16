@@ -63,7 +63,16 @@ if (!empty($_pdfs)):
 <section class="section section-alt front-docs-section">
     <div class="container">
         <div class="section-header text-center">
-            <h2 class="section-title"><?php echo arratia_t('Datorren ikasturtea', 'Próximo curso'); ?></h2>
+            <?php
+            // Título editable en Ajustes; por defecto, el curso actual (sep–ago)
+            $_cs = ((int) current_time('n') >= 9) ? (int) current_time('Y') : (int) current_time('Y') - 1;
+            $_cur = $_cs . '/' . ($_cs + 1);
+            $_docs_title = arratia_t(
+                get_option('arratia_front_docs_title_eu', '') ?: $_cur . ' ikasturtea',
+                get_option('arratia_front_docs_title_es', '') ?: 'Curso ' . $_cur
+            );
+            ?>
+            <h2 class="section-title"><?php echo esc_html($_docs_title); ?></h2>
             <p class="section-sub"><?php echo arratia_t('Informazioa eta dokumentuak', 'Información y documentos'); ?></p>
         </div>
         <div class="front-docs-grid">
@@ -79,20 +88,27 @@ if (!empty($_pdfs)):
 </section>
 <?php endif; ?>
 
-<!-- ═══ AZKEN EKINTZAK ══════════════════════════════════════════════════════ -->
+<!-- ═══ DATOZEN EKINTZAK (fecha >= hoy; al pasar van a /ekintzak/) ══════════ -->
 <section class="section section--white">
     <div class="container">
         <div class="section-header text-center">
-            <h2 class="section-title"><?php echo arratia_t('Azken jarduerak', 'Últimas actividades'); ?></h2>
+            <h2 class="section-title"><?php echo arratia_t('Datozen jarduerak', 'Próximas actividades'); ?></h2>
         </div>
 
         <?php
         $recent = new WP_Query([
-            'post_type'      => 'post',
-            'posts_per_page' => 4,
+            'post_type'      => 'ekintza',
+            'posts_per_page' => 8,
             'post_status'    => 'publish',
-            'orderby'        => 'date',
-            'order'          => 'DESC',
+            'meta_key'       => '_ekintza_data',
+            'orderby'        => 'meta_value',
+            'order'          => 'ASC',
+            'meta_query'     => [[
+                'key'     => '_ekintza_data',
+                'value'   => arratia_today(),
+                'compare' => '>=',
+                'type'    => 'DATE',
+            ]],
         ]);
         ?>
         <?php if ($recent->have_posts()): ?>
@@ -102,9 +118,14 @@ if (!empty($_pdfs)):
                           ?: get_post_meta(get_the_ID(), '_google_photos_url', true);
                 $permalink = get_permalink();
                 $thumb_url = get_the_post_thumbnail_url(get_the_ID(), 'large');
+                $ev_ts     = strtotime(arratia_ekintza_date(get_the_ID()));
             ?>
             <article class="azken-ekintza-card">
                 <a href="<?php echo esc_url($permalink); ?>" class="azken-ekintza-img">
+                    <span class="azken-ekintza-date">
+                        <strong><?php echo esc_html(date('d', $ev_ts)); ?></strong>
+                        <span><?php echo esc_html(arratia_month_short((int) date('n', $ev_ts))); ?></span>
+                    </span>
                     <?php if ($thumb_url): ?>
                         <img src="<?php echo esc_url($thumb_url); ?>" alt="<?php the_title_attribute(); ?>">
                     <?php else: ?>
@@ -132,6 +153,15 @@ if (!empty($_pdfs)):
         <div class="text-center mt-3">
             <a href="<?php echo esc_url(get_permalink(get_page_by_path('ekintzak'))); ?>" class="btn btn-outline">
                 <?php echo arratia_t('Ekintza guztiak', 'Todas las actividades'); ?> &rarr;
+            </a>
+        </div>
+        <?php else: ?>
+        <p style="text-align:center;color:#888;padding:2rem 0 1rem;">
+            <?php echo arratia_t('Une honetan ez dago jarduera berririk iragarrita.', 'En este momento no hay nuevas actividades anunciadas.'); ?>
+        </p>
+        <div class="text-center">
+            <a href="<?php echo esc_url(get_permalink(get_page_by_path('ekintzak'))); ?>" class="btn btn-outline">
+                <?php echo arratia_t('Egindako jarduerak ikusi', 'Ver actividades realizadas'); ?> &rarr;
             </a>
         </div>
         <?php endif; ?>

@@ -376,7 +376,11 @@ function arratia_ekintza_links_cb($post) {
     $bideoa      = get_post_meta($post->ID, '_ekintza_bideoa', true);
     $memoria_pdf = get_post_meta($post->ID, '_ekintza_memoria_pdf', true);
     $s = 'width:100%;padding:7px 10px;border:1px solid #ddd;border-radius:4px;';
+    $ekintza_data = get_post_meta($post->ID, '_ekintza_data', true);
+    echo '<p style="color:#666;font-size:12px;margin-bottom:12px;">Data pasatu arte ekintza <strong>hasierako orrian</strong> agertzen da; hurrengo egunean automatikoki <strong>Ekintzak</strong> orrira pasatzen da. Ikasturtea eta hilabetea data honetatik ateratzen dira.<br><em>Mientras la fecha no haya pasado, la actividad aparece en la <strong>portada</strong>; al día siguiente pasa sola a <strong>Actividades</strong>. El curso y el mes se asignan según esta fecha.</em></p>';
     echo '<table style="width:100%;border-collapse:collapse;">';
+    echo '<tr><td style="padding:8px 12px 8px 0;width:120px;font-weight:600;">📅 Data / Fecha</td>';
+    echo '<td><input type="date" name="ekintza_data" value="' . esc_attr($ekintza_data) . '" style="' . $s . '" /></td></tr>';
     echo '<tr><td style="padding:8px 12px 8px 0;width:120px;font-weight:600;">📷 Argazkiak</td>';
     echo '<td><input type="url" name="ekintza_argazkiak" value="' . esc_attr($argazkiak) . '"
         style="' . $s . '" placeholder="https://photos.google.com/..." /></td></tr>';
@@ -402,6 +406,110 @@ function arratia_save_ekintza_meta($post_id) {
 }
 add_action('save_post_ekintza', 'arratia_save_ekintza_meta');
 
+// ─── Ekintza: fecha → portada (próxima) / Ekintzak (pasada) ───────────────────
+
+/**
+ * Fecha de la actividad (Y-m-d). Por orden de preferencia:
+ *  1. el campo "Data / Fecha";
+ *  2. el ikasturtea + hilabetea asignados a mano (día 1 de ese mes);
+ *  3. la fecha de publicación.
+ */
+function arratia_ekintza_date(int $post_id): string {
+    $d = get_post_meta($post_id, '_ekintza_data', true);
+    if ($d) return $d;
+    $d = arratia_ekintza_date_from_terms($post_id);
+    return $d ?: get_the_date('Y-m-d', $post_id);
+}
+
+/** Fecha (día 1 del mes) a partir de las taxonomías ikasurtea + hilabetea, o ''. */
+function arratia_ekintza_date_from_terms(int $post_id): string {
+    $years  = get_the_terms($post_id, 'ikasurtea');
+    $months = get_the_terms($post_id, 'hilabetea');
+    if (!$years || is_wp_error($years) || !$months || is_wp_error($months)) return '';
+    $order = ['urtarrila' => 1, 'otsaila' => 2, 'martxoa' => 3, 'apirila' => 4, 'maiatza' => 5, 'ekaina' => 6,
+              'uztaila' => 7, 'abuztua' => 8, 'iraila' => 9, 'urria' => 10, 'azaroa' => 11, 'abendua' => 12];
+    $m = $order[$months[0]->slug] ?? 0;
+    if (!$m || !preg_match('/^(\d{4})-(\d{4})$/', $years[0]->slug, $yy)) return '';
+    $y = ($m >= 9) ? (int) $yy[1] : (int) $yy[2];
+    return sprintf('%04d-%02d-01', $y, $m);
+}
+
+/** Hoy en la zona horaria del sitio (Y-m-d). */
+function arratia_today(): string {
+    return current_time('Y-m-d');
+}
+
+/** Mes corto según idioma (insignia de fecha en portada). */
+function arratia_month_short(int $month): string {
+    $eu = ['', 'Urt', 'Ots', 'Mar', 'Api', 'Mai', 'Eka', 'Uzt', 'Abu', 'Ira', 'Urr', 'Aza', 'Abe'];
+    $es = ['', 'Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'];
+    return arratia_lang() === 'es' ? $es[$month] : $eu[$month];
+}
+
+// Guardar la fecha y asignar ikasurtea + hilabetea automáticamente
+add_action('save_post_ekintza', function($post_id) {
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
+    if (wp_is_post_revision($post_id) || !current_user_can('edit_post', $post_id)) return;
+
+    $date = '';
+    if (isset($_POST['ekintza_nonce']) && wp_verify_nonce($_POST['ekintza_nonce'], 'arratia_ekintza_nonce')
+        && !empty($_POST['ekintza_data']) && preg_match('/^\d{4}-\d{2}-\d{2}$/', $_POST['ekintza_data'])) {
+        $date = $_POST['ekintza_data'];
+        update_post_meta($post_id, '_ekintza_data', $date);
+    }
+    if (!$date) $date = get_post_meta($post_id, '_ekintza_data', true);
+
+    // Sin fecha: si ya tiene ikasturtea+hilabetea puestos a mano, respetarlos.
+    // Si no tiene nada, usar la fecha de publicación.
+    if (!$date) {
+        if (get_post_status($post_id) === 'auto-draft' || arratia_ekintza_date_from_terms($post_id)) return;
+        $date = get_the_date('Y-m-d', $post_id);
+        if (!$date) return;
+        update_post_meta($post_id, '_ekintza_data', $date);
+    }
+
+    $ts = strtotime($date);
+    $m  = (int) date('n', $ts);
+    $y  = (int) date('Y', $ts);
+    $start = ($m >= 9) ? $y : $y - 1;
+
+    $months_es = ['', 'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
+                  'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+    $terms = [
+        'ikasurtea' => [$start . '-' . ($start + 1), $start . '/' . ($start + 1)],
+        'hilabetea' => [strtolower(arratia_month_eu($m)), arratia_month_eu($m) . ' / ' . $months_es[$m]],
+    ];
+    foreach ($terms as $tax => [$slug, $name]) {
+        $t = term_exists($slug, $tax) ?: wp_insert_term($name, $tax, ['slug' => $slug]);
+        if (!is_wp_error($t)) {
+            wp_set_post_terms($post_id, [(int) (is_array($t) ? $t['term_id'] : $t)], $tax);
+        }
+    }
+}, 20);
+
+// Columna "Data" en el listado de Ekintzak del admin
+add_filter('manage_ekintza_posts_columns', function($cols) {
+    $new = [];
+    foreach ($cols as $k => $v) {
+        $new[$k] = $v;
+        if ($k === 'title') $new['ekintza_data'] = 'Data / Fecha';
+    }
+    return $new;
+});
+add_action('manage_ekintza_posts_custom_column', function($col, $post_id) {
+    if ($col !== 'ekintza_data') return;
+    $d = arratia_ekintza_date((int) $post_id);
+    echo esc_html(date_i18n('Y-m-d', strtotime($d))) . '<br>';
+    echo $d >= arratia_today()
+        ? '<span style="color:#2e7d32;font-weight:600;">● Hasiera / Portada</span>'
+        : '<span style="color:#777;">● Ekintzak / Actividades</span>';
+}, 10, 2);
+
+// Todo se publica desde "Ekintzak": ocultar "Entradas" para no confundir
+add_action('admin_menu', function() {
+    remove_menu_page('edit.php');
+});
+
 // ─── Create matriculas table ─────────────────────────────────────────────────
 function arratia_create_matriculas_table() {
     global $wpdb;
@@ -424,6 +532,7 @@ function arratia_create_matriculas_table() {
             gurasoak      VARCHAR(200) NOT NULL DEFAULT '',
             iban          VARCHAR(40)  NOT NULL DEFAULT '',
             titular       VARCHAR(150) NOT NULL DEFAULT '',
+            titular_dni   VARCHAR(20)  NOT NULL DEFAULT '',
             maila         VARCHAR(50)  NOT NULL DEFAULT '',
             ikasgaia      VARCHAR(100) NOT NULL DEFAULT '',
             instrumentua  VARCHAR(100) NOT NULL DEFAULT '',
@@ -434,6 +543,11 @@ function arratia_create_matriculas_table() {
             egoera        VARCHAR(50)  NOT NULL DEFAULT 'jasota',
             fecha         TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP
         ) $charset");
+    } else {
+        $cols = $wpdb->get_col("SHOW COLUMNS FROM $table LIKE 'titular_dni'");
+        if (!$cols) {
+            $wpdb->query("ALTER TABLE $table ADD COLUMN titular_dni VARCHAR(20) NOT NULL DEFAULT '' AFTER titular");
+        }
     }
 }
 add_action('init', 'arratia_create_matriculas_table');
@@ -478,6 +592,7 @@ function arratia_matriculas_page() {
             'gurasoak'     => sanitize_text_field($_POST['gurasoak']     ?? ''),
             'iban'         => sanitize_text_field($_POST['iban']         ?? ''),
             'titular'      => sanitize_text_field($_POST['titular']      ?? ''),
+            'titular_dni'  => sanitize_text_field($_POST['titular_dni']  ?? ''),
             'argazkiak'    => sanitize_text_field($_POST['argazkiak']    ?? ''),
             'egoera'       => sanitize_text_field($_POST['egoera']       ?? 'jasota'),
         ], ['id' => $id]);
@@ -526,6 +641,7 @@ function arratia_matriculas_page() {
             '🏦 Bankuko datuak' => [
                 ['iban',         'IBAN',            'text', $r->iban],
                 ['titular',      'Titularra',       'text', $r->titular],
+                ['titular_dni',  'Titularraren NAN', 'text', $r->titular_dni ?? ''],
             ],
             '⚙️ Egoera' => [
                 ['argazkiak',    'Argazkiak',       'text', $r->argazkiak],
@@ -627,7 +743,7 @@ function arratia_matriculas_page() {
         echo '<td>' . esc_html($r->ikasgaia) . $inst_html . '</td>';
         echo '<td><a href="mailto:' . esc_attr($r->email) . '">' . esc_html($r->email) . '</a></td>';
         echo '<td>' . esc_html($r->telefono1) . '</td>';
-        echo '<td style="font-size:11px;">' . esc_html($r->iban) . '<br><small>' . esc_html($r->titular) . '</small></td>';
+        echo '<td style="font-size:11px;">' . esc_html($r->iban) . '<br><small>' . esc_html($r->titular) . (!empty($r->titular_dni) ? ' (' . esc_html($r->titular_dni) . ')' : '') . '</small></td>';
         echo '<td><span class="mat-badge ' . $badge_class . '">' . esc_html($r->egoera) . '</span></td>';
         echo '<td style="white-space:nowrap;">
             <a href="' . esc_url($edit_url) . '" style="color:#007B81;text-decoration:none;margin-right:6px;" title="Editatu">✏️</a>
@@ -666,8 +782,277 @@ add_action('admin_init', 'arratia_matriculas_csv');
 function arratia_settings_menu() {
     add_submenu_page('arratia-matrikulak', 'Arratia Ezarpenak', 'Ezarpenak / Ajustes',
         'manage_options', 'arratia-ezarpenak', 'arratia_settings_page_cb');
+    add_submenu_page('arratia-matrikulak', 'Gida / Guía', 'Gida / Guía',
+        'manage_options', 'arratia-gida', 'arratia_gida_page_cb');
 }
 add_action('admin_menu', 'arratia_settings_menu');
+
+// ─── Admin: Gida (edukiak nola eguneratu) ─────────────────────────────────────
+function arratia_gida_page_cb() {
+    if (!current_user_can('manage_options')) return;
+    $ezarpenak_url = admin_url('admin.php?page=arratia-ezarpenak');
+    ?>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@400;500;700&family=Cormorant+Garamond:wght@500;600;700&display=swap">
+    <div class="wrap">
+    <div class="arratia-gida">
+    <style>
+      .arratia-gida {
+        --paper:#F8F5F0; --surface:#FFFFFF; --ink:#4A3728; --body:#3B352E; --muted:#6B5240;
+        --sand:#E0D5C1; --sand-soft:#EFE7D8; --clay:#BC4749; --clay-soft:#F6E6E1;
+        --forest:#2D463E; --forest-soft:#E2EAE4; --focus:#9B3436;
+        max-width:44rem; margin:1.5rem 0 4rem; color:var(--body);
+        font-family:"Alegreya Sans",system-ui,-apple-system,sans-serif;
+        font-size:16px; line-height:1.62;
+      }
+      .arratia-gida * { box-sizing:border-box; }
+      .arratia-gida h1, .arratia-gida h2, .arratia-gida h3 {
+        font-family:"Cormorant Garamond",Georgia,serif; color:var(--ink); line-height:1.12; margin:0;
+      }
+      .arratia-gida h1 { font-size:2.4rem; font-weight:700; letter-spacing:-0.015em; }
+      .arratia-gida h2 {
+        font-size:1.7rem; font-weight:600; margin-top:2.8rem; padding-bottom:0.35rem;
+        border-bottom:2px solid var(--sand);
+      }
+      .arratia-gida h3 { font-size:1.2rem; font-weight:600; margin-top:1.6rem; }
+      .arratia-gida p { margin:0.85rem 0; }
+      .arratia-gida strong { color:var(--ink); font-weight:700; }
+      .arratia-gida a { color:var(--focus); }
+      .arratia-gida .eyebrow {
+        font-size:0.74rem; font-weight:700; letter-spacing:0.16em; text-transform:uppercase;
+        color:var(--clay); margin-bottom:0.6rem;
+      }
+      .arratia-gida .lede { font-size:1.1rem; color:var(--muted); margin-top:0.7rem; }
+      .arratia-gida .masthead { border-bottom:3px double var(--sand); padding-bottom:1.4rem; }
+      .arratia-gida code, .arratia-gida .key {
+        font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace; font-size:0.85em;
+        background:var(--sand-soft); color:var(--ink); padding:0.12em 0.4em;
+        border-radius:5px; border:1px solid var(--sand); word-break:break-word;
+      }
+      .arratia-gida .path { font-weight:700; color:var(--ink); }
+      .arratia-gida .rule {
+        margin:1.8rem 0 0; background:var(--clay-soft); border:1px solid var(--clay);
+        border-left:5px solid var(--clay); border-radius:10px; padding:1.1rem 1.3rem;
+      }
+      .arratia-gida .rule .tag, .arratia-gida .note .tag {
+        font-size:0.72rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase;
+        display:block; margin-bottom:0.3rem;
+      }
+      .arratia-gida .rule .tag { color:var(--clay); }
+      .arratia-gida .rule p { margin:0.4rem 0 0; }
+      .arratia-gida .note {
+        background:var(--forest-soft); border:1px solid var(--forest); border-left:5px solid var(--forest);
+        border-radius:10px; padding:0.95rem 1.2rem; margin:1.5rem 0; font-size:0.97rem;
+      }
+      .arratia-gida .note .tag { color:var(--forest); }
+      .arratia-gida ol.steps {
+        list-style:none; counter-reset:step; padding:0; margin:1.4rem 0 0;
+        display:flex; flex-direction:column; gap:1rem;
+      }
+      .arratia-gida ol.steps > li {
+        counter-increment:step; display:grid; grid-template-columns:2.3rem 1fr; gap:0 1rem; align-items:start;
+      }
+      .arratia-gida ol.steps > li::before {
+        content:counter(step); font-family:"Cormorant Garamond",Georgia,serif; font-size:1.4rem;
+        font-weight:700; line-height:2.3rem; text-align:center; color:var(--surface);
+        background:var(--forest); border-radius:50%; width:2.3rem; height:2.3rem;
+      }
+      .arratia-gida ol.steps > li > * { grid-column:2; margin:0; }
+      .arratia-gida ol.steps > li > * + * { margin-top:0.35rem; }
+      .arratia-gida .table-wrap { overflow-x:auto; margin:1.3rem 0; }
+      .arratia-gida table { border-collapse:collapse; width:100%; font-size:0.93rem; background:var(--surface); }
+      .arratia-gida th, .arratia-gida td {
+        text-align:left; padding:0.65rem 0.85rem; border-bottom:1px solid var(--sand); vertical-align:top;
+      }
+      .arratia-gida thead th {
+        font-family:"Alegreya Sans",sans-serif; font-size:0.7rem; letter-spacing:0.1em;
+        text-transform:uppercase; color:var(--muted); border-bottom:2px solid var(--sand); white-space:nowrap;
+      }
+      .arratia-gida tbody tr:last-child td { border-bottom:none; }
+      .arratia-gida .group {
+        border:1px solid var(--sand); border-radius:12px; background:var(--surface);
+        padding:1.1rem 1.3rem; margin:1rem 0;
+      }
+      .arratia-gida .group h3 { margin-top:0; }
+      .arratia-gida .group dl { margin:0.7rem 0 0; display:grid; gap:0.5rem; }
+      .arratia-gida .group dt { font-weight:700; color:var(--ink); }
+      .arratia-gida .group dd { margin:0.1rem 0 0.6rem; }
+      .arratia-gida .group dd:last-child { margin-bottom:0; }
+      .arratia-gida ul.check {
+        list-style:none; padding:0; margin:1.2rem 0 0; display:flex; flex-direction:column; gap:0.7rem;
+      }
+      .arratia-gida ul.check li {
+        display:grid; grid-template-columns:1.3rem 1fr; gap:0.7rem; align-items:start;
+      }
+      .arratia-gida ul.check li::before {
+        content:""; width:1.1rem; height:1.1rem; margin-top:0.2rem;
+        border:2px solid var(--forest); border-radius:4px; display:block;
+      }
+      .arratia-gida hr { border:none; border-top:1px solid var(--sand); margin:3rem 0 0; }
+      .arratia-gida .foot { margin-top:1.3rem; font-size:0.88rem; color:var(--muted); }
+    </style>
+
+    <header class="masthead">
+      <div class="eyebrow">Arratiako Musika Eskola · Tema arratia-musika</div>
+      <h1>Cómo actualizar el contenido del sitio</h1>
+      <p class="lede">Guía rápida del panel <a href="<?php echo esc_url($ezarpenak_url); ?>"><span class="path">Matrikulak → Ezarpenak / Ajustes</span></a>. Para acordarse de por qué a veces «no hay manera».</p>
+    </header>
+
+    <div class="rule">
+      <span class="tag">La regla de oro</span>
+      <p>Varias páginas del tema <strong>no se editan desde el editor de páginas de WordPress</strong>. Aunque escribas en la página <em>Egutegia</em>, <em>Tasak</em>, etc., no cambia nada en la web.</p>
+      <p>Todo su contenido sale de las opciones que se guardan en <a href="<?php echo esc_url($ezarpenak_url); ?>"><span class="path">Matrikulak → Ezarpenak / Ajustes</span></a> (botón <strong>Gorde / Guardar</strong> al final).</p>
+    </div>
+
+    <h2>Actividades (Ekintzak): portada y página Ekintzak</h2>
+
+    <p>Todo lo que se anuncia o se cuenta (conciertos, audiciones, agendas, avisos…) se publica en <a href="<?php echo esc_url(admin_url('edit.php?post_type=ekintza')); ?>"><span class="path">Ekintzak</span></a> del menú lateral. El menú <em>Entradas</em> de WordPress ya no se usa y está oculto.</p>
+
+    <div class="rule">
+      <span class="tag">Cómo funciona</span>
+      <p>Cada actividad tiene un campo <span class="key">📅 Data / Fecha</span>. <strong>Mientras esa fecha no haya pasado</strong>, la actividad sale en la <strong>portada</strong>, en «Datozen jarduerak / Próximas actividades» (la más cercana primero). <strong>Al día siguiente</strong> desaparece de la portada y pasa sola a la página <strong>Ekintzak</strong>, agrupada por curso y mes (lo más reciente arriba).</p>
+      <p>No hay que mover nada a mano. El curso (<em>Ikasturtea</em>) y el mes (<em>Hilabetea</em>) también se ponen solos a partir de la fecha.</p>
+    </div>
+
+    <ol class="steps">
+      <li><p><strong>Nueva actividad.</strong> <a href="<?php echo esc_url(admin_url('post-new.php?post_type=ekintza')); ?>"><span class="path">Ekintzak → Ekintza berria</span></a>.</p></li>
+      <li><p><strong>Título y texto</strong> (fecha, hora, lugar…). El texto se ve al abrir la actividad; en la portada sale el principio.</p></li>
+      <li><p><strong>Irudia nabarmendua / Imagen destacada</strong> (columna derecha): el cartel. Es la foto de la tarjeta.</p></li>
+      <li><p><strong>📅 Data / Fecha</strong>: el <strong>día del evento</strong>, no el de publicación. Si dura varios días, pon el último: así sigue en portada hasta que termine.</p></li>
+      <li><p><strong>Publicar.</strong> En el listado de Ekintzak, la columna <span class="key">Data / Fecha</span> indica dónde está cada una: <em>● Hasiera / Portada</em> o <em>● Ekintzak / Actividades</em>.</p></li>
+      <li><p><strong>Después del evento</strong> (opcional): edítala y añade los enlaces de <span class="key">📷 Argazkiak</span>, <span class="key">🎬 Bideoa</span> o <span class="key">📋 Memoria PDF</span>. Salen como botones en la tarjeta de la página Ekintzak.</p></li>
+    </ol>
+
+    <div class="note">
+      <span class="tag">Bueno saber</span>
+      <p><strong>Sin fecha:</strong> las actividades antiguas que solo tienen curso y mes puestos a mano se colocan en ese mes y no salen en portada. Si se crea una sin fecha ni curso/mes, se toma la fecha de publicación.</p>
+      <p><strong>Si no hay ninguna próxima,</strong> la portada muestra un aviso y un botón a las actividades realizadas.</p>
+      <p><strong>Las Entradas antiguas</strong> se convirtieron en actividades (noviembre 2026). Las que estaban duplicadas están en la <a href="<?php echo esc_url(admin_url('edit.php?post_status=trash&post_type=post')); ?>">papelera de Entradas</a> por si hiciera falta recuperar alguna.</p>
+    </div>
+
+    <h2>El calendario del curso (Egutegia)</h2>
+
+    <p>La página <strong>Egutegia</strong> muestra <strong>una sola cosa</strong> siguiendo esta prioridad:</p>
+    <p><strong>1.</strong> Si el campo <span class="key">Irudia / Imagen</span> tiene una URL &rarr; muestra esa imagen <strong>y el PDF se ignora por completo</strong>.<br>
+    <strong>2.</strong> Si la imagen está vacía y hay <span class="key">PDF</span> &rarr; muestra el PDF.<br>
+    <strong>3.</strong> Si ambos están vacíos &rarr; sale un aviso gris pidiendo que subas el calendario.</p>
+
+    <div class="rule">
+      <span class="tag">El fallo típico</span>
+      <p>Pones el PDF nuevo del curso 26&#8209;27, guardas… y sigue viéndose el calendario viejo. Es porque en el campo <strong>Imagen todavía está la URL del año anterior</strong> (ej. <code>2025-26-Egutegia.jpg</code>), y la imagen siempre gana.</p>
+    </div>
+
+    <ol class="steps">
+      <li><p><strong>Sube el archivo nuevo.</strong> <span class="path">Medios → Añadir archivo nuevo</span>. Sube el calendario del curso (imagen JPG/PNG o PDF).</p></li>
+      <li><p><strong>Copia su URL.</strong> Con el archivo seleccionado en Medios, a la derecha aparece <span class="key">Copiar la URL al portapapeles</span> / <em>URL del archivo</em>. Cópiala entera.</p></li>
+      <li><p><strong>Abre</strong> <a href="<?php echo esc_url($ezarpenak_url); ?>"><span class="path">Matrikulak → Ezarpenak / Ajustes</span></a> y baja hasta el bloque <strong>📅 Egutegia</strong>.</p></li>
+      <li>
+        <p><strong>Si el calendario es una imagen:</strong> pega la URL en el campo <span class="key">Irudia / Imagen</span>, sustituyendo la del año pasado.</p>
+        <p><strong>Si el calendario es un PDF:</strong> <strong>borra</strong> el campo <span class="key">Irudia / Imagen</span> (déjalo vacío) y pega la URL en el campo <span class="key">PDF</span>.</p>
+      </li>
+      <li><p><strong>Guarda</strong> con el botón <span class="key">Gorde / Guardar</span> del final de la página. Debe salir el aviso verde «✓ Gorde da / Guardado».</p></li>
+      <li><p><strong>Comprueba</strong> la página <em>Egutegia</em> en la web (recarga con <span class="key">Ctrl + F5</span> si tienes caché).</p></li>
+    </ol>
+
+    <div class="note">
+      <span class="tag">Ojo — es otro campo</span>
+      <p>En la <strong>portada</strong>, la sección de documentos del curso tiene su propio enlace de calendario: campo <span class="key">Egutegia / Calendario</span> dentro del bloque <strong>📄 Ikasturteko dokumentuak — PDFak</strong>. Es independiente de la página Egutegia; si quieres el calendario en los dos sitios, hay que rellenar los dos.</p>
+    </div>
+
+    <h2>Qué página se controla desde dónde</h2>
+    <p>Estas son las páginas que <strong>no</strong> usan el editor y leen sus datos de <span class="path">Ezarpenak</span>:</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Página</th><th>Bloque en Ezarpenak</th><th>Qué muestra</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Egutegia</strong></td><td>📅 Egutegia</td><td>Imagen o PDF del calendario del curso. <span class="key">arratia_egutegia_img</span> / <span class="key">arratia_egutegia_pdf</span></td></tr>
+          <tr><td><strong>Hezkuntza antolaketa</strong></td><td>📊 Hezkuntza Antolaketa — Ikasturtea</td><td>PDF de organización + año del curso (los tramos de edad se calculan solos). <span class="key">arratia_antolaketa_pdf</span></td></tr>
+          <tr><td><strong>Matrikulazioa</strong></td><td>(imagen de antolaketa)</td><td>Imagen informativa. <span class="key">arratia_antolaketa_img</span></td></tr>
+          <tr><td><strong>Tasak</strong></td><td>📄 Ikasturteko dokumentuak → <em>Tasak / Tarifas</em></td><td>PDF de tarifas. <span class="key">arratia_front_pdf_tasak</span></td></tr>
+          <tr><td><strong>Portada (front-page)</strong></td><td>🎬 Bideoak, 📄 PDFak, 🪧 Kartela, 🖼️ Irudiak</td><td>Vídeos, tarjetas de documentos del curso, cartel y fotos de secciones. Las <em>Próximas actividades</em> salen de <strong>Ekintzak</strong>, no de Ezarpenak.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>El panel Ezarpenak, bloque por bloque</h2>
+
+    <div class="group">
+      <h3>Matrikula formularioa</h3>
+      <dl>
+        <dt>Auto (Maiatza / Mayo)</dt>
+        <dd>El formulario de matrícula se abre solo del 1 al 31 de mayo y se cierra solo el resto del año. Es la opción normal.</dd>
+        <dt>Beti IREKITA / Siempre ABIERTO — Beti ITXITA / Siempre CERRADO</dt>
+        <dd>Fuerza el estado a mano, ignorando la fecha. Útil para pruebas o para ampliar el plazo unos días.</dd>
+      </dl>
+    </div>
+
+    <div class="group">
+      <h3>Listas de la matrícula</h3>
+      <dl>
+        <dt>🎸 Instrumentuak (zerrenda nagusia)</dt>
+        <dd>Un instrumento por línea. Es el desplegable principal (8+ años).</dd>
+        <dt>🎵 Instrumentuak (7 urte)</dt>
+        <dd>Lista aparte para quien tiene 7 años (plazas limitadas).</dd>
+        <dt>📚 Asignaturak (13+ urte)</dt>
+        <dd>Formato <span class="key">codigo|Etiqueta</span> por línea. <strong>No cambies el código</strong> (la parte antes del <span class="key">|</span>); solo el texto visible.</dd>
+      </dl>
+    </div>
+
+    <div class="group">
+      <h3>📊 Hezkuntza Antolaketa — Ikasturtea</h3>
+      <dl>
+        <dt>Ikasturtea / Curso</dt>
+        <dd>Escribe el curso como <span class="key">2026/2027</span>. A partir de ese año, la web calcula sola los tramos de edad de 1º y 2º nivel. Cámbialo cada curso nuevo.</dd>
+      </dl>
+    </div>
+
+    <div class="group">
+      <h3>📅 Egutegia</h3>
+      <dl>
+        <dt>Irudia / Imagen</dt>
+        <dd>URL de la imagen del calendario. Si tiene algo, <strong>manda</strong> sobre el PDF.</dd>
+        <dt>PDF</dt>
+        <dd>URL del PDF del calendario. Solo se ve si el campo Imagen está vacío.</dd>
+      </dl>
+    </div>
+
+    <div class="group">
+      <h3>🎬 / 📄 / 🪧 / 🖼️ — Portada</h3>
+      <dl>
+        <dt>Portadako bideoak</dt>
+        <dd>Hasta 2 vídeos (YouTube, Vimeo, Drive o MP4) con descripción e imagen de portada opcionales. Vacío = no aparece.</dd>
+        <dt>Ikasturteko dokumentuak — PDFak</dt>
+        <dd><strong>Izenburua / Título:</strong> título de la sección en euskera y castellano. Vacío = el curso actual («2026/2027 ikasturtea» / «Curso 2026/2027»), que cambia solo cada 1 de septiembre. Para anunciar el curso siguiente, escribe «Datorren ikasturtea» / «Próximo curso».</dd>
+        <dd>Tarjetas de documentos: horario MM, horario HM, calendario, tarifas y un documento libre con su etiqueta. Vacío = esa tarjeta no sale.</dd>
+        <dt>Portadako kartela</dt>
+        <dd>Imagen de cartel bajo el hero, con enlace opcional al hacer clic.</dd>
+        <dt>Portadako ikasgai irudiak</dt>
+        <dd>Fotos de las secciones (Tresnak, Teoriko-Praktikoa, Taldeak, Ahotsa). Vacío = usa la imagen automática de cada ikasgai.</dd>
+      </dl>
+    </div>
+
+    <h2>Al empezar un curso nuevo</h2>
+    <p>Repaso rápido de lo que suele tocar cambiar en <span class="path">Ezarpenak</span> cada año:</p>
+    <ul class="check">
+      <li><strong>Ikasturtea / Curso</strong> — poner el nuevo (ej. <span class="key">2026/2027</span>).</li>
+      <li><strong>📅 Egutegia</strong> — subir el calendario nuevo y actualizar el campo correcto (imagen <em>o</em> PDF; recuerda vaciar el otro).</li>
+      <li><strong>Ikasturteko dokumentuak — PDFak</strong> — horarios MM y HM, calendario y tarifas del nuevo curso. En primavera, al subir los del curso siguiente, poner el título «Datorren ikasturtea» / «Próximo curso»; en septiembre, <strong>vaciar el título</strong> para que vuelva a salir el curso actual.</li>
+      <li><strong>Tasak</strong> — PDF de tarifas nuevo (campo <em>Tasak / Tarifas</em>).</li>
+      <li><strong>Hezkuntza antolaketa</strong> — PDF de organización actualizado.</li>
+      <li><strong>Matrikula formularioa</strong> — dejar en <strong>Auto</strong> para que se abra solo en mayo.</li>
+      <li><strong>Instrumentuak / Asignaturak</strong> — revisar si cambia la oferta.</li>
+      <li>Guardar con <span class="key">Gorde / Guardar</span> y comprobar cada página en la web.</li>
+    </ul>
+
+    <hr>
+    <p class="foot">
+      Sacar la URL de un archivo: <span class="path">Medios → Biblioteca</span>, haz clic en el archivo y copia el campo <em>«URL del archivo»</em> (arriba a la derecha). Si subes algo y no ves el cambio, prueba a recargar con <span class="key">Ctrl + F5</span> por si hay caché.
+    </p>
+
+    </div>
+    </div>
+    <?php
+}
 
 // ── Matrikula: helper functions for editable lists ───────────────────────────
 function arratia_get_instrumentuak() {
@@ -743,6 +1128,8 @@ function arratia_settings_page_cb() {
         update_option('arratia_front_pdf_tasak',       esc_url_raw($_POST['front_pdf_tasak']        ?? ''));
         update_option('arratia_front_pdf_beste',       esc_url_raw($_POST['front_pdf_beste']        ?? ''));
         update_option('arratia_front_pdf_beste_label', sanitize_text_field($_POST['front_pdf_beste_label'] ?? ''));
+        update_option('arratia_front_docs_title_eu',   sanitize_text_field($_POST['front_docs_title_eu']   ?? ''));
+        update_option('arratia_front_docs_title_es',   sanitize_text_field($_POST['front_docs_title_es']   ?? ''));
         update_option('arratia_antolaketa_ikasturtea', sanitize_text_field($_POST['antolaketa_ikasturtea'] ?? ''));
         update_option('arratia_front_cartel_img',      esc_url_raw($_POST['front_cartel_img']      ?? ''));
         update_option('arratia_front_cartel_link',     esc_url_raw($_POST['front_cartel_link']     ?? ''));
@@ -917,8 +1304,16 @@ function arratia_settings_page_cb() {
                     </td>
                 </tr>
                 <tr>
-                    <th scope="row">📄 Datorren ikasturtea — PDFak<br><small style="font-weight:400">Próximo curso — documentos (portada)</small></th>
+                    <th scope="row">📄 Ikasturteko dokumentuak — PDFak<br><small style="font-weight:400">Documentos del curso (portada)</small></th>
                     <td>
+                        <p style="margin:0 0 4px;font-weight:600;">Izenburua / Título de la sección</p>
+                        <input type="text" name="front_docs_title_eu" value="<?php echo esc_attr(get_option('arratia_front_docs_title_eu', '')); ?>"
+                               style="width:100%;max-width:280px;padding:6px 10px;font-size:13px;margin-bottom:4px;"
+                               placeholder="Euskaraz (adib.: Datorren ikasturtea)">
+                        <input type="text" name="front_docs_title_es" value="<?php echo esc_attr(get_option('arratia_front_docs_title_es', '')); ?>"
+                               style="width:100%;max-width:280px;padding:6px 10px;font-size:13px;margin-bottom:4px;"
+                               placeholder="Castellano (ej.: Próximo curso)">
+                        <p class="description" style="margin-bottom:10px;">Hutsik → uneko ikasturtea (adib. «2026/2027 ikasturtea»). / Vacío → el curso actual (ej. «Curso 2026/2027»). Para anunciar el siguiente curso, escribe «Datorren ikasturtea» / «Próximo curso».</p>
                         <?php foreach ([
                             ['front_pdf_mm',       'Ordutegi MM / Horario MM',           $front_pdf_mm,       false],
                             ['front_pdf_hm',       'Ordutegi HM / Horario HM',           $front_pdf_hm,       false],

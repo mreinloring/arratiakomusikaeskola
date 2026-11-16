@@ -6,8 +6,11 @@
                   ?: get_post_meta(get_the_ID(), '_google_photos_url', true);
         $bideoa    = get_post_meta(get_the_ID(), '_ekintza_bideoa', true)
                   ?: get_post_meta(get_the_ID(), '_video_url', true);
-        $m = (int) get_the_date('n');
-        $y = get_the_date('Y');
+        $ev_ts = get_post_type() === 'ekintza'
+            ? strtotime(arratia_ekintza_date(get_the_ID()))
+            : get_post_timestamp();
+        $m = (int) date('n', $ev_ts);
+        $y = date('Y', $ev_ts);
     ?>
     <div class="single-post">
         <a href="<?php echo esc_url(get_permalink(get_page_by_path('ekintzak')) ?: home_url('/')); ?>" class="back-link">
